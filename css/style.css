@@ -1,0 +1,1344 @@
+/* ==========================================================
+   spin rough — corporate site
+   アートディレクション(2026-08-03改定:nahato.co.jpトレース)
+   - ベースは黒(#000 / #151515)。ライトは #FFF / #F8F8F4
+   - アクセントは「朝日のオレンジ→赤橙」2色グラデーションのみ
+   - 英字ディスプレイはHeebo、日本語はNoto Sans JP
+   - 演出:clip-pathワイプ / 無限ティッカー / 0.5〜0.6sフェード
+   - イージングは cubic-bezier(0.4, 0, 0.2, 1) に統一
+   ========================================================== */
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* color(nahatoトレース) */
+  --c-black: #000000;         /* ベース(ダークセクション) */
+  --c-black-2: #151515;       /* ダークの2階調目 */
+  --c-white: #FFFFFF;
+  --c-off-white: #F8F8F4;
+  --c-orange: #F39800;        /* 単色で使う場合のオレンジ */
+  --grad-accent: linear-gradient(90deg, #FFAA00 0%, #FF5307 100%);   /* CTA・強調の主グラデ */
+  --grad-accent-2: linear-gradient(50deg, #FF4F00 0%, #F7B52C 100%); /* キーワード文字用 */
+  --c-text-on-dark: #F2F2F2;
+  --c-text-on-light: #1A1A1A;
+  --c-muted-on-dark: rgba(255, 255, 255, 0.55);
+  --c-muted-on-light: rgba(26, 26, 26, 0.55);
+  --hairline-on-dark: rgba(255, 255, 255, 0.08);
+  --hairline-on-light: rgba(0, 0, 0, 0.12);
+
+  /* typography */
+  --font-jp: "Noto Sans JP", sans-serif;
+  --font-en: "Heebo", "Noto Sans JP", sans-serif;
+  --lh-body: 1.8;
+
+  /* motion(nahatoトレース) */
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* layout */
+  --header-h: 64px;
+  --container-w: 1160px;
+  --container-pad: 20px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 76px;
+    --container-pad: 40px;
+  }
+}
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  font-family: var(--font-jp);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  color: var(--c-text-on-light);
+  background-color: var(--c-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 全面に2%のノイズテクスチャ(feTurbulence)を重ねて質感を出す */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: var(--container-w);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.container--narrow {
+  max-width: 820px;
+}
+
+.section {
+  position: relative;
+  padding-block: 88px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 160px; /* PCは140〜180pxの範囲 */
+  }
+}
+
+/* ダーク:黒ベタ(nahatoトレース)。質感は全面ノイズ+ゴーストテキストで出す */
+.section--dark {
+  background-color: var(--c-black);
+  color: var(--c-text-on-dark);
+}
+
+.section--dark--alt {
+  background-color: var(--c-black-2);
+}
+
+.section--light {
+  background-color: var(--c-white);
+  color: var(--c-text-on-light);
+}
+
+.section--off {
+  background-color: var(--c-off-white);
+  color: var(--c-text-on-light);
+}
+
+/* 12カラムグリッド(モバイルは縦積み) */
+.grid-12 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px 24px;
+}
+
+@media (min-width: 900px) {
+  .grid-12 {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 40px 32px;
+  }
+
+  .gc-l5 { grid-column: 1 / span 5; }
+  .gc-l6 { grid-column: 1 / span 6; }
+  .gc-l7 { grid-column: 1 / span 7; }
+  .gc-r5 { grid-column: 8 / span 5; }
+  .gc-r6 { grid-column: 7 / span 6; }
+  .gc-full { grid-column: 1 / -1; }
+  .self-end { align-self: end; }
+}
+
+/* スマホ・タブレットのみ改行(見出しの折り返し位置の制御) */
+.br-sp {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .br-sp {
+    display: inline;
+  }
+}
+
+/* PCのみ改行(モバイルでは自然な折り返しに任せる) */
+@media (max-width: 767px) {
+  .br-pc {
+    display: none;
+  }
+}
+
+/* 1pxヘアライン(枠線の代わりの区切り) */
+.hairline {
+  border: 0;
+  height: 1px;
+  background-color: var(--hairline-on-light);
+}
+
+.section--dark .hairline {
+  background-color: var(--hairline-on-dark);
+}
+
+/* ---------- Typography ---------- */
+/* ヒーロー見出し:PCで80〜110px相当 */
+.heading-hero {
+  font-size: clamp(2.25rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heading-xl {
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heading-lg {
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.heading-md {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.section--dark .heading-hero,
+.section--dark .heading-xl,
+.section--dark .heading-lg,
+.section--dark .heading-md {
+  color: var(--c-white);
+}
+
+/* セクションラベル:「01 / MISSION」形式。オレンジにしない */
+.section-label {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--c-muted-on-light);
+  margin-bottom: 24px;
+}
+
+.section--dark .section-label {
+  color: var(--c-muted-on-dark);
+}
+
+.lead {
+  font-size: 1.0625rem;
+  line-height: 2;
+}
+
+.text-muted {
+  color: var(--c-muted-on-light);
+}
+
+.section--dark .text-muted {
+  color: var(--c-muted-on-dark);
+}
+
+/* キーワード強調:1画面に1箇所まで。朝日の2色グラデ文字 */
+.text-accent {
+  background: var(--grad-accent-2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 蛍光マーカー下線(ライト背景の強調用。nahatoトレース) */
+.marker {
+  background: linear-gradient(transparent 82%, #FFE400 0%);
+}
+
+/* 巨大な英字ゴーストテキスト(背景装飾) */
+.has-ghost {
+  overflow: hidden; /* ゴーストのはみ出しを切る */
+}
+
+.ghost-text {
+  position: absolute;
+  z-index: 0;
+  font-family: var(--font-en);
+  font-size: clamp(6rem, 22vw, 19rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  color: var(--c-text-on-light);
+  opacity: 0.04;
+}
+
+.section--dark .ghost-text {
+  color: var(--c-white);
+  opacity: 0.05;
+}
+
+.ghost-text--tr {
+  top: 0.05em;
+  right: -0.15em;
+}
+
+.ghost-text--bl {
+  bottom: -0.12em;
+  left: -0.08em;
+}
+
+/* ---------- Buttons(矩形・角丸2px・矢印つき) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 54px;
+  padding: 14px 24px;
+  font-family: var(--font-jp);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn__arrow {
+  display: inline-block;
+  font-family: var(--font-en);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+.btn--primary {
+  background: var(--grad-accent);
+  color: var(--c-white);
+}
+
+.btn--primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn--ghost-dark {
+  border-color: rgba(255, 255, 255, 0.24);
+  color: var(--c-white);
+}
+
+.btn--ghost-dark:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn--ghost-light {
+  border-color: rgba(27, 42, 58, 0.28);
+  color: var(--c-text-on-light);
+}
+
+.btn--ghost-light:hover {
+  border-color: rgba(27, 42, 58, 0.7);
+}
+
+/* テキストリンク:下線が左からスライド */
+.link-line {
+  position: relative;
+}
+
+.link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.link-line:hover::after,
+.link-line[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-h);
+}
+
+/* 背景ぼかしは疑似要素に分離する。
+   header自体にbackdrop-filterを当てると、fixed配置の子(global-nav)の
+   基準ボックスがheaderになり、メニューパネルが潰れるため */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid var(--hairline-on-dark);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.site-header__inner {
+  max-width: var(--container-w);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* タイポロゴ:Heebo 700、アイコンなし */
+.site-logo {
+  font-family: var(--font-en);
+  font-size: 1.3125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--c-white);
+}
+
+.site-main {
+  padding-top: var(--header-h);
+}
+
+/* --- グローバルナビ --- */
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background-color: var(--c-white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.global-nav {
+  position: fixed;
+  inset: var(--header-h) 0 0 0;
+  background-color: var(--c-black);
+  padding: 48px var(--container-pad);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.35s var(--ease-out), visibility 0.35s;
+  overflow-y: auto;
+}
+
+.global-nav.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.global-nav__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.global-nav__link {
+  display: block;
+  padding: 16px 4px;
+  font-family: var(--font-en);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--c-white);
+  border-bottom: 1px solid var(--hairline-on-dark);
+}
+
+.global-nav__cta {
+  margin-top: 32px;
+  border-bottom: none;
+}
+
+.global-nav__cta .btn {
+  width: 100%;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .global-nav {
+    position: static;
+    inset: auto;
+    background: none;
+    padding: 0;
+    transform: none;
+    visibility: visible;
+    transition: none;
+    overflow: visible;
+  }
+
+  .global-nav__list {
+    flex-direction: row;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .global-nav__link {
+    padding: 6px 0;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-bottom: none;
+  }
+
+  .global-nav__cta {
+    margin: 0 0 0 12px;
+  }
+
+  .global-nav__cta .btn {
+    width: auto;
+    min-height: 42px;
+    padding: 8px 20px;
+    font-size: 0.875rem;
+  }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  position: relative;
+  background-color: var(--c-black);
+  border-top: 1px solid var(--hairline-on-dark);
+  color: var(--c-text-on-dark);
+  padding-block: 72px 36px;
+  overflow: hidden;
+}
+
+.site-footer > * {
+  position: relative;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.site-footer .site-logo {
+  font-size: 1.5rem;
+}
+
+.site-footer__company {
+  margin-top: 20px;
+  font-size: 0.8125rem;
+  line-height: 2;
+  color: var(--c-muted-on-dark);
+}
+
+.site-footer__nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 12px 40px;
+}
+
+.site-footer__nav a {
+  display: inline-block;
+  font-size: 0.875rem;
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--hairline-on-dark);
+  font-size: 0.75rem;
+  color: var(--c-muted-on-dark);
+}
+
+.site-footer__copy {
+  font-family: var(--font-en);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 768px) {
+  .site-footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .site-footer__legal {
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* ---------- Page header(下層ページ共通の題字) ---------- */
+.page-header {
+  padding-block: 64px;
+}
+
+@media (min-width: 768px) {
+  .page-header {
+    padding-block: 112px;
+  }
+}
+
+/* ---------- Motion ---------- */
+/* スクロール時:translateY(24px) + opacity、0.6s。発火は1回のみ(JS側でunobserve) */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 行ごとの時間差出現(ヒーロー見出し等)。子要素に0.1秒ずつの差 */
+html.js .stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger.is-visible > :nth-child(1) { transition-delay: 0s; }
+.stagger.is-visible > :nth-child(2) { transition-delay: 0.1s; }
+.stagger.is-visible > :nth-child(3) { transition-delay: 0.2s; }
+.stagger.is-visible > :nth-child(4) { transition-delay: 0.3s; }
+.stagger.is-visible > :nth-child(5) { transition-delay: 0.4s; }
+.stagger.is-visible > :nth-child(6) { transition-delay: 0.5s; }
+
+.stagger-line {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .stagger > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn__arrow,
+  .link-line::after {
+    transition: none;
+  }
+}
+
+/* ==========================================================
+   トップページ
+   ========================================================== */
+
+/* ---------- Hero(背景動画+黒オーバーレイ。nahatoトレース) ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - var(--header-h));
+  padding-block: 120px 140px;
+  overflow: hidden;
+  background-color: var(--c-black); /* 動画ロード前のフォールバック */
+  color: var(--c-text-on-dark);
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75) contrast(1.05);
+}
+
+/* オーバーレイ①:黒の薄いスクリム(全面) */
+.hero__bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+/* オーバーレイ②:下から上への黒グラデ(文字周りを暗く) */
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.3) 45%,
+    transparent 80%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- ワイプ出現(clip-path左→右。nahatoトレース) ---------- */
+.wipe {
+  display: block;
+}
+
+html.js .wipe {
+  opacity: 0;
+  -webkit-clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+  clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+}
+
+.wipe.is-visible {
+  animation: wipe-mask 1s var(--ease-out) forwards;
+}
+
+.wipe.is-visible.wipe-d2 { animation-delay: 0.15s; }
+.wipe.is-visible.wipe-d3 { animation-delay: 0.3s; }
+
+@keyframes wipe-mask {
+  0% {
+    opacity: 0;
+    -webkit-clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+    clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* ---------- 無限ティッカー(nahatoトレース) ---------- */
+.ticker {
+  overflow: hidden;
+  background-color: var(--c-black);
+  padding-block: 12px;
+}
+
+.ticker__track {
+  display: flex;
+  width: max-content;
+  animation: ticker-play 30s linear infinite;
+}
+
+.ticker__item {
+  font-family: var(--font-en);
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--c-white);
+  opacity: 0.07;
+  padding-right: 0.6em;
+}
+
+@keyframes ticker-play {
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+/* 見出し:行ごとに下から「せり上がる」 */
+.rise {
+  display: block;
+  overflow: hidden;
+}
+
+.rise > span {
+  display: block;
+}
+
+html.js .rise > span {
+  transform: translateY(110%);
+  transition: transform 0.9s var(--ease-out);
+}
+
+.rise-group.is-visible .rise > span {
+  transform: translateY(0);
+}
+
+.rise-group.is-visible .rise:nth-child(1) > span { transition-delay: 0s; }
+.rise-group.is-visible .rise:nth-child(2) > span { transition-delay: 0.12s; }
+.rise-group.is-visible .rise:nth-child(3) > span { transition-delay: 0.24s; }
+.rise-group.is-visible .rise:nth-child(4) > span { transition-delay: 0.36s; }
+
+/* ヒーロー見出し:ロード時に自動でワイプ出現(JS不要。確実に表示させる) */
+.wipe-auto {
+  display: block;
+  animation: wipe-mask 1s var(--ease-out) both;
+}
+
+.wipe-auto--2 {
+  animation-delay: 0.15s;
+}
+
+.wipe-auto--3 {
+  animation-delay: 0.3s;
+}
+
+/* サブコピー・CTA:見出しの後に順次フェード(ロード時に自動再生) */
+.hero-fade--1 {
+  animation: fade-up 0.8s var(--ease-out) 0.5s both;
+}
+
+.hero-fade--2 {
+  animation: fade-up 0.8s var(--ease-out) 0.65s both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- 信頼要素の帯(ヒーロー直下) ---------- */
+.trust-band {
+  background-color: var(--c-black);
+  color: var(--c-muted-on-dark);
+  border-top: 1px solid var(--hairline-on-dark);
+}
+
+.trust-band__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-band__item {
+  padding: 14px 4px;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--hairline-on-dark);
+}
+
+.trust-band__item:first-child {
+  border-top: none;
+}
+
+@media (min-width: 768px) {
+  .trust-band__list {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .trust-band__item {
+    padding: 20px 40px;
+    border-top: none;
+    border-left: 1px solid var(--hairline-on-dark);
+  }
+
+  .trust-band__item:first-child {
+    border-left: none;
+  }
+}
+
+/* ---------- ダーク→ライトの遷移グラデ帯(ぶつ切り感の解消) ---------- */
+.fade-band {
+  height: 120px;
+  background: linear-gradient(180deg, var(--c-black) 0%, var(--c-white) 100%);
+}
+
+/* ---------- 差別化リスト(businessティザー) ---------- */
+.feature-list {
+  margin-top: 56px;
+}
+
+.feature {
+  display: grid;
+  gap: 6px 32px;
+  padding-block: 26px;
+  border-top: 1px solid var(--hairline-on-dark);
+}
+
+.feature:last-child {
+  border-bottom: 1px solid var(--hairline-on-dark);
+}
+
+.feature__no {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--c-muted-on-dark);
+}
+
+.feature__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--c-white);
+}
+
+.feature__desc {
+  font-size: 0.9375rem;
+  color: var(--c-text-on-dark);
+}
+
+@media (min-width: 900px) {
+  .feature {
+    grid-template-columns: 90px 300px 1fr;
+    align-items: baseline;
+  }
+}
+
+/* ---------- 会社概要ファクト(companyティザー) ---------- */
+.fact-list {
+  margin-top: 40px;
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 16px;
+  padding-block: 14px;
+  border-top: 1px solid var(--hairline-on-light);
+  font-size: 0.9375rem;
+}
+
+.fact:last-child {
+  border-bottom: 1px solid var(--hairline-on-light);
+}
+
+.fact dt {
+  font-weight: 500;
+  color: var(--c-muted-on-light);
+}
+
+/* ---------- お知らせ(newsティザー) ---------- */
+.news-list {
+  margin-top: 40px;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px 24px;
+  padding-block: 18px;
+  border-top: 1px solid var(--hairline-on-light);
+  font-size: 0.9375rem;
+}
+
+.news-item:last-child {
+  border-bottom: 1px solid var(--hairline-on-light);
+}
+
+.news-item__date {
+  font-family: var(--font-en);
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  color: var(--c-muted-on-light);
+}
+
+@media (max-width: 767px) {
+  .news-item {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- reduced-motion(トップページ分) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  /* 背景動画はJS側で再生を止める(main.js) */
+  .wipe,
+  .wipe.is-visible,
+  .wipe-auto,
+  .hero-fade--1,
+  .hero-fade--2 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    -webkit-clip-path: none;
+    clip-path: none;
+  }
+
+  .ticker__track {
+    animation: none;
+  }
+
+  .rise > span {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================
+   下層ページ共通
+   ========================================================== */
+
+/* ---------- データテーブル(会社概要・特商法など。白基調で信頼感優先) ---------- */
+.data-table {
+  width: 100%;
+}
+
+.data-table tr {
+  border-bottom: 1px solid var(--hairline-on-light);
+}
+
+.data-table tr:first-child {
+  border-top: 1px solid var(--hairline-on-light);
+}
+
+.data-table th,
+.data-table td {
+  padding: 22px 8px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.9375rem;
+  line-height: 1.9;
+}
+
+.data-table th {
+  width: 160px;
+  font-weight: 500;
+  color: var(--c-muted-on-light);
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .data-table th,
+  .data-table td {
+    display: block;
+    width: auto;
+  }
+
+  .data-table th {
+    padding-bottom: 0;
+  }
+
+  .data-table td {
+    padding-top: 6px;
+  }
+}
+
+/* ---------- 代表挨拶 ---------- */
+.message-sign {
+  margin-top: 40px;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+
+.message-sign__role {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--c-muted-on-light);
+}
+
+.message-sign__name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+/* ---------- 理念ページ(about) ---------- */
+/* セクションラベルの日本語添え(例:02 / Mission ミッション) */
+.section-label__jp {
+  font-family: var(--font-jp);
+  margin-left: 14px;
+  letter-spacing: 0.12em;
+}
+
+/* 理念ステートメント:ページの主役。大きく、余白たっぷりで */
+.statement {
+  font-size: clamp(1.875rem, 4.6vw, 3.375rem);
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  margin-top: 36px;
+}
+
+.section--dark .statement {
+  color: var(--c-white);
+}
+
+/* 本文(読ませる段落):幅を絞り、行間を広く */
+.prose {
+  max-width: 36em;
+  font-size: 1.0625rem;
+  line-height: 2.05;
+}
+
+.prose + .prose {
+  margin-top: 28px;
+}
+
+/* 結びの一文(セクションの締め) */
+.statement-close {
+  margin-top: 40px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.section--dark .statement-close {
+  color: var(--c-white);
+}
+
+/* 補足ポイント:番号つきの2カラム */
+.point-grid {
+  display: grid;
+  gap: 40px;
+  margin-top: 72px;
+}
+
+.point {
+  border-top: 1px solid var(--hairline-on-light);
+  padding-top: 24px;
+}
+
+.point__no {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--c-muted-on-light);
+}
+
+.point__text {
+  margin-top: 14px;
+  font-size: 1.0625rem;
+  line-height: 2;
+}
+
+@media (min-width: 900px) {
+  .point-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+}
+
+/* 3本柱(ビジョンの定義・バリューの三方) */
+.pillar-grid {
+  display: grid;
+  gap: 40px;
+  margin-top: 72px;
+}
+
+.pillar {
+  border-top: 1px solid var(--hairline-on-light);
+  padding-top: 24px;
+}
+
+.section--dark .pillar {
+  border-top-color: var(--hairline-on-dark);
+}
+
+.pillar__en {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-muted-on-light);
+}
+
+.section--dark .pillar__en {
+  color: var(--c-muted-on-dark);
+}
+
+.pillar__term {
+  margin-top: 8px;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.section--dark .pillar__term {
+  color: var(--c-white);
+}
+
+.pillar__desc {
+  margin-top: 14px;
+  font-size: 0.9375rem;
+  line-height: 2;
+}
+
+.pillar__items {
+  margin-top: 14px;
+}
+
+.pillar__items li {
+  padding-block: 8px;
+  font-size: 0.9375rem;
+  line-height: 1.9;
+}
+
+.section--dark .pillar__items li {
+  color: var(--c-text-on-dark);
+}
+
+@media (min-width: 900px) {
+  .pillar-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+}
+
+/* ---------- お問い合わせフォーム(白基調) ---------- */
+.form-field {
+  margin-bottom: 28px;
+}
+
+.form-field__label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.form-field__required {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #C0400B;
+}
+
+.form-field__input,
+.form-field__textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--font-jp);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--c-text-on-light);
+  background-color: var(--c-white);
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 2px;
+  transition: border-color 0.3s ease;
+}
+
+.form-field__input:focus,
+.form-field__textarea:focus {
+  outline: none;
+  border-color: var(--c-orange);
+}
+
+.form-field__textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.form-consent input {
+  margin-top: 6px;
+  width: 16px;
+  height: 16px;
+  accent-color: #E8890F;
+}
+
+.form-note {
+  font-size: 0.8125rem;
+  color: var(--c-muted-on-light);
+  line-height: 1.9;
+}
+
+/* ---------- Placeholder(代表写真など準備中素材) ---------- */
+.placeholder-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #D8DCE1;
+  color: #5A6572;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.6;
+  aspect-ratio: 3 / 4;
+  border-radius: 4px;
+}
+
+/* ---------- 最終保険:motion-done ----------
+   アニメーションが進まない環境(バックグラウンド描画停止等)でも、
+   ロード4秒後(main.js)には必ず全コンテンツを表示状態にする */
+html.motion-done .reveal,
+html.motion-done .stagger > *,
+html.motion-done .rise > span,
+html.motion-done .hero-fade--1,
+html.motion-done .hero-fade--2,
+html.motion-done .wipe,
+html.motion-done .wipe-auto {
+  animation: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+}

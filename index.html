@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社spin rough|AI駆動開発エンジニア育成スクールの運営</title>
+  <meta name="description" content="株式会社spin roughは、AI駆動開発エンジニア育成スクールを運営する会社です。全ての人が前を向いて生きる世界へ。市場価値と人間力を備えたIT×AI人材を育成します。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="株式会社spin rough">
+  <meta property="og:title" content="株式会社spin rough|AI駆動開発エンジニア育成スクールの運営">
+  <meta property="og:description" content="株式会社spin roughは、AI駆動開発エンジニア育成スクールを運営する会社です。全ての人が前を向いて生きる世界へ。">
+  <meta property="og:url" content="https://spinrough.com/">
+  <meta property="og:image" content="https://spinrough.com/img/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=10">
+</head>
+<body>
+
+  <!-- ========== ヘッダー(全ページ共通) ========== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="./" class="site-logo">spin rough</a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav" aria-label="メニューを開閉する">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション">
+        <ul class="global-nav__list">
+          <li><a class="global-nav__link link-line" href="./" aria-current="page">TOP</a></li>
+          <li><a class="global-nav__link link-line" href="about/">ABOUT US</a></li>
+          <li><a class="global-nav__link link-line" href="business/">BUSINESS</a></li>
+          <li><a class="global-nav__link link-line" href="company/">COMPANY</a></li>
+          <li class="global-nav__cta">
+            <a class="btn btn--primary" href="contact/">お問い合わせ<span class="btn__arrow">&rarr;</span></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+
+    <!-- ===== 01 / Mission:ヒーロー ===== -->
+    <section class="hero">
+      <!-- 背景動画:暗い街に朝日が昇るタイムラプス
+           出典: Mixkit ID 16464 "Sunrise over a dark city"
+           (Mixkit Free License:商用可・クレジット不要)
+           PC = img/hero.mp4(720p) / SP = img/hero-sp.mp4(360p)。JSで出し分け -->
+      <div class="hero__bg" aria-hidden="true">
+        <video muted loop playsinline autoplay preload="metadata"
+               poster="img/hero.jpg"
+               data-src-pc="img/hero.mp4"
+               data-src-sp="img/hero-sp.mp4"></video>
+      </div>
+
+      <div class="container hero__content">
+        <h1 class="heading-hero">
+          <span class="wipe-auto">全ての人が</span>
+          <span class="wipe-auto wipe-auto--2">前を向いて生きる</span>
+          <span class="wipe-auto wipe-auto--3">世界へ</span>
+        </h1>
+        <div class="grid-12" style="margin-top: 56px;">
+          <p class="lead hero-fade hero-fade--1 gc-r6">
+            AIの台頭がもたらす変化を、不安ではなく、人生の選択肢に変える学びをつくっています。
+          </p>
+        </div>
+        <div class="hero-fade hero-fade--2" style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 16px;">
+          <a class="btn btn--primary" href="business/">事業内容を見る<span class="btn__arrow">&rarr;</span></a>
+          <a class="btn btn--ghost-dark" href="about/">私たちについて<span class="btn__arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 信頼要素の帯 ===== -->
+    <div class="trust-band">
+      <div class="container">
+        <ul class="trust-band__list">
+          <li class="trust-band__item">東京都新宿区(神楽坂)</li>
+          <li class="trust-band__item">設立 2026年7月</li>
+          <li class="trust-band__item">AI駆動開発エンジニア育成スクールの運営</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 無限ティッカー(装飾) -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span class="ticker__item">SPIN ROUGH — LOOK UP, MOVE FORWARD —&nbsp;</span>
+        <span class="ticker__item">SPIN ROUGH — LOOK UP, MOVE FORWARD —&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ダーク→ライトの遷移帯 -->
+    <div class="fade-band" aria-hidden="true"></div>
+
+    <!-- ===== 02 / About:私たちについて ===== -->
+    <section class="section section--light has-ghost" style="position: relative;">
+      <span class="ghost-text ghost-text--bl" aria-hidden="true">MISSION</span>
+      <div class="container" style="position: relative;">
+        <div class="grid-12">
+          <div class="gc-l6 reveal">
+            <span class="section-label">02 / About Us</span>
+            <h2 class="heading-lg">AIの時代を、<br>追い風に変える。</h2>
+          </div>
+          <div class="gc-r6 self-end reveal">
+            <p>
+              スマートフォンをのぞき込み、下を向く時間が長くなった時代。AIの台頭は、多くの人にとって新しい不安の種にもなっています。spin roughは、その不安を「明日へのワクワク」に変える学びをつくるために生まれた会社です。
+            </p>
+            <div style="margin-top: 32px;">
+              <a class="btn btn--ghost-light" href="about/">私たちについて<span class="btn__arrow">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03 / Business:事業内容 ===== -->
+    <section class="section section--dark has-ghost">
+      <span class="ghost-text ghost-text--tr" aria-hidden="true">BUSINESS</span>
+      <div class="container">
+        <div class="grid-12">
+          <div class="gc-l6 reveal">
+            <span class="section-label">03 / Business</span>
+            <h2 class="heading-lg">AI駆動開発<br>エンジニア育成スクール</h2>
+          </div>
+          <div class="gc-r6 self-end reveal">
+            <p>
+              市場価値と人間力を備えたIT×AI人材を最短で育成し、人生の選択肢を広げる基盤を構築します。
+            </p>
+          </div>
+        </div>
+        <div class="feature-list reveal">
+          <div class="feature">
+            <span class="feature__no">01</span>
+            <h3 class="feature__title">最短ルート設計</h3>
+            <p class="feature__desc">基礎から応用まで、無駄なく最短で市場価値に到達するカリキュラム。</p>
+          </div>
+          <div class="feature">
+            <span class="feature__no">02</span>
+            <h3 class="feature__title">技術 × 人間力</h3>
+            <p class="feature__desc">スキルだけでなく、「この人にお願いしたい」と言われる人材へ。</p>
+          </div>
+          <div class="feature">
+            <span class="feature__no">03</span>
+            <h3 class="feature__title">出口の高さ</h3>
+            <p class="feature__desc">やり切れば、企業に伴走し経営課題まで解決するFDE(ディレクター人材)に到達できる。</p>
+          </div>
+        </div>
+        <div class="reveal" style="margin-top: 48px;">
+          <a class="btn btn--ghost-dark" href="business/">事業内容を詳しく見る<span class="btn__arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ダーク→ライトの遷移帯 -->
+    <div class="fade-band" aria-hidden="true"></div>
+
+    <!-- ===== 04 / Company:会社概要 ===== -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="grid-12">
+          <div class="gc-l5 reveal">
+            <span class="section-label">04 / Company</span>
+            <h2 class="heading-lg">会社概要</h2>
+            <p style="margin-top: 24px;">
+              私たちは情報の透明性を大切にしています。商号・所在地・代表者などの基本情報を公開しています。
+            </p>
+          </div>
+          <div class="gc-r6 reveal">
+            <dl class="fact-list">
+              <div class="fact">
+                <dt>商号</dt>
+                <dd>株式会社spin rough(スピンラフ)</dd>
+              </div>
+              <div class="fact">
+                <dt>代表者</dt>
+                <dd>代表取締役 大塚 蔵人</dd>
+              </div>
+              <div class="fact">
+                <dt>所在地</dt>
+                <dd>東京都新宿区矢来町4番地11 Fullea神楽坂102</dd>
+              </div>
+            </dl>
+            <div style="margin-top: 32px;">
+              <a class="btn btn--ghost-light" href="company/">会社概要を見る<span class="btn__arrow">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 05 / Contact:お問い合わせ ===== -->
+    <section class="section section--dark has-ghost">
+      <span class="ghost-text ghost-text--bl" aria-hidden="true">CONTACT</span>
+      <div class="container">
+        <div class="grid-12">
+          <div class="gc-l6 reveal">
+            <span class="section-label">05 / Contact</span>
+            <h2 class="heading-lg">まずは、お気軽に<br>ご相談ください。</h2>
+          </div>
+          <div class="gc-r6 self-end reveal">
+            <p>
+              受講に関するご質問・ご相談など、お問い合わせフォームよりご連絡ください。
+            </p>
+            <div style="margin-top: 32px;">
+              <a class="btn btn--primary" href="contact/">お問い合わせ<span class="btn__arrow">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== フッター(全ページ共通) ========== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <a href="./" class="site-logo">spin rough</a>
+        <p class="site-footer__company">
+          株式会社spin rough<br>
+          東京都新宿区矢来町4番地11 Fullea神楽坂102
+        </p>
+      </div>
+
+      <nav class="site-footer__nav" aria-label="フッターナビゲーション">
+        <a class="link-line" href="./">トップ</a>
+        <a class="link-line" href="about/">私たちについて</a>
+        <a class="link-line" href="business/">事業内容</a>
+        <a class="link-line" href="company/">会社概要</a>
+        <a class="link-line" href="contact/">お問い合わせ</a>
+      </nav>
+    </div>
+
+    <div class="container site-footer__legal">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px;">
+        <a class="link-line" href="privacy/">プライバシーポリシー</a>
+        <a class="link-line" href="tokushoho/">特定商取引法に基づく表記</a>
+      </div>
+      <small class="site-footer__copy">&copy; 2026 spin rough Inc.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=10"></script>
+</body>
+</html>
