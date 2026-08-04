@@ -65,6 +65,23 @@
       };
       heroVideo.addEventListener("canplay", tryPlay, { once: true });
       tryPlay();
+
+      // 画面外にスクロールしたら再生を止めてCPU/GPU負荷を下げる
+      var videoTicking = false;
+      window.addEventListener("scroll", function () {
+        if (videoTicking) return;
+        videoTicking = true;
+        window.requestAnimationFrame(function () {
+          videoTicking = false;
+          var rect = heroVideo.getBoundingClientRect();
+          var visible = rect.bottom > 0 && rect.top < window.innerHeight;
+          if (visible && heroVideo.paused) {
+            heroVideo.play().catch(function () {});
+          } else if (!visible && !heroVideo.paused) {
+            heroVideo.pause();
+          }
+        });
+      }, { passive: true });
     }
   }
 
