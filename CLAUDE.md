@@ -23,7 +23,7 @@
 - 資本金:100,000円
 - 事業内容:AI駆動開発エンジニア育成スクールの運営(登記上の目的はAI教育・研修、eラーニング、Web制作・IT、SNSマーケティング等。サイトではAIエンジニア育成スクールを主軸として打ち出す)
 - 連絡先(電話):03-4400-1442
-- 連絡先(メール):info@spinrough.com(予定。ドメインspinrough.com取得後に有効化【要確認】)
+- 連絡先(メール):info@spinrough.com(有効化済み。tokushoho・privacy・contactに掲載)
 
 ※会社概要ページの表記は上記(登記受領証ベース)を使用。登記完了後に履歴事項全部証明書と照合して最終確認すること。
 
@@ -113,7 +113,9 @@ AI駆動開発エンジニア育成スクール
    - 英字ディスプレイ用にHeeboを使用(日本語はNoto Sans JPのまま)
    - 背景装飾として巨大な英字ゴーストテキスト(例:「SPIN ROUGH」「MISSION」)をopacity 0.04〜0.06で敷く(CSSクラス: .ghost-text)
    - 装飾として巨大英字の無限ティッカー(横流れマーキー、30s linear infinite、opacity 0.07)を使ってよい(CSSクラス: .ticker)
-   - セクションラベルは「01 / MISSION」形式:通し番号+英大文字、font-size 11px、letter-spacing 0.25em(CSSクラス: .section-label)
+   - セクションラベルは「01 / MISSION」形式:通し番号+英大文字、font-size 11px、letter-spacing 0.25em。先頭に28pxのヘアラインを付ける(CSSクラス: .section-label)
+   - 日本語見出しはfont-feature-settings: "palt"でプロポーショナル詰めにする(ベタ組み禁止)
+   - リスト番号(feature__no等)は袋文字(text-stroke)の大型Heebo数字で演出してよい
 2. **色の運用**
    - グラデーションアクセントは「CTAボタン」と「1画面に1箇所のキーワード」のみ。セクションラベルや小見出しには使わない
    - ダーク背景は#000/#151515の黒ベタでよい(nahatoトレース)。画像・動画の上には黒rgbaのオーバーレイ(スクリム+下から上への縦グラデ)を被せて文字を読ませる
@@ -125,9 +127,11 @@ AI駆動開発エンジニア育成スクール
 4. **ボタンとディテール**
    - 丸ピル型禁止。角丸4px以下の矩形+「→」アイコン。ホバーで矢印が右へ4px動く/下線が左からスライドする等の控えめな動きのみ(CSSクラス: .btn + .btn__arrow / .link-line)
    - box-shadowは原則使わない
-   - ロゴは「spin rough」のタイポロゴのみ(Manrope 700)。アイコン・マークは付けない
+   - ロゴは「spin rough」のタイポロゴのみ(Heebo 700)。アイコン・マークは付けない
 5. **モーション(nahatoトレース。上品に少なく、以下以外のアニメーションは追加しない)**
    - イージングは cubic-bezier(0.4, 0, 0.2, 1) に統一(CSS変数 --ease-out)
+   - スクロールキューの線の往復(2.6s infinite。ヒーローのみ)
+   - CTAボタンのホバーはグラデーションのbackground-positionスライド(0.5s)
    - 見出しの出現:clip-pathの左→右ワイプ、1s、forwards。複数行は0.15s差(CSSクラス: .wipe + .wipe-d2/-d3)
    - スクロールで入る要素:translateY(24px)+opacity 0→1、0.6s。IntersectionObserverでthreshold 0.2、発火は1回のみ(CSSクラス: .reveal)
    - サブコピー・CTA:見出しの後にopacity 0→1+translateY(20px)→0を0.15s差で順次(CSSクラス: .hero-fade--1 / --2)
@@ -139,8 +143,9 @@ AI駆動開発エンジニア育成スクール
    - ヒーローは背景動画を全面配置(object-fit: cover、brightness(0.75) contrast(1.05))
    - 素材:Mixkit ID 16464「Sunrise over a dark city」(Mixkit Free License:商用可・クレジット不要)。PC=img/hero.mp4(720p)/ SP=img/hero-sp.mp4(360p)をJSで出し分け、posterはimg/hero.jpg
    - 動画の上に2層のオーバーレイ:①黒スクリムrgba(0,0,0,0.35) ②下から上への縦グラデrgba(0,0,0,0.8)→透明。見出し・本文はコントラスト比4.5:1以上を確保
-   - ダーク→ライトセクションの境目には高さ120pxの遷移グラデ帯を入れる(CSSクラス: .fade-band)
+   - セクションの明暗はパキッと切り替える(2026-09-05改定:黒→白の遷移グラデ帯.fade-bandは「モヤ」に見えるため廃止。nahato同様のハードカットとする)
    - ヒーロー直下に事実ベースの信頼要素の帯(所在地・設立年・事業)をヘアライン区切りで置く(CSSクラス: .trust-band)
+   - ヒーロー左下にスクロールキュー(SCROLL+線の往復アニメーション。CSSクラス: .hero__scroll)
 
 ## 7. 技術要件
 
@@ -148,7 +153,9 @@ AI駆動開発エンジニア育成スクール
 - レスポンシブ対応必須(モバイルファースト。閲覧の6〜7割はスマホ想定)
 - 各ページに適切な title / meta description / OGP タグを設定
 - 画像はWebP形式で軽量化
-- デプロイ先:GitHub Pages(将来Cloudflare Pagesへ移行可能な構成にする)
+- デプロイ先:GitHub Pages(リポジトリ: yuutoyamada94-create/spinrough-hp、カスタムドメイン spinrough.com 設定済み)
+- sitemap.xml / robots.txt 設置済み
+- フッターは「大型お問い合わせCTA行 → 会社情報+ナビ → 法的リンク+コピーライト」の3層構成(CSSクラス: .site-footer__cta)
 - お問い合わせフォームはサーバー不要の方法で実装(Formspree等)
 
 ## 8. 進め方のルール
