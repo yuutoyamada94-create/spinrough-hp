@@ -894,11 +894,19 @@ html.js .stagger > * {
 }
 
 .hero__bg video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
   /* 注意: filterは再生中の全フレームにGPU負荷がかかるため使わない。
      暗さの調整はオーバーレイ(::before/::after)で行う */
+}
+
+.hero__bg video.is-active {
+  opacity: 1;
 }
 
 /* オーバーレイ①:黒の薄いスクリム(全面) */

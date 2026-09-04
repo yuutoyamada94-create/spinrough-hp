@@ -94,23 +94,48 @@
     window.matchMedia("(min-width: 900px)").addEventListener("change", closeNav);
   }
 
-  // ---- ヒーロー背景動画 ----
+  // ---- ヒーロー背景動画(Before通勤→After夜明けのクロスフェードループ) ----
   // PC/SPでソースを出し分け、reduced-motion時は再生しない
-  var heroVideo = document.querySelector(".hero__bg video");
-  if (heroVideo) {
+  var heroVideos = Array.prototype.slice.call(
+    document.querySelectorAll(".hero__bg video")
+  );
+  if (heroVideos.length > 0) {
     var isSp = window.matchMedia("(max-width: 767px)").matches;
-    var src = heroVideo.getAttribute(isSp ? "data-src-sp" : "data-src-pc");
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      heroVideo.removeAttribute("autoplay");
-    } else if (src) {
-      heroVideo.src = src;
-      var tryPlay = function () {
-        heroVideo.play().catch(function () {
+
+    if (reducedMotion) {
+      heroVideos.forEach(function (v) { v.removeAttribute("autoplay"); });
+    } else {
+      heroVideos.forEach(function (v) {
+        var src = v.getAttribute(isSp ? "data-src-sp" : "data-src-pc");
+        if (src) v.src = src;
+      });
+
+      var activeIndex = 0;
+      var heroInView = true;
+      var playVideo = function (v) {
+        v.play().catch(function () {
           /* 自動再生がブロックされた場合はposter表示のまま */
         });
       };
-      heroVideo.addEventListener("canplay", tryPlay, { once: true });
-      tryPlay();
+      playVideo(heroVideos[0]);
+      heroVideos[0].addEventListener("canplay", function () {
+        playVideo(heroVideos[0]);
+      }, { once: true });
+
+      // 7秒ごとにクロスフェード切替(opacity 1.2sはCSS側)
+      if (heroVideos.length > 1) {
+        window.setInterval(function () {
+          if (!heroInView) return;
+          var prev = heroVideos[activeIndex];
+          activeIndex = (activeIndex + 1) % heroVideos.length;
+          var next = heroVideos[activeIndex];
+          playVideo(next);
+          next.classList.add("is-active");
+          prev.classList.remove("is-active");
+          // フェード完了後に旧動画を止めて負荷を下げる
+          window.setTimeout(function () { prev.pause(); }, 1300);
+        }, 7000);
+      }
 
       // 画面外にスクロールしたら再生を止めてCPU/GPU負荷を下げる
       var videoTicking = false;
@@ -119,12 +144,14 @@
         videoTicking = true;
         window.requestAnimationFrame(function () {
           videoTicking = false;
-          var rect = heroVideo.getBoundingClientRect();
-          var visible = rect.bottom > 0 && rect.top < window.innerHeight;
-          if (visible && heroVideo.paused) {
-            heroVideo.play().catch(function () {});
-          } else if (!visible && !heroVideo.paused) {
-            heroVideo.pause();
+          var bg = heroVideos[0].parentNode;
+          var rect = bg.getBoundingClientRect();
+          heroInView = rect.bottom > 0 && rect.top < window.innerHeight;
+          var active = heroVideos[activeIndex];
+          if (heroInView && active.paused) {
+            playVideo(active);
+          } else if (!heroInView && !active.paused) {
+            active.pause();
           }
         });
       }, { passive: true });

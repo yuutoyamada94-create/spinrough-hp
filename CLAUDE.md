@@ -154,8 +154,11 @@ AI駆動開発エンジニア育成スクール
    - prefers-reduced-motion設定時は全アニメーション無効(背景動画もJSで停止)
    - 禁止:回転・バウンド・点滅・パーティクル・タイピング風エフェクト・派手なパララックス
 6. **ヒーロー動画の運用(トップページ)**
-   - ヒーローは背景動画を全面配置(object-fit: cover、brightness(0.75) contrast(1.05))
-   - 素材:Mixkit ID 16464「Sunrise over a dark city」(Mixkit Free License:商用可・クレジット不要)。PC=img/hero.mp4(720p)/ SP=img/hero-sp.mp4(360p)をJSで出し分け、posterはimg/hero.jpg
+   - ヒーローは背景動画を全面配置(object-fit: cover。filterはGPU負荷のため使わず、暗さはオーバーレイで調整)
+   - 2026-09-05改定:Before→Afterの2クリップをクロスフェードでループ(7秒周期・opacity 1.2s。JSが.is-activeを切替、非表示側はpauseして負荷削減)
+     - Before = Mixkit ID 4454「People in the subway hall in Tokyo」(通勤の群衆=下を向く時代)img/hero-before.mp4(720p)/-sp.mp4(360p)/-before.jpg
+     - After = Mixkit ID 16464「Sunrise over a dark city」(暗い街に朝日=変化)img/hero.mp4(720p)/hero-sp.mp4(360p)/hero.jpg
+   - いずれもMixkit Free License(商用可・クレジット不要)。PC=720p/SP=360pをJSで出し分け
    - 動画の上に2層のオーバーレイ:①黒スクリムrgba(0,0,0,0.35) ②下から上への縦グラデrgba(0,0,0,0.8)→透明。見出し・本文はコントラスト比4.5:1以上を確保
    - セクションの明暗はパキッと切り替える(2026-09-05改定:黒→白の遷移グラデ帯.fade-bandは「モヤ」に見えるため廃止。nahato同様のハードカットとする)
    - ヒーロー直下に事実ベースの信頼要素の帯(所在地・設立年・事業)をヘアライン区切りで置く(CSSクラス: .trust-band)
