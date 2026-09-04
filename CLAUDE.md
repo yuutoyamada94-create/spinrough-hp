@@ -123,7 +123,7 @@ AI駆動開発エンジニア育成スクール
    - 英字ディスプレイ用にHeeboを使用(日本語はNoto Sans JPのまま)
    - 背景装飾として巨大な英字ゴーストテキスト(例:「SPIN ROUGH」「MISSION」)をopacity 0.04〜0.06で敷く(CSSクラス: .ghost-text)
    - 装飾として巨大英字の無限ティッカー(横流れマーキー、30s linear infinite、opacity 0.07)を使ってよい(CSSクラス: .ticker)
-   - セクションラベルは「01 / MISSION」形式:通し番号+英大文字、font-size 11px、letter-spacing 0.25em。先頭に28pxのヘアラインを付ける(CSSクラス: .section-label)
+   - セクションラベルは「01 / MISSION」形式:通し番号+英大文字、font-size 13px、letter-spacing 0.3em、見出しとの間隔20px(2026-09-05 run-tec実測値に改定)。先頭に28pxのヘアラインを付ける(CSSクラス: .section-label)
    - 日本語見出しはfont-feature-settings: "palt"でプロポーショナル詰めにする(ベタ組み禁止)
    - リスト番号(feature__no等)は袋文字(text-stroke)の大型Heebo数字で演出してよい
 2. **色の運用**
@@ -138,12 +138,16 @@ AI駆動開発エンジニア育成スクール
    - 丸ピル型禁止。角丸4px以下の矩形+「→」アイコン。ホバーで矢印が右へ4px動く/下線が左からスライドする等の控えめな動きのみ(CSSクラス: .btn + .btn__arrow / .link-line)
    - box-shadowは原則使わない
    - ロゴは「spin rough」のタイポロゴのみ(Heebo 700)。アイコン・マークは付けない
-5. **モーション(nahatoトレース。上品に少なく、以下以外のアニメーションは追加しない)**
-   - イージングは cubic-bezier(0.4, 0, 0.2, 1) に統一(CSS変数 --ease-out)
+5. **モーション(nahato+run-tec実測トレース。上品に少なく、以下以外のアニメーションは追加しない)**
+   - イージングは cubic-bezier(0.4, 0, 0.2, 1) に統一(CSS変数 --ease-out。nahato/run-tecとも実測同値)
    - スクロールキューの線の往復(2.6s infinite。ヒーローのみ)
    - CTAボタンのホバーはグラデーションのbackground-positionスライド(0.5s)
    - 見出しの出現:clip-pathの左→右ワイプ、1s、forwards。複数行は0.15s差(CSSクラス: .wipe + .wipe-d2/-d3)
-   - スクロールで入る要素:translateY(24px)+opacity 0→1、0.6s。IntersectionObserverでthreshold 0.2、発火は1回のみ(CSSクラス: .reveal)
+   - スクロールで入る要素(2026-09-05 run-tec実測値に改定):translateY(40px)+opacity 0→1、0.8s、animation方式。要素の15%が見えたら発火・1回のみ(CSSクラス: .reveal)
+   - 時差出現:+150ms/+300ms(CSSクラス: .reveal-d2 / .reveal-d3。pillar等の横並びグループに付与)
+   - スクロール進捗バー:ヘッダー上端3px・朝日グラデ・width 0.1s linear(JSが.scroll-progressを自動生成)
+   - カード類(.pillar)のホバー:translateY(-4px)のみ。影は付けない
+   - 初回訪問時スプラッシュ:ロゴ字間0.5em→0.02emで0.8s+ライン0.6s(計1.4s+フェード0.4s)。sessionStorageで2回目以降スキップ(CSSクラス: .splash)
    - サブコピー・CTA:見出しの後にopacity 0→1+translateY(20px)→0を0.15s差で順次(CSSクラス: .hero-fade--1 / --2)
    - 巨大英字ティッカー:translate3dで-50%への無限ループ、30s linear(CSSクラス: .ticker)
    - ホバー:0.3〜0.5sのopacity/transform/colorのみ

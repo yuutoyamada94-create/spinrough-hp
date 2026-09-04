@@ -142,6 +142,11 @@ table {
   color: var(--c-text-on-dark);
 }
 
+/* run-tecの階調手法:ダーク上の本文はトーンを一段落として見出しを立てる */
+.section--dark p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 .section--dark--alt {
   background-color: var(--c-black-2);
 }
@@ -259,12 +264,12 @@ table {
   align-items: center;
   gap: 14px;
   font-family: var(--font-en);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--c-muted-on-light);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 /* ラベル先頭の短いヘアライン(視線のアンカー) */
@@ -424,6 +429,64 @@ table {
   transform: scaleX(1);
 }
 
+/* ---------- スクロール進捗バー(run-tecトレース。朝日グラデ) ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 120;
+  height: 3px;
+  width: 0;
+  background: var(--grad-accent);
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ---------- 初回訪問時スプラッシュ(計1.4s。ロゴの字間が締まりながら現れる) ---------- */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: var(--c-black);
+  animation: splash-out 0.4s ease 1.5s both;
+  pointer-events: none;
+}
+
+.splash__logo {
+  font-family: var(--font-en);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--c-white);
+  animation: splash-logo 0.8s var(--ease-out) both;
+}
+
+.splash__line {
+  height: 1px;
+  width: 120px;
+  background: var(--grad-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: splash-line 0.6s var(--ease-out) 0.4s both;
+}
+
+@keyframes splash-logo {
+  from { opacity: 0; letter-spacing: 0.5em; }
+  to   { opacity: 1; letter-spacing: 0.02em; }
+}
+
+@keyframes splash-line {
+  to { transform: scaleX(1); }
+}
+
+@keyframes splash-out {
+  to { opacity: 0; visibility: hidden; }
+}
+
 /* ---------- Header ---------- */
 .site-header {
   position: fixed;
@@ -442,8 +505,8 @@ table {
   z-index: -1;
   background-color: rgba(0, 0, 0, 0.85);
   border-bottom: 1px solid var(--hairline-on-dark);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .site-header__inner {
@@ -603,8 +666,9 @@ body.nav-open {
 
   .global-nav__link {
     padding: 6px 0;
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     border-bottom: none;
   }
 
@@ -741,16 +805,29 @@ body.nav-open {
 }
 
 /* ---------- Motion ---------- */
-/* スクロール時:translateY(24px) + opacity、0.6s。発火は1回のみ(JS側でunobserve) */
+/* スクロール出現(run-tec実測値):translateY(40px)+opacity、0.8s、
+   animation方式(transform遷移をhoverリフトと分離するため)。発火は1回のみ */
 html.js .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
 }
 
 .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  animation: reveal-up 0.8s var(--ease-out) both;
+}
+
+/* 時差(run-tec実測:0 / 150 / 300ms) */
+.reveal-d2.is-visible { animation-delay: 0.15s; }
+.reveal-d3.is-visible { animation-delay: 0.3s; }
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 行ごとの時間差出現(ヒーロー見出し等)。子要素に0.1秒ずつの差 */
@@ -1165,6 +1242,14 @@ html.js .rise > span {
     animation: none;
   }
 
+  .scroll-progress {
+    transition: none;
+  }
+
+  .splash {
+    display: none;
+  }
+
   .rise > span {
     opacity: 1;
     transform: none;
@@ -1328,6 +1413,11 @@ html.js .rise > span {
 .pillar {
   border-top: 1px solid var(--hairline-on-light);
   padding-top: 24px;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.pillar:hover {
+  transform: translateY(-4px);
 }
 
 .section--dark .pillar {

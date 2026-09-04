@@ -15,6 +15,52 @@
     document.documentElement.classList.add("motion-done");
   }, 4000);
 
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---- スクロール進捗バー(run-tecトレース) ----
+  var progress = document.createElement("div");
+  progress.className = "scroll-progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.appendChild(progress);
+
+  var progressTicking = false;
+  var updateProgress = function () {
+    progressTicking = false;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var ratio = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+    progress.style.width = (ratio * 100).toFixed(2) + "%";
+  };
+  window.addEventListener("scroll", function () {
+    if (!progressTicking) {
+      progressTicking = true;
+      window.requestAnimationFrame(updateProgress);
+    }
+  }, { passive: true });
+  updateProgress();
+
+  // ---- 初回訪問時スプラッシュ(計1.4s+フェード0.4s。2回目以降はスキップ) ----
+  try {
+    if (!reducedMotion && !window.sessionStorage.getItem("sr_splash")) {
+      window.sessionStorage.setItem("sr_splash", "1");
+      var splash = document.createElement("div");
+      splash.className = "splash";
+      splash.setAttribute("aria-hidden", "true");
+      var splashLogo = document.createElement("span");
+      splashLogo.className = "splash__logo";
+      splashLogo.textContent = "spin rough";
+      var splashLine = document.createElement("span");
+      splashLine.className = "splash__line";
+      splash.appendChild(splashLogo);
+      splash.appendChild(splashLine);
+      document.body.appendChild(splash);
+      window.setTimeout(function () {
+        if (splash.parentNode) splash.parentNode.removeChild(splash);
+      }, 2100);
+    }
+  } catch (e) {
+    /* sessionStorage不可の環境ではスプラッシュを出さない */
+  }
+
   // ---- モバイルメニュー ----
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("global-nav");
@@ -100,10 +146,11 @@
     var checkReveal = function () {
       ticking = false;
       var vh = window.innerHeight || document.documentElement.clientHeight;
-      var threshold = vh * 0.88; // 画面下から12%の位置に入ったら発火
       revealTargets = revealTargets.filter(function (el) {
         var rect = el.getBoundingClientRect();
-        if (rect.top < threshold && rect.bottom > 0) {
+        // run-tec実測に合わせ「要素の15%が見えたら」発火(threshold: 0.15相当)
+        var lead = Math.min(rect.height, vh) * 0.15;
+        if (rect.top + lead < vh && rect.bottom > 0) {
           el.classList.add("is-visible");
           return false; // 一度発火したら対象から外す
         }
