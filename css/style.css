@@ -519,13 +519,17 @@ table {
   justify-content: space-between;
 }
 
-/* タイポロゴ:Heebo 700、アイコンなし */
+/* ロゴ:G案「branch」(spin白+roughグラデ+3分岐の終点ドット)のインラインSVG */
 .site-logo {
-  font-family: var(--font-en);
-  font-size: 1.3125rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--c-white);
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-logo__svg {
+  height: 40px;
+  width: auto;
+  display: block;
+  overflow: visible;
 }
 
 .site-main {
@@ -741,8 +745,8 @@ body.nav-open {
   gap: 48px;
 }
 
-.site-footer .site-logo {
-  font-size: 1.5rem;
+.site-footer .site-logo__svg {
+  height: 48px;
 }
 
 .site-footer__company {
