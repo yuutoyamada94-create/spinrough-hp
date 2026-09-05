@@ -3,7 +3,7 @@
    アートディレクション(2026-08-03改定:nahato.co.jpトレース)
    - ベースは黒(#000 / #151515)。ライトは #FFF / #F8F8F4
    - アクセントは「朝日のオレンジ→赤橙」2色グラデーションのみ
-   - 英字ディスプレイはHeebo、日本語はNoto Sans JP
+   - 英字=Inter/日本語見出し=Noto Sans JP 800/本文=システムフォント(run-tec実測トレース)
    - 演出:clip-pathワイプ / 無限ティッカー / 0.5〜0.6sフェード
    - イージングは cubic-bezier(0.4, 0, 0.2, 1) に統一
    ========================================================== */
@@ -25,9 +25,10 @@
   --hairline-on-dark: rgba(255, 255, 255, 0.08);
   --hairline-on-light: rgba(0, 0, 0, 0.12);
 
-  /* typography */
+  /* typography(run-tec実測トレース:英字=Inter/見出し=Noto Sans JP 800/本文=システム) */
   --font-jp: "Noto Sans JP", sans-serif;
-  --font-en: "Heebo", "Noto Sans JP", sans-serif;
+  --font-en: "Inter", "Noto Sans JP", sans-serif;
+  --font-body: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans JP", sans-serif;
   --lh-body: 1.8;
 
   /* motion(nahatoトレース) */
@@ -72,7 +73,7 @@ html {
 }
 
 body {
-  font-family: var(--font-jp);
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: var(--lh-body);
   color: var(--c-text-on-light);
@@ -216,21 +217,21 @@ table {
 /* ヒーロー見出し:PCで80〜110px相当 */
 .heading-hero {
   font-size: clamp(2.25rem, 8vw, 5rem);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 .heading-xl {
   font-size: clamp(2.25rem, 6vw, 4.5rem);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
 .heading-lg {
   font-size: clamp(1.75rem, 4.5vw, 3rem);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.3;
   letter-spacing: -0.01em;
 }
@@ -248,13 +249,14 @@ table {
   color: var(--c-white);
 }
 
-/* 日本語見出しはプロポーショナル詰め(ベタ組みを卒業する) */
+/* 日本語見出し:Noto Sans JP+プロポーショナル詰め(ベタ組みを卒業する) */
 .heading-hero,
 .heading-xl,
 .heading-lg,
 .heading-md,
 .statement,
 .statement-close {
+  font-family: var(--font-jp);
   font-feature-settings: "palt";
 }
 
@@ -355,7 +357,7 @@ table {
   gap: 16px;
   min-height: 54px;
   padding: 14px 24px;
-  font-family: var(--font-jp);
+  font-family: var(--font-body);
   font-size: 0.9375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -696,6 +698,7 @@ body.nav-open {
 }
 
 .site-footer__cta-link {
+  font-family: var(--font-jp);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1348,7 +1351,7 @@ html.js .rise > span {
 /* 理念ステートメント:ページの主役。大きく、余白たっぷりで */
 .statement {
   font-size: clamp(1.875rem, 4.6vw, 3.375rem);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.5;
   letter-spacing: 0.01em;
   margin-top: 36px;
@@ -1511,7 +1514,7 @@ html.js .rise > span {
 .form-field__textarea {
   width: 100%;
   padding: 14px 16px;
-  font-family: var(--font-jp);
+  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--c-text-on-light);
