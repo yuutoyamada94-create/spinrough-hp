@@ -1,0 +1,269 @@
+<!doctype html>
+<html class="wbr" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+    // 画像が一時的に読めなかった時は、消さずに読み直す(最大3回・0.6秒ずつ間を空ける)。2026-10-19
+    (() => {
+      document.addEventListener('error', (e) => {
+        const img = e.target;
+        if (!(img instanceof HTMLImageElement)) return;
+        const n = Number(img.dataset.retry || 0);
+        if (n >= 3) return;
+        img.dataset.retry = String(n + 1);
+        const src = img.getAttribute('src'), srcset = img.getAttribute('srcset');
+        img.removeAttribute('srcset'); img.removeAttribute('src');
+        setTimeout(() => { if (srcset) img.setAttribute('srcset', srcset); if (src) img.setAttribute('src', src); }, 600 * (n + 1));
+      }, true);
+    })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>spinAcademy|社内のAI駆動開発エンジニア育成|株式会社spin rough</title>
+    <meta name="description" content="現場を一番知っている社員の方が、日報の入力画面や集計の仕組みを題材に、作る・試す・直すを学びます。" />
+    <link rel="icon" href="../favicon.png" sizes="64x64" />
+    <link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <meta property="og:title" content="spinAcademy|社内のAI駆動開発エンジニア育成|株式会社spin rough" />
+    <meta property="og:description" content="現場を一番知っている社員の方が、日報の入力画面や集計の仕組みを題材に、作る・試す・直すを学びます。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="株式会社spin rough" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://spinrough.com/assets/ogp.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://spinrough.com/academy/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/header-v3.css" />
+    <link rel="stylesheet" href="../css/mz.css" />
+    <link rel="stylesheet" href="../css/svc.css" />
+  </head>
+  <body class="subpage svc svc--academy">
+    <header class="site-header gh" aria-label="サイトヘッダー">
+      <a class="gh-logo header-logo" href="../index.html" aria-label="spin rough トップ"><img src="../assets/logo-type.svg" alt="spin rough" width="472" height="90" decoding="async" /></a>
+      <nav class="gh-nav" aria-label="主要メニュー">
+        <a href="../about/index.html">spin roughについて</a>
+        <a href="../ai/index.html">AI駆動経営とは</a>
+        <a href="../index.html#business">サービス・事業</a>
+        <a href="../base/index.html">spinBase</a>
+        <a href="index.html">spinAcademy</a>
+        <a href="../works/index.html">spinWorks</a>
+      </nav>
+      <a class="gh-contact" href="../contact/index.html"><span class="gh-contact-en">CONTACT</span><small>相談する</small></a>
+      <button class="gh-burger" type="button" aria-expanded="false" aria-controls="gh-menu" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </header>
+    <div class="gh-menu" id="gh-menu">
+      <nav class="gh-menu-nav" aria-label="スマホメニュー">
+        <a href="../index.html">トップ<small>TOP</small></a>
+        <a href="../about/index.html">spin roughに<wbr>ついて<small>ABOUT</small></a>
+        <a href="../ai/index.html">AI駆動経営とは<small>CONCEPT</small></a>
+        <a href="../index.html#business">サービス・事業<small>SERVICE</small></a>
+        <a href="../base/index.html">spinBase<small>AI導入支援</small></a>
+        <a href="index.html">spinAcademy<small>社内エンジニア育成</small></a>
+        <a href="../works/index.html">spinWorks<small>バックオフィス丸投げ</small></a>
+
+      </nav>
+      <a class="gh-menu-contact" href="../contact/index.html">相談する</a>
+      <a class="gh-menu-tel" href="tel:0344001442">03-4400-1442</a>
+    </div>
+
+<main>      <section class="svc-mv" aria-labelledby="svc-title">
+        <figure class="svc-mv-photo"><img src="../assets/gen/omote-koba.webp" alt="" width="1122" height="1402" decoding="async" />
+</figure>
+        <div class="svc-mv-card">
+          <h1 id="svc-title" class="svc-mv-title"><span class="svc-mv-en">IN-HOUSE ENGINEER TRAINING</span><span class="svc-mv-name">spinAcademy</span><span class="svc-mv-ja">社内の<wbr>AI駆動開発エンジニア育成</span></h1>
+          <p class="svc-mv-h"><span>自社で<wbr>使う<wbr>システムを、</span><span>自社の<wbr>社員が<wbr>つくる。</span></p>
+          <p class="svc-mv-p">現場を<wbr>一番<wbr>知っている<wbr>社員の<wbr>方が、<wbr>日報の<wbr>入力画面や<wbr>集計の<wbr>仕組みを<wbr>題材に、<wbr>作る<wbr>・試す・直すを<wbr>学びます。</p>
+          <a class="svc-btn" href="../contact/index.html">相談する</a>
+        <dl class="academy-spec">
+<div>
+<dt>期間</dt>
+<dd>題材・人数・経験に<wbr>応じて<wbr>ご提案</dd>
+</div>
+<div>
+<dt>形式</dt>
+<dd>自社の<wbr>業務を<wbr>題材に<wbr>制作</dd>
+</div>
+<div>
+<dt>対象</dt>
+<dd>自社の<wbr>システムづくりを<wbr>担当する<wbr>社員の<wbr>方</dd>
+</div>
+</dl>
+</div>
+      </section>
+<section class="svc-sec"><p class="svc-mv-p">「この<wbr>入力欄を<wbr>一つ<wbr>足したい」<wbr>「毎朝<wbr>この<wbr>数字を<wbr>見たい」。<wbr>現場から<wbr>出てくる<wbr>こうした<wbr>小さな<wbr>要望を、<wbr>社内で<wbr>形に<wbr>できる<wbr>社員を<wbr>育てる<wbr>プログラムです。</p></section>
+
+
+
+<section class="svc-sec academy-examples">
+<div class="svc-heading"><p>MAKE IT</p><h2>制作する<wbr>ものの<wbr>見本</h2>
+</div>
+<div class="academy-example-list">
+<article>
+<div><h3>日報の<wbr>入力画面</h3><p>必要な<wbr>項目を<wbr>決め、<wbr>記録できる<wbr>画面を<wbr>つくる。</p>
+</div>
+<div class="example-screen"><b>日報 / 学習用見本</b><span>現場：架<wbr>空まるまる<wbr>現場</span><span>今日の<wbr>作業：資材の<wbr>運搬</span><span class="screen-action">記録内容を<wbr>確認</span>
+</div>
+</article>
+<article>
+<div><h3>見積もりの<wbr>下書き</h3><p>項目を<wbr>整理し、<wbr>人が<wbr>確認できる<wbr>下書きを<wbr>つくる。</p>
+</div>
+<div class="example-screen"><b>見積書 / 学習用見本</b><span>宛先<wbr>：架<wbr>空さんかく<wbr>商会</span><span>品目<wbr>：架<wbr>空の<wbr>練習用資材</span><span class="screen-status">下書き・要確認</span>
+</div>
+</article>
+<article>
+<div><h3>毎朝の<wbr>集計</h3><p>記録を<wbr>集め、<wbr>見たい<wbr>数字を<wbr>並べる。</p>
+</div>
+<div class="example-screen"><b>朝の<wbr>集計 / 学習用見本</b><span>日報の<wbr>提出：架<wbr>空データ 3件</span><span>未確認<wbr>：架<wbr>空データ 1件</span><span class="screen-action">元の<wbr>記録を<wbr>参照</span>
+</div>
+</article>
+</div>
+<p class="svc-mv-p">外の<wbr>会社に<wbr>頼むと、<wbr>まず仕事の<wbr>説明から<wbr>始まります。<wbr>現場を<wbr>知っている<wbr>社員なら、<wbr>説明しなくても<wbr>何が<wbr>必要か<wbr>分かっています。</p></section>
+<section class="svc-sec academy-skills">
+<div class="svc-heading"><p>SKILLS</p><h2>身に<wbr>つける<wbr>6つの<wbr>力</h2>
+</div>
+<dl>
+<div>
+<dt>業務を<wbr>切り出す</dt>
+<dd>日々の<wbr>仕事を、<wbr>作れる<wbr>大きさに<wbr>分ける。</dd>
+</div>
+<div>
+<dt>AIに<wbr>指示する</dt>
+<dd>目的・条件・確認の<wbr>しかたを<wbr>言葉に<wbr>する。</dd>
+</div>
+<div>
+<dt>画面を<wbr>つくる</dt>
+<dd>使う<wbr>人が<wbr>入力しやすい<wbr>画面を<wbr>作る。</dd>
+</div>
+<div>
+<dt>データを<wbr>扱う</dt>
+<dd>項目と<wbr>記録の<wbr>つながりを<wbr>整理する。</dd>
+</div>
+<div>
+<dt>直す</dt>
+<dd>動かして<wbr>確認し、<wbr>原因を<wbr>探して直す。</dd>
+</div>
+<div>
+<dt>社内に<wbr>教える</dt>
+<dd>使い方と、<wbr>引き継ぐ<wbr>ための<wbr>記録を<wbr>残す。</dd>
+</div>
+</dl>
+</section>
+<section class="svc-sec academy-curriculum svc-sec--gray">
+<div class="svc-heading"><p>CURRICULUM</p><h2>作りながら、<wbr>学ぶ</h2>
+</div>
+<p>題材と<wbr>経験を<wbr>伺い、<wbr>受講期間と<wbr>学ぶ順番を<wbr>ご提案します。</p>
+<table class="curriculum-table"><caption>学習の順番</caption>
+<thead>
+<tr><th scope="col">STEP</th><th scope="col">中身</th>
+</tr>
+</thead>
+<tbody>
+<tr><th scope="row">01</th><td>業務を<wbr>切り出す・指示を<wbr>書く</td>
+</tr>
+<tr><th scope="row">02</th><td>入力画面を<wbr>つくる<wbr>・<wbr>データを<wbr>扱う</td>
+</tr>
+<tr><th scope="row">03</th><td>動かす・確認する<wbr>・直す</td>
+</tr>
+<tr><th scope="row">04</th><td>社内で<wbr>使う・教える<wbr>・<wbr>引き継ぐ</td>
+</tr>
+</tbody>
+</table>
+<p class="svc-note">法人の<wbr>受講期間は<wbr>事前に<wbr>ご案内します。<wbr>個人向けtrAInは<wbr>1年間の<wbr>プログラムです。</p>
+</section>
+<section class="svc-sec academy-price svc-sec--gray">
+<div class="svc-heading"><p>PRICE</p><h2>料金に<wbr>ついて</h2>
+</div>
+<dl class="svc-price">
+<div>
+<dt>法人向け spinAcademy</dt>
+<dd>題材・人数・受講期間を<wbr>確認してお見積もりします。</dd>
+</div>
+<div>
+<dt>個人向け trAIn</dt>
+<dd>面談時に<wbr>ご案内し、<wbr>契約前に<wbr>書面で<wbr>総額<wbr>（税込）を<wbr>お示しします。</dd>
+</div>
+</dl>
+</section>
+<section class="svc-sec academy-process">
+<div class="svc-heading"><p>PROCESS</p><h2>受講までの<wbr>流れ</h2>
+</div>
+<ol class="svc-steps">
+<li><h3>相談する</h3><p>作りたい<wbr>ものや、<wbr>現在の<wbr>経験を<wbr>うかが<wbr>います。</p><small></small>
+</li>
+<li><h3>内容を<wbr>決める</h3><p>題材・形式・期間・料金を<wbr>ご案内します。</p><small></small>
+</li>
+<li><h3>確認して<wbr>始める</h3><p>内容と<wbr>条件を<wbr>確認したうえで、<wbr>受講を<wbr>始めます。</p><small></small>
+</li>
+</ol>
+</section>
+<section class="svc-sec svc-track" id="train" aria-labelledby="svc-train-t">
+        <div class="svc-heading"><p>FOR INDIVIDUALS</p><h2 id="svc-train-t">個人の<wbr>方<wbr>へ</h2><span>法人向けの<wbr>spinAcademyと<wbr>同じ<wbr>考え方で、<wbr>個人の<wbr>方<wbr>向けの<wbr>プログラムも<wbr>ご用意しています。</span>
+</div>
+        <div class="svc-track-grid">
+          <div class="svc-track-card is-corp"><p class="svc-track-tag">法人向け</p><p class="svc-track-name">spinAcademy</p><p class="svc-track-ja">社内の<wbr>AI駆動開発エンジニア育成</p><p>社員の<wbr>方を、<wbr>自社の<wbr>システムを<wbr>作って<wbr>直せる<wbr>エンジニアに<wbr>育てます。</p><a class="svc-btn is-ghost" href="../contact/index.html">法人向けの<wbr>相談を<wbr>する</a>
+</div>
+          <div class="svc-track-card is-indiv"><p class="svc-track-tag">個人向け</p><p class="svc-track-name is-logo"><img src="../assets/train-logo.webp" alt="trAIn" width="1010" height="251"></p><p class="svc-track-ja">AI駆動開発エンジニア育成プログラム</p>
+            <ul class="svc-track-points">
+<li><b>基礎から<wbr>実践へ</b>AIを<wbr>使った<wbr>開発を、<wbr>制作を<wbr>通じて<wbr>学ぶ</li>
+<li>「この<wbr>人に<wbr>頼みたい」と<wbr>思って<wbr>もらえるように、<wbr>作る<wbr>技術に<wbr>加えて、<wbr>依頼の<wbr>意図を<wbr>聞き取り、<wbr>説明する<wbr>力も<wbr>学びます。</li>
+<li><b>その<wbr>先まで</b>学んで<wbr>終わりではなく、<wbr>仕事で<wbr>使える<wbr>ところまでを<wbr>目指します</li>
+</ul>
+            <dl class="svc-track-spec">
+<dt>期間</dt>
+<dd>1年間</dd>
+<dt>受講料</dt>
+<dd>面談時に<wbr>ご案内し、<wbr>契約前に<wbr>書面で<wbr>総額(税込)を<wbr>お示しします</dd>
+</dl>
+            <a class="svc-btn" href="../contact/index.html">個人向けの<wbr>相談を<wbr>する</a>
+          </div>
+        </div>
+      </section>
+<section class="svc-sec svc-faq">
+<div class="svc-heading"><p>FAQ</p><h2>相談の<wbr>前に</h2>
+</div>
+<details>
+<summary>法人向けと<wbr>個人向けは、<wbr>どう<wbr>違いますか？</summary>
+<p>法人向けは<wbr>御社の<wbr>業務を<wbr>題材に<wbr>設計します。<wbr>個人向けtrAInは<wbr>1年間の<wbr>プログラムです。<wbr>内容は<wbr>面談で<wbr>ご案内します。</p>
+</details>
+<details>
+<summary>受講すると<wbr>就職や<wbr>収入に<wbr>つながりますか？</summary>
+<p>就職・収入などの<wbr>成果を<wbr>約束する<wbr>ものでは<wbr>ありません。<wbr>学習内容と<wbr>契約条件を<wbr>確認して、<wbr>ご検討ください。</p>
+</details>
+</section>
+<section class="mz-contact" id="contact" aria-labelledby="contact-title">
+<div class="mz-heading"><p>CONTACT</p><h2 id="contact-title">まず、<wbr>話を<wbr>聞かせてください。</h2>
+</div>
+<div class="mz-contact-rows"><a class="consult-button" href="../contact/index.html"><span>相談する<wbr>（フォーム）</span><i aria-hidden="true">→</i></a><a class="contact-phone" href="tel:0344001442"><span>電話 03-4400-1442</span><i aria-hidden="true">→</i></a>
+</div>
+</section>    </main>
+
+    <a class="svc-float" href="../contact/index.html" aria-label="相談する"><span>相談する</span></a>
+
+    <footer class="mz-footer">
+      <div class="mz-footer-cols">
+        <nav class="mz-footer-nav" aria-label="サイトメニュー">
+          <a href="../index.html">TOP</a><a href="../about/index.html">spin roughに<wbr>ついて</a><a href="../ai/index.html">AI駆動経営とは</a><a href="../index.html#news">お知らせ</a><a href="../contact/index.html">お問い<wbr>合わせ</a>
+        </nav>
+        <div class="mz-footer-svc">
+          <p class="mz-footer-svc-h">サービス・事業</p>
+          <p class="mz-footer-svc-cat">AI駆動経営の<wbr>実装</p>
+          <a href="../base/index.html">- spinBase AI導入支援</a><a href="../works/index.html">- spinWorks バックオフィス丸投げ</a><a href="index.html">- spinAcademy 社内の<wbr>AI駆動開発エンジニア育成</a><a href="index.html#train">- trAIn 個人向けAI駆動開発エンジニア育成</a>
+        </div>
+        <nav class="mz-footer-legal" aria-label="規約"><a href="../privacy/index.html">プライバシーポリシー</a><a href="../tokushoho/index.html">特定商取引法に<wbr>基づく<wbr>表記</a></nav>
+      </div>
+      <div class="mz-footer-bottom">
+        <div>
+          <p class="mz-footer-msg"><span>日本の<wbr>歴史と<wbr>心を、</span><span>22世紀へ<wbr>紡ぐ。</span></p>
+          <address>株式会社spin rough|東京都新宿区矢来町4番地11 Fullea神楽坂102</address>
+          <small>&copy; spin rough Inc. All Rights Reserved</small>
+        </div>
+        <p class="mz-footer-word" aria-hidden="true">spin rough</p>
+      </div>
+    </footer>
+    <script src="../js/header-v3.js"></script>
+  </body>
+</html>

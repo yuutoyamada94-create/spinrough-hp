@@ -1,0 +1,33 @@
+/* 読む役割の共通値。段ごとの構図は各CSSで設計する。 */
+:root {
+  --text-body: 16px; --text-note: 14px;
+  --text-heading: clamp(20px, 2.4vw, 28px);
+  --text-label: clamp(28px, 3vw, 40px);
+  --leading-body: 1.9; --leading-note: 1.7; --leading-heading: 1.5;
+  --text-muted: #666; --ink: #111; --surface: #fff; --surface-subtle: #f2f2f2;
+  --accent-diagram: #b35400; --ease: cubic-bezier(.72, 0, .18, 1);
+  --content-pad: clamp(20px, 7vw, 120px);
+  --section-space: clamp(72px, 9vw, 128px);
+}
+body { font-size: var(--text-body); line-height: var(--leading-body); }
+:where(h1,h2,h3,h4) { overflow-wrap: anywhere; word-break: auto-phrase; }
+:where(main,section,article,figure,nav,div) { min-width: 0; }
+:where(a,button,input,textarea,summary):focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+:where(input,textarea):focus-visible { outline-color: #111; }
+:where([id]) { scroll-margin-top: 100px; }
+.rough-memo,.svc-rough,.ai2-rough,.lp2-rough,.memo-inline { display: none !important; }
+html.show-memo :is(.rough-memo,.svc-rough,.ai2-rough,.lp2-rough) { display: block !important; }
+html.show-memo .memo-inline { display: inline !important; }
+.image-note,.svc-note,.svc-photo-note { font-size: var(--text-note); line-height: var(--leading-note); color: var(--text-muted); }
+.consult-button { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 48px; padding: 14px 24px; background: #111; border: 1px solid #111; border-radius: 999px; color: #fff; text-decoration: none; font: inherit; cursor: pointer; }
+@media (hover:hover) { .consult-button { transition: opacity .3s var(--ease); } .consult-button:hover { opacity: .5; } }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } *,*::before,*::after { animation: none !important; transition: none !important; } }
+html.is-reduced-motion { scroll-behavior: auto; }
+html.is-reduced-motion *,html.is-reduced-motion *::before,html.is-reduced-motion *::after { animation: none !important; transition: none !important; }
+
+/* 2026-10-21 スマホの改行:言葉の切れ目(js/header-v3.js が <wbr> を入れる)でだけ折り返す。iPhoneのSafariは auto-phrase に対応していないため */
+html.wbr :where(main, footer, .gh-menu) :where(h1,h2,h3,h4,p,li,dt,dd,th,td,summary,figcaption,small,b,span,a,strong,em,label) { word-break: keep-all; overflow-wrap: break-word; }
+:where(main) :where(h1,h2,h3) { text-wrap: balance; }
+:where(main) :where(p,li,dd,dt,td,th,summary) { text-wrap: pretty; }
+.nowrap { white-space: nowrap; }
+html.wbr main :where(li,p,dd,dt,td,th) { min-width: 0; }

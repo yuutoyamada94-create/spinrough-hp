@@ -1,0 +1,154 @@
+@import url('tokens.css');
+.svc { --svc-pad: var(--content-pad); background: #fff; }
+.svc main { padding-top: 64px; }
+.svc-btn { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px 24px; min-height: 48px; border: 1px solid #111; border-radius: 999px; background: #111; color: #fff; font-size: 16px; text-decoration: none; }
+.svc-btn::after { content: '→'; }
+.svc-btn.is-ghost { background: #fff; color: #111; }
+.svc-mv { position: relative; display: grid; padding: 0 var(--svc-pad); }
+.svc-mv-photo { margin: 0 calc(var(--svc-pad) * -1); height: clamp(240px, 48vw, 580px); overflow: hidden; }
+.svc-mv-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.svc-mv-card { position: relative; margin: -32px 0 0; padding: 28px 20px; background: #fff; }
+.svc-mv-title { margin: 0; display: grid; gap: 8px; font-weight: 500; }
+.svc-mv-en { font-family: 'Jost',sans-serif; font-size: var(--text-note); line-height: 1.7; color: #555; letter-spacing: .08em; }
+.svc-mv-name { font-family: 'Jost',sans-serif; font-size: clamp(34px, 4vw, 52px); line-height: 1.2; letter-spacing: 0; }
+.svc-mv-ja { font-size: var(--text-note); line-height: 1.7; }
+.svc-mv-h { font-size: var(--text-heading); line-height: var(--leading-heading); margin: 24px 0 0; font-weight: 500; }
+.svc-mv-h span { display: block; }
+.svc-mv-p { font-size: var(--text-body); line-height: var(--leading-body); margin: 20px 0 24px; }
+.svc-photo-note { margin: 16px var(--svc-pad) 0; }
+.svc-rough { margin: 24px var(--svc-pad); padding: 16px; border: 1px dashed #666; }
+.svc-sec { padding: var(--section-space) var(--svc-pad); }
+.svc-sec--gray { background: var(--surface-subtle); }
+.svc-sec--dark { background: #111; color: #fff; }
+.svc-heading { margin-bottom: 40px; }
+.svc-heading > p { margin: 0; font-family: 'Jost',sans-serif; font-size: var(--text-label); line-height: 1.2; font-weight: 500; }
+.svc-heading h2 { font-size: var(--text-heading); line-height: 1.5; font-weight: 500; margin: 12px 0 0; }
+.svc-heading > span { display: block; margin-top: 20px; font-size: 16px; }
+.svc-sec h3 { font-size: 20px; line-height: 1.6; font-weight: 500; }
+.svc-note { margin: 24px 0 0; }
+.svc-sec--dark .svc-note { color: #ccc; }
+.svc-steps { list-style: none; padding: 0; margin: 32px 0 0; counter-reset: process; }
+.svc-steps li { position: relative; margin-left: 16px; padding: 0 0 32px 40px; border-left: 1px solid #999; counter-increment: process; }
+.svc-steps li:last-child { border-color: transparent; padding-bottom: 0; }
+.svc-steps li::before { content: counter(process,decimal-leading-zero); position: absolute; left: -17px; top: 0; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid #111; background: #fff; border-radius: 50%; font-family: 'Jost',sans-serif; font-size: 14px; }
+.svc-steps h3 { margin: 0; padding-top: 1px; }
+.svc-steps p { margin: 10px 0; max-width: 38em; }
+.svc-steps small { font-size: 14px; color: #666; }
+.svc-steps small:empty { display: none; }
+.svc-price { margin: 0; }
+.svc-price > div { display: grid; gap: 12px; padding: 24px 0; border-top: 1px solid #bbb; }
+.svc-price dt { font-weight: 500; }
+.svc-price dd { margin: 0; }
+.svc-fit { padding-top: 48px; padding-bottom: 48px; }
+.svc-fit > p { max-width: 38em; }
+.svc-faq details { padding: 24px 0; border-top: 1px solid #bbb; }
+.svc-faq details:last-child { border-bottom: 1px solid #bbb; }
+.svc-faq summary { cursor: pointer; font-weight: 500; padding-right: 12px; }
+.svc-faq details p { margin: 20px 0 0; max-width: 44em; }
+.svc-float { display: none; }
+/* Base:目標の木 → 問い → 会話 → 段階図 */
+.base-brain-grid { display: grid; gap: 40px; align-items: center; }
+.base-goals { display: grid; justify-items: center; gap: 24px; }
+.base-goals p { margin: 0; padding: 12px; border: 1px solid #111; background: #fff; text-align: center; font-size: 14px; }
+.base-goals > p:first-child { background: #b35400; color: #fff; }
+.base-goals > div { display: flex; justify-content: space-between; gap: 12px; position: relative; width: 100%; }
+.base-goals > div::before { content: ''; position: absolute; height: 24px; left: 25%; right: 25%; top: -24px; border: 1px solid #999; border-bottom: 0; }
+.base-goals > p:last-child { position: relative; }
+.base-goals > p:last-child::before { content: ''; position: absolute; height: 24px; bottom: 100%; left: 50%; border-left: 1px solid #999; }
+.base-principles { margin: 0; padding-left: 24px; }
+.base-principles li + li { margin-top: 32px; }
+.base-principles h3 { margin: 0; }
+.base-principles p { margin: 10px 0 0; }
+.base-questions { margin: 0; padding: 0; list-style: none; max-width: 48em; }
+.base-questions li { padding: 24px 0; border-top: 1px solid #555; font-size: var(--text-heading); line-height: 1.7; }
+.base-conversations { display: grid; gap: 40px; }
+.base-conversations article { padding: 24px; background: #f2f2f2; }
+.base-conversations h3 { margin: 0 0 24px; }
+.chat-human,.chat-reply { max-width: 28em; padding: 16px; border: 1px solid #bbb; background: #fff; margin: 16px 0 0; }
+.chat-human { margin-left: 24px; }
+.chat-reply { margin-right: 24px; }
+.base-process { background: #f2f2f2; }
+/* Works:縦長の現場写真と小さな実務の流れ。日中の写真だけを横に読む */
+.works-mini-flow { display: grid; justify-items: start; gap: 4px; margin-top: 28px; font-size: 14px; }
+.works-mini-flow i { margin-left: 32px; font-style: normal; }
+.works-mini-flow b { font-weight: 500; padding: 8px 16px; border: 1px solid #111; }
+.works-comparison { margin: 0; }
+.works-comparison > div { display: grid; gap: 12px; padding: 28px 0; border-top: 1px solid #bbb; }
+.works-comparison dt { font-size: 20px; }
+.works-comparison dd { margin: 0; max-width: 32em; }
+.works-division { display: grid; gap: 24px; }
+.works-division > span { font-size: 28px; }
+.works-division h3 { margin: 0; }
+.works-division p:last-child { color: #ccc; }
+.works-day-track { display: grid; grid-auto-flow: column; grid-auto-columns: min(82vw, 360px); gap: 24px; overflow-x: auto; padding: 24px 0 16px; scroll-snap-type: x proximity; }
+.works-day-track article { scroll-snap-align: start; }
+.works-day-track time { font-family: 'Jost',sans-serif; font-size: 28px; }
+.works-day-track figure { margin: 12px 0; aspect-ratio: 4 / 3; }
+.works-day-track img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.works-day-track h3 { margin: 16px 0 8px; }
+.works-day-track p { margin: 0; }
+.works-scope { padding-top: 32px; }
+.scope-columns { display: grid; gap: 24px; }
+.scope-columns > div { border-top: 1px solid #111; }
+.scope-columns ul { padding-left: 20px; }
+.works-video { display: block; width: 100%; height: auto; background: #111; }
+.film-caption { padding-left: 24px; margin-top: 24px; }
+/* Academy:力の格子・時間割・作る画面の見本 */
+.academy-spec { display: grid; gap: 12px; margin: 28px 0 0; padding-top: 20px; border-top: 1px solid #bbb; font-size: 14px; }
+.academy-spec div { display: grid; grid-template-columns: 40px 1fr; gap: 16px; }
+.academy-spec dd { margin: 0; }
+.academy-skills dl { display: grid; margin: 0; }
+.academy-skills dl > div { padding: 28px 0; border-top: 1px solid #bbb; }
+.academy-skills dt { font-size: 20px; font-weight: 500; }
+.academy-skills dd { margin: 12px 0 0; }
+.curriculum-table { width: 100%; border-collapse: collapse; margin-top: 32px; table-layout: fixed; font-size: 14px; }
+.curriculum-table caption { text-align: left; font-size: 14px; color: #666; margin-bottom: 12px; }
+.curriculum-table th,.curriculum-table td { text-align: left; padding: 20px 10px; border-top: 1px solid #aaa; vertical-align: top; overflow-wrap: anywhere; }
+.curriculum-table th { font-weight: 500; }
+.curriculum-table th:first-child { width: 18%; }
+.curriculum-table th:nth-child(2) { width: 30%; }
+.academy-example-list article { display: grid; gap: 24px; border-top: 1px solid #bbb; padding: 40px 0; }
+.academy-example-list h3 { margin: 0; }
+.example-screen { display: grid; gap: 16px; padding: 24px; border: 1px solid #111; font-size: 14px; background: #fafafa; }
+.example-screen b { border-bottom: 1px solid #bbb; padding-bottom: 12px; font-weight: 500; }
+.example-screen span { display: block; }
+.screen-action,.screen-status { padding: 8px 12px; background: #e6e6e6; }
+.svc-track { background: #f2f2f2; }
+.svc-track-grid { display: grid; gap: 32px; }
+.svc-track-card { padding: 28px 24px; background: #fff; }
+.svc-track-tag { font-size: 14px; margin: 0; }
+.svc-track-name { font-family: 'Jost',sans-serif; font-size: 36px; margin: 16px 0; }
+.svc-track-ja { font-size: 20px; line-height: 1.5; }
+.svc-track-points { padding-left: 20px; }
+.svc-track-points li { margin-bottom: 16px; }
+.svc-track-points b { display: block; font-weight: 500; }
+.svc-track-spec { display: grid; gap: 12px; border-top: 1px solid #bbb; padding-top: 24px; }
+.svc-track-spec dd { margin: 0; }
+.svc-track-note { font-size: 14px; color: #666; }
+@media (min-width:768px) {
+  .base-brain-grid { grid-template-columns: 1fr 1.25fr; gap: 56px; }
+  .base-conversations { grid-template-columns: 1fr 1fr; }
+  .scope-columns { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .academy-skills dl { grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 40px; }
+  .academy-example-list article { grid-template-columns: 1fr 1.2fr; align-items: center; gap: 64px; }
+  .works-comparison > div { grid-template-columns: 1fr 2fr; gap: 40px; }
+  .works-division { grid-template-columns: 1fr auto 1fr; gap: 32px; align-items: center; }
+  .svc-price > div { grid-template-columns: 1fr 2fr; gap: 40px; }
+  .base-process .svc-steps { margin-left: 20%; }
+}
+@media (min-width:1024px) {
+  .svc main { padding-top: 80px; }
+  .svc-mv { padding-top: 32px; grid-template-columns: 1.2fr 1fr; align-items: center; }
+  .svc-mv-photo { margin: 0; height: 640px; }
+  .svc-mv-card { margin: 40px 0 40px -80px; padding: 40px; }
+  .svc-mv--split { grid-template-columns: .85fr 1.15fr; gap: 64px; }
+  .svc-mv--split .svc-mv-photo { height: 760px; }
+  .svc-mv--split .svc-mv-card { margin: 0; padding: 0; }
+  .svc-float { position: fixed; z-index: 70; right: 28px; bottom: 28px; width: 104px; height: 104px; border-radius: 50%; display: grid; place-items: center; background: #111; color: #fff; text-decoration: none; font-size: 16px; border: 1px solid #fff; }
+  .svc-track-grid { grid-template-columns: 1fr 1.35fr; align-items: start; }
+}
+@media (hover:hover) { .svc-btn,.svc-float { transition: opacity .3s var(--ease); } .svc-btn:hover,.svc-float:hover { opacity: .5; } }
+
+/* trAIn:支給ロゴを名前の位置に */
+.svc-track-name.is-logo { margin: 12px 0 8px; line-height: 0; }
+.svc-track-name.is-logo img { display: block; width: min(300px, 82%); height: auto; }

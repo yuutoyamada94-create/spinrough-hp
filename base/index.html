@@ -1,0 +1,274 @@
+<!doctype html>
+<html class="wbr" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+    // 画像が一時的に読めなかった時は、消さずに読み直す(最大3回・0.6秒ずつ間を空ける)。2026-10-19
+    (() => {
+      document.addEventListener('error', (e) => {
+        const img = e.target;
+        if (!(img instanceof HTMLImageElement)) return;
+        const n = Number(img.dataset.retry || 0);
+        if (n >= 3) return;
+        img.dataset.retry = String(n + 1);
+        const src = img.getAttribute('src'), srcset = img.getAttribute('srcset');
+        img.removeAttribute('srcset'); img.removeAttribute('src');
+        setTimeout(() => { if (srcset) img.setAttribute('srcset', srcset); if (src) img.setAttribute('src', src); }, 600 * (n + 1));
+      }, true);
+    })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>spinBase|AI導入支援|株式会社spin rough</title>
+    <meta name="description" content="会社の目標も、決めたことも、仕事の経緯も、数字も、ひとつの場所に。社員とAIが同じものを見て動ける会社にする、AI導入支援です。" />
+    <link rel="icon" href="../favicon.png" sizes="64x64" />
+    <link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <meta property="og:title" content="spinBase|AI導入支援|株式会社spin rough" />
+    <meta property="og:description" content="会社の目標も、決めたことも、仕事の経緯も、数字も、ひとつの場所に。社員とAIが同じものを見て動ける会社にする、AI導入支援です。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="株式会社spin rough" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://spinrough.com/assets/ogp.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://spinrough.com/base/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/header-v3.css" />
+    <link rel="stylesheet" href="../css/mz.css" />
+    <link rel="stylesheet" href="../css/svc.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+  </head>
+  <body class="subpage svc svc--base">
+    <header class="site-header gh" aria-label="サイトヘッダー">
+      <a class="gh-logo header-logo" href="../index.html" aria-label="spin rough トップ"><img src="../assets/logo-type.svg" alt="spin rough" width="472" height="90" decoding="async" /></a>
+      <nav class="gh-nav" aria-label="主要メニュー">
+        <a href="../about/index.html">spin roughについて</a>
+        <a href="../ai/index.html">AI駆動経営とは</a>
+        <a href="../index.html#business">サービス・事業</a>
+        <a href="index.html">spinBase</a>
+        <a href="../academy/index.html">spinAcademy</a>
+        <a href="../works/index.html">spinWorks</a>
+      </nav>
+      <a class="gh-contact" href="../contact/index.html"><span class="gh-contact-en">CONTACT</span><small>相談する</small></a>
+      <button class="gh-burger" type="button" aria-expanded="false" aria-controls="gh-menu" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </header>
+    <div class="gh-menu" id="gh-menu">
+      <nav class="gh-menu-nav" aria-label="スマホメニュー">
+        <a href="../index.html">トップ<small>TOP</small></a>
+        <a href="../about/index.html">spin roughに<wbr>ついて<small>ABOUT</small></a>
+        <a href="../ai/index.html">AI駆動経営とは<small>CONCEPT</small></a>
+        <a href="../index.html#business">サービス・事業<small>SERVICE</small></a>
+        <a href="index.html">spinBase<small>AI導入支援</small></a>
+        <a href="../academy/index.html">spinAcademy<small>社内エンジニア育成</small></a>
+        <a href="../works/index.html">spinWorks<small>バックオフィス丸投げ</small></a>
+
+      </nav>
+      <a class="gh-menu-contact" href="../contact/index.html">相談する</a>
+      <a class="gh-menu-tel" href="tel:0344001442">03-4400-1442</a>
+    </div>
+
+<main>
+      <!-- 1. MV:Addness冒頭「ゴールを決めたら、あとはAIと進むだけ」を、導入する側の言葉で -->
+      <section class="svc-mv" aria-labelledby="svc-title">
+        <figure class="svc-mv-photo"><img src="../assets/gen/omote-yado.webp" alt="" width="1122" height="1402" decoding="async" /></figure>
+        <div class="svc-mv-card">
+          <h1 id="svc-title" class="svc-mv-title"><span class="svc-mv-en">AI ADOPTION SUPPORT</span><span class="svc-mv-name">spinBase</span><span class="svc-mv-ja">AI導入支援</span></h1>
+          <p class="svc-mv-h"><span>目標を<wbr>決めたら、</span><span>あとは<wbr>AIと<wbr>進む会社へ。</span></p>
+          <p class="svc-mv-p">会社の<wbr>目標も、<wbr>仕事の<wbr>経緯も、<wbr>チームの<wbr>動きも、<wbr>ひとつの<wbr>場所に。<wbr>AIが<wbr>それを<wbr>読んで、<wbr>目標に<wbr>向けたやる<wbr>ことを<wbr>社員と<wbr>一緒に<wbr>進める。<wbr>その<wbr>仕組みを<wbr>御社に<wbr>入れ、<wbr>使いこなせるまで<wbr>支えるのが<wbr>spinBaseです。</p>
+          <a class="svc-btn" href="../contact/index.html">相談する</a>
+        </div>
+      </section>
+      <section class="svc-sec"><p class="bs-point-lead">方<wbr>針を<wbr>決めた<wbr>あとも、<wbr>「何の<wbr>ために」<wbr>「前は<wbr>どう<wbr>決めたか」を、<wbr>その<wbr>都度<wbr>伝えて<wbr>回っている。<wbr>目標と<wbr>これまでの<wbr>経緯を、<wbr>社員が<wbr>自分で<wbr>確認しながら<wbr>進められるようにします。</p></section>
+      
+
+      <!-- 2. 第二の脳:AIだけ(迷路) / 会社の頭脳につなぐ(放射) -->
+      <section class="svc-sec bs-brain" aria-labelledby="bs-brain-t">
+        <div class="svc-heading is-center"><p>WHAT'S spinBase</p><h2 id="bs-brain-t">会社の<wbr>目標を<wbr>達成する<wbr>ための、<wbr>「第二の<wbr>脳」を<wbr>つくる。</h2><span>AIを<wbr>入れるだけでは、<wbr>一人<wbr>ひとりの<wbr>AIが<wbr>ばらばらに<wbr>動きます。<wbr>会社の<wbr>目標や<wbr>記録と<wbr>つなぐと、<wbr>全員と<wbr>AIが<wbr>同じ<wbr>目標を<wbr>見て<wbr>動けるようになります。</span></div>
+        <div class="bs-vs">
+          <figure class="bs-vs-card" aria-label="AIを入れただけの状態:やることがばらばらに進み、目標までに遠回りが生まれる">
+            <p class="bs-vs-tag">AIを<wbr>入れただけ</p>
+            <svg viewBox="0 0 240 200" aria-hidden="true">
+              <circle cx="120" cy="100" r="18" fill="#111"/><text x="120" y="104" text-anchor="middle" font-size="10" fill="#fff">目標</text>
+              <g fill="none" stroke="#9a9a9a" stroke-width="1.5">
+                <path d="M20 20 h40 v30 h-20 v30 h50 v10"/><path d="M220 24 v40 h-40 v-20 h-30 v40"/><path d="M24 180 h30 v-40 h40 v-20 h-30"/><path d="M216 176 h-40 v-30 h20 v-20 h-40 v-10"/><path d="M120 12 v20 h30 v30 h-20"/><path d="M120 190 v-20 h-30 v-30 h20"/>
+              </g>
+              <g fill="#111"><circle cx="20" cy="20" r="4"/><circle cx="220" cy="24" r="4"/><circle cx="24" cy="180" r="4"/><circle cx="216" cy="176" r="4"/><circle cx="120" cy="12" r="4"/><circle cx="120" cy="190" r="4"/></g>
+            </svg>
+            <figcaption>やる<wbr>ことがばらばらに<wbr>進み、<wbr>遠回りや<wbr>二度<wbr>手間が<wbr>生まれやすい</figcaption>
+          </figure>
+          <figure class="bs-vs-card is-after" aria-label="会社の目標・記録とつないだ状態:すべてのやることが同じ目標に向かう">
+            <p class="bs-vs-tag">会社の<wbr>目標・記録と<wbr>つなぐと</p>
+            <svg viewBox="0 0 240 200" aria-hidden="true">
+              <g stroke="#111" stroke-width="1.5">
+                <line x1="120" y1="100" x2="30" y2="30"/><line x1="120" y1="100" x2="210" y2="30"/><line x1="120" y1="100" x2="30" y2="170"/><line x1="120" y1="100" x2="210" y2="170"/><line x1="120" y1="100" x2="120" y2="14"/><line x1="120" y1="100" x2="120" y2="186"/><line x1="120" y1="100" x2="18" y2="100"/><line x1="120" y1="100" x2="222" y2="100"/>
+              </g>
+              <circle cx="120" cy="100" r="52" fill="none" stroke="#bbb" stroke-dasharray="3 4"/>
+              <g fill="#111"><circle cx="30" cy="30" r="5"/><circle cx="210" cy="30" r="5"/><circle cx="30" cy="170" r="5"/><circle cx="210" cy="170" r="5"/><circle cx="120" cy="14" r="5"/><circle cx="120" cy="186" r="5"/><circle cx="18" cy="100" r="5"/><circle cx="222" cy="100" r="5"/></g>
+              <circle cx="120" cy="100" r="22" fill="#FE8E15"/><text x="120" y="104" text-anchor="middle" font-size="11" font-weight="700" fill="#222">目標</text>
+            </svg>
+            <figcaption>すべての<wbr>やる<wbr>ことが<wbr>同じ<wbr>目標に<wbr>向かい、<wbr>チームの<wbr>力が<wbr>ひとつに<wbr>集まる</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 3. POINT 01:目標と現在地のあいだを、やることでつなぐ(入れ子の円+3段) -->
+      <section class="svc-sec svc-sec--gray bs-point" aria-labelledby="bs-p1-t">
+        <p class="bs-point-no">POINT <b>01</b></p>
+        <h2 id="bs-p1-t" class="bs-point-h">目標から<wbr>逆算して、<wbr>今日やる<wbr>ことを<wbr>決めます。</h2>
+        <p class="bs-point-lead">会社の<wbr>目標と<wbr>今の<wbr>差を、<wbr>チームの<wbr>目標、<wbr>一人<wbr>ひとりの<wbr>今日の<wbr>やる<wbr>ことへと<wbr>分けて<wbr>並べます。<wbr>どの<wbr>やる<wbr>ことも<wbr>目標の<wbr>下に<wbr>置かれるので、<wbr>意味の<wbr>ない<wbr>作業が<wbr>生まれに<wbr>くくなります。</p>
+        <div class="bs-p1">
+          <figure class="bs-nest" aria-label="入れ子の図:会社の目標の中にチームの目標、その中に今日のやること">
+            <div class="bs-nest-1"><small>会社の<wbr>目標</small><b>宿泊の<wbr>予約を、<br />年間で<wbr>1.2倍に</b>
+              <div class="bs-nest-2"><small>チームの<wbr>目標</small><b>予約の<wbr>半分を、<br />自社サイトから</b>
+                <div class="bs-nest-3"><small>今<wbr>日の<wbr>やる<wbr>こと</small><b>プラン説明を<br />書き直す</b></div>
+              </div>
+            </div>
+            
+          </figure>
+          <ol class="bs-steps">
+            <li><span>1</span><p class="bs-who">社長</p><h3>目標を<wbr>決める</h3><p>目指す状態を、<wbr>言葉に<wbr>して<wbr>書いておく。</p></li>
+            <li><span>2</span><p class="bs-who">仕組み</p><h3>今との<wbr>差を、やる<wbr>ことに<wbr>分ける</h3><p>次に<wbr>やる<wbr>ことを、<wbr>目標の<wbr>下に<wbr>並べる。</p></li>
+            <li><span>3</span><p class="bs-who">AI と<wbr> 社員</p><h3>やる<wbr>ことを<wbr>一緒に<wbr>進める</h3><p>迷ったら、<wbr>AIに<wbr>相談しながら<wbr>進められる。</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 4. POINT 02:目的も経緯も覚えている(会話の前と後) -->
+      <section class="svc-sec bs-point" aria-labelledby="bs-p2-t">
+        <p class="bs-point-no">POINT <b>02</b></p>
+        <h2 id="bs-p2-t" class="bs-point-h">AIが、<wbr>目的も<wbr>これまでの<wbr>経緯も<wbr>覚えています。</h2>
+        <p class="bs-point-lead">何を<wbr>目指していて、<wbr>前回どこまで<wbr>決まったか。<wbr>AIは<wbr>それを<wbr>読んでから<wbr>動くので、<wbr>毎回<wbr>説明し直す<wbr>手間が<wbr>減ります。<wbr>同じ<wbr>「続きを<wbr>進めて」でも、<wbr>返ってくる<wbr>ものが<wbr>変わります。</p>
+        <div class="bs-chat">
+          <figure class="bs-chat-card">
+            <p class="bs-vs-tag">AIだけ<b>毎回<wbr>ゼロから</b></p>
+            <div class="bs-bubble is-me">この続きを進めて。</div>
+            <div class="bs-bubble is-ai">何の続きですか？目的と、これまでの経緯を教えてください。</div>
+            <figcaption>会話が<wbr>終わると、<wbr>ゼロに<wbr>戻る</figcaption>
+          </figure>
+          <figure class="bs-chat-card is-after">
+            <p class="bs-vs-tag">会社の<wbr>目標・記録と<wbr>つなぐと<b>続きから<wbr>すぐ<wbr>動く</b></p>
+            <div class="bs-bubble is-me">この続きを進めて。</div>
+            <div class="bs-bubble is-ai">「秋の宿泊プラン」の続きですね。先週決めた方針に沿って、予約ページの説明文を3案つくりました。</div>
+            <ul class="bs-done"><li>ターゲットを<wbr>決めた<wbr>(先週)</li><li>料金の<wbr>見直し(先週)</li><li class="is-now">説明文を<wbr>つくる<wbr>(いま)</li></ul>
+            
+          </figure>
+        </div>
+      </section>
+
+      <!-- 5. POINT 03:進めるほど任せられることが増える(使い始め→1か月→1年) -->
+      <section class="svc-sec svc-sec--gray bs-point" aria-labelledby="bs-p3-t">
+        <p class="bs-point-no">POINT <b>03</b></p>
+        <h2 id="bs-p3-t" class="bs-point-h">進める<wbr>ほど、<wbr>AIに<wbr>任せられる<wbr>ことが<wbr>増えていく。</h2>
+        <p class="bs-point-lead">去年の<wbr>相談や、<wbr>その<wbr>とき<wbr>決めた<wbr>理由を、<wbr>今年の<wbr>仕事に<wbr>生かせます。<wbr>記録を<wbr>残し、<wbr>AIに<wbr>読ませる<wbr>範囲と、<wbr>人が<wbr>確認する<wbr>所を<wbr>決めて<wbr>いきます。</p>
+        <ol class="bs-grow">
+          <li><p class="bs-grow-when">使い<wbr>始め</p><div class="bs-grow-stack"></div><p class="bs-grow-ai"><small>AIの<wbr>答え</small>どんな<wbr>提案ですか？<wbr>目的から<wbr>教えてください。</p></li>
+          <li><p class="bs-grow-when">1か<wbr>月後</p><div class="bs-grow-stack"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="bs-grow-ai"><small>AIの<wbr>答え</small>前回の<wbr>方<wbr>針に<wbr>沿って、<wbr>続きを<wbr>作ります。</p></li>
+          <li class="is-year"><p class="bs-grow-when">1年後</p><div class="bs-grow-stack"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="bs-grow-ai"><small>AIの<wbr>答え</small>去年の<wbr>同じ<wbr>時期は<wbr>人手が<wbr>足りませんでした。<wbr>先に<wbr>募集を<wbr>出しましょう。</p></li>
+        </ol>
+        <p class="bs-legend"><span class="k1"></span>決めた<wbr>こと<wbr> <span class="k2"></span>議事録・会話 <span class="k3"></span>資料・成果物</p>
+      </section>
+
+      <!-- 6. POINT 04:道具がひとつに -->
+      <section class="svc-sec bs-point" aria-labelledby="bs-p4-t">
+        <p class="bs-point-no">POINT <b>04</b></p>
+        <h2 id="bs-p4-t" class="bs-point-h">チャットも<wbr>議事録も<wbr>数字も、<wbr>ひとつの<wbr>場所に<wbr>まとめます。</h2>
+        <p class="bs-point-lead">別々に<wbr>使っていた<wbr>ツールを<wbr>まとめると、<wbr>AIが<wbr>読める<wbr>情報も<wbr>ひとつの<wbr>場所に<wbr>そろいます。</p>
+        <div class="bs-tools">
+          <ul class="bs-tools-before"><li>チャット</li><li>議事録</li><li>顧客の<wbr>管理</li><li>やる<wbr>ことの<wbr>管理</li><li>資料の<wbr>保存場所</li><li>数字の<wbr>表</li></ul>
+          <p class="bs-tools-arrow" aria-hidden="true">→</p>
+          <div class="bs-tools-after"><b>ひとつの<wbr>場所</b><span>目標・やる<wbr>こと・経緯・顧客・数字・<wbr>資料</span></div>
+        </div>
+      </section>
+
+      <!-- 7. 見える範囲 -->
+      <section class="svc-sec svc-sec--dark bs-perm" aria-labelledby="bs-perm-t">
+        <div class="svc-heading is-light"><p>PERMISSIONS</p><h2 id="bs-perm-t">AIが<wbr>見られるのは、<wbr>その<wbr>社員が<wbr>見られる<wbr>範囲だけです。</h2></div>
+        <div class="bs-perm-grid">
+          <p class="bs-perm-text">AIが<wbr>読めるのは、<wbr>使う<wbr>社員の<wbr>方が<wbr>見る<wbr>権限を<wbr>持つ<wbr>目標や<wbr>資料だけに<wbr>なるよう<wbr>設定します。<wbr>人事や<wbr>経理など<wbr>見せない<wbr>情報は、<wbr>目標ごとに<wbr>分けて<wbr>置きます。</p>
+          <figure class="bs-perm-fig" aria-label="社員とAIは同じ範囲だけを見られる。見る権限のない人事・経理は見えない">
+            <div class="bs-perm-who"><span>社員</span><span>＝</span><span>AI</span></div>
+            <div class="bs-perm-ok"><small>見られる</small><b>営業の<wbr>進め方</b><b>新しい<wbr>プラン</b></div>
+            <div class="bs-perm-ng"><small>見られない</small><b>人事・評価</b><b>経理</b></div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 8. 使い方の例(宿/ベンチャー) -->
+      <section class="svc-sec bs-cases" aria-labelledby="bs-cases-t">
+        <div class="svc-heading"><p>USE CASES</p><h2 id="bs-cases-t">た<wbr>とえば、<wbr>こんな<wbr>会社で<wbr>使えます。</h2></div>
+        <div class="bs-case-grid">
+          <article class="bs-case"><p class="bs-vs-tag">宿・旅館</p><h3>目標:秋の<wbr>予約を、<wbr>去年より<wbr>増や<wbr>したい</h3>
+            <dl><dt>よく<wbr>ある<wbr>状況</dt><dd><ul><li>予約・問い<wbr>合わせ・口コミの<wbr>記録が、<wbr>別々の<wbr>場所に<wbr>ある</li><li>判断に<wbr>迷うと、<wbr>その<wbr>都度女将に<wbr>確認している</li><li>AIに<wbr>文章を<wbr>頼むたび、<wbr>宿の<wbr>説明から<wbr>始めている</li></ul></dd>
+            <dt>入れた<wbr>後</dt><dd><ul><li>予約・口コミ・<wbr>決めた<wbr>ことが、<wbr>目標の<wbr>下に<wbr>まとまる</li><li>過去の<wbr>判断の<wbr>理由を、<wbr>若手も<wbr>確認できる</li><li>AIが<wbr>宿の<wbr>ことを<wbr>知ったうえで、<wbr>案内文の<wbr>下書きを<wbr>出す</li></ul></dd></dl>
+          </article>
+          <article class="bs-case"><p class="bs-vs-tag">ベンチャー</p><h3>目標:今期、<wbr>新しい<wbr>サービスを<wbr>20社に<wbr>入れたい</h3>
+            <dl><dt>よく<wbr>ある<wbr>状況</dt><dd><ul><li>担当ごとに、<wbr>資料も<wbr>AIもばらばら</li><li>進み具合は、<wbr>毎週の<wbr>会議で<wbr>口頭で<wbr>確認</li><li>担当が<wbr>変わると、<wbr>引き継ぎ資料を<wbr>作り直す</li></ul></dd>
+            <dt>入れた<wbr>後</dt><dd><ul><li>導入先ごとの<wbr>やる<wbr>ことが<wbr>目標の<wbr>下に<wbr>並び、<wbr>進み具合を<wbr>チームで<wbr>追える</li><li>企画の<wbr>AIが<wbr>残した<wbr>提案を、<wbr>営業の<wbr>AIが<wbr>読んで<wbr>商談の<wbr>準備を<wbr>始める</li><li>担当が<wbr>変わっても、<wbr>各社との<wbr>経緯が<wbr>引き継がれる</li></ul></dd></dl>
+          </article>
+          <article class="bs-case"><p class="bs-vs-tag">建設・運送</p><h3>目標:今期、<wbr>元請けからの<wbr>受注を<wbr>増や<wbr>したい</h3>
+            <dl><dt>よく<wbr>ある<wbr>状況</dt><dd><ul><li>現場ごとの<wbr>段取りと<wbr>決めた<wbr>ことが、<wbr>社長の<wbr>電話と<wbr>メモに<wbr>ある</li><li>見積もりの<wbr>根拠が、<wbr>担当の<wbr>方の<wbr>経験の<wbr>中に<wbr>ある</li><li>AIに<wbr>頼むたび、<wbr>現場の<wbr>説明から<wbr>始めている</li></ul></dd>
+            <dt>入れた<wbr>後</dt><dd><ul><li>現場ごとの<wbr>やる<wbr>ことと<wbr>決めた<wbr>ことが、<wbr>目標の<wbr>下に<wbr>まとまる</li><li>過去の<wbr>見積もりの<wbr>根拠を、<wbr>若手も<wbr>確認できる</li><li>AIが<wbr>現場の<wbr>経緯を<wbr>踏まえて、<wbr>見積もりの<wbr>下書きを<wbr>出す</li></ul></dd></dl>
+          </article>
+        </div>
+      </section>
+
+      <!-- 9. spin roughが入ること(導入支援の価値) -->
+      <section class="svc-sec svc-sec--gray bs-role" aria-labelledby="bs-role-t">
+        <div class="svc-heading"><p>WHAT WE DO</p><h2 id="bs-role-t">設定して<wbr>終わりではなく、<wbr>社員の<wbr>方が<wbr>毎日<wbr>使えるようになるまで<wbr>支えます。</h2></div>
+        <ol class="bs-role-steps">
+          <li><span>01</span><h3>聞き取り</h3><p>今の<wbr>目標・仕事の<wbr>流れ・数字を<wbr>伺います。</p></li>
+          <li><span>02</span><h3>目標の<wbr>分け方を<wbr>設計</h3><p>会社の<wbr>目標を、<wbr>チームと<wbr>一人<wbr>ひとりの<wbr>やる<wbr>ことまで<wbr>分けます。</p></li>
+          <li><span>03</span><h3>初期設定と<wbr>移し替え</h3><p>今ある<wbr>資料や<wbr>記録を、<wbr>ひとつの<wbr>場所に<wbr>移します。</p></li>
+          <li><span>04</span><h3>AIが<wbr>記録を<wbr>読めるように<wbr>設定</h3><p>AIが<wbr>会社の<wbr>目標と<wbr>経緯を<wbr>読めるように<wbr>つなぎ、<wbr>繰り返しの<wbr>仕事を<wbr>自動化します。</p></li>
+          <li><span>05</span><h3>使い方の<wbr>説明と、<wbr>運用の<wbr>見直し</h3><p>社員の<wbr>方が<wbr>毎日<wbr>自分で<wbr>使えるようになるまで、<wbr>付き添います。</p></li>
+          <li><span>06</span><h3>保守・改善</h3><p>会社の<wbr>変化に<wbr>合わせて、<wbr>仕組みを<wbr>直し続けます。</p></li>
+        </ol>
+      </section>
+
+      <section class="svc-sec bs-faq" aria-labelledby="bs-faq-t">
+        <div class="svc-heading"><p>FAQ</p><h2 id="bs-faq-t">よく<wbr>ある<wbr>質問</h2></div>
+        <div class="bs-faq-list">
+          <details><summary>ChatGPTなどの<wbr>AIを<wbr>使うのと、<wbr>何が<wbr>違うのですか？</summary><p>会社の<wbr>目標や<wbr>仕事の<wbr>記録を<wbr>整理して、<wbr>AIが<wbr>毎回<wbr>それを<wbr>踏まえて<wbr>動けるように<wbr>する<wbr>点が<wbr>違います。<wbr>設定に<wbr>加えて、<wbr>社員の<wbr>方への<wbr>使い方の<wbr>説明まで<wbr>行います。</p></details>
+          <details><summary>今<wbr>使っている<wbr>ツールや<wbr>資料は、<wbr>そのまま<wbr>使えますか？</summary><p>今の<wbr>資料や<wbr>ツールを<wbr>確認して、<wbr>残すもの・移すものを<wbr>一緒に<wbr>整理します。</p></details>
+          <details><summary>ITに<wbr>詳しい<wbr>社員が<wbr>いなくても<wbr>大丈夫ですか？</summary><p>はい。<wbr>設計から<wbr>設定、<wbr>社員の<wbr>方が<wbr>使えるようになるまで、<wbr>spin roughが<wbr>担当します。</p></details>
+          <details><summary>料金は<wbr>いくらですか？</summary><p>会社の<wbr>規模と<wbr>入れる<wbr>範囲を<wbr>伺ったうえで、<wbr>面談時に<wbr>ご案内し、<wbr>契約前に<wbr>書面で<wbr>お示しします。</p></details>
+        </div>
+      </section>
+
+<section class="mz-contact" id="contact" aria-labelledby="contact-title">
+<div class="mz-heading"><p>CONTACT</p><h2 id="contact-title">まず、<wbr>話を<wbr>聞かせてください。</h2>
+</div>
+<div class="mz-contact-rows"><a class="consult-button" href="../contact/index.html"><span>相談する<wbr>（フォーム）</span><i aria-hidden="true">→</i></a><a class="contact-phone" href="tel:0344001442"><span>電話 03-4400-1442</span><i aria-hidden="true">→</i></a>
+</div>
+</section>    </main>
+
+    <a class="svc-float" href="../contact/index.html" aria-label="相談する"><span>相談する</span></a>
+
+    <footer class="mz-footer">
+      <div class="mz-footer-cols">
+        <nav class="mz-footer-nav" aria-label="サイトメニュー">
+          <a href="../index.html">TOP</a><a href="../about/index.html">spin roughに<wbr>ついて</a><a href="../ai/index.html">AI駆動経営とは</a><a href="../index.html#news">お知らせ</a><a href="../contact/index.html">お問い<wbr>合わせ</a>
+        </nav>
+        <div class="mz-footer-svc">
+          <p class="mz-footer-svc-h">サービス・事業</p>
+          <p class="mz-footer-svc-cat">AI駆動経営の<wbr>実装</p>
+          <a href="index.html">- spinBase AI導入支援</a><a href="../works/index.html">- spinWorks バックオフィス丸投げ</a><a href="../academy/index.html">- spinAcademy 社内の<wbr>AI駆動開発エンジニア育成</a><a href="../academy/index.html#train">- trAIn 個人向けAI駆動開発エンジニア育成</a>
+        </div>
+        <nav class="mz-footer-legal" aria-label="規約"><a href="../privacy/index.html">プライバシーポリシー</a><a href="../tokushoho/index.html">特定商取引法に<wbr>基づく<wbr>表記</a></nav>
+      </div>
+      <div class="mz-footer-bottom">
+        <div>
+          <p class="mz-footer-msg"><span>日本の<wbr>歴史と<wbr>心を、</span><span>22世紀へ<wbr>紡ぐ。</span></p>
+          <address>株式会社spin rough|東京都新宿区矢来町4番地11 Fullea神楽坂102</address>
+          <small>&copy; spin rough Inc. All Rights Reserved</small>
+        </div>
+        <p class="mz-footer-word" aria-hidden="true">spin rough</p>
+      </div>
+    </footer>
+    <script src="../js/header-v3.js"></script>
+  </body>
+</html>

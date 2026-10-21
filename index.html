@@ -1,297 +1,281 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>株式会社spin rough|AI駆動開発エンジニア育成スクールの運営</title>
-  <meta name="description" content="株式会社spin roughは、AI駆動開発エンジニア育成スクールを運営する会社です。全ての人が前を向いて生きる世界へ。市場価値と人間力を備えたIT×AI人材を育成します。">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="株式会社spin rough">
-  <meta property="og:title" content="株式会社spin rough|AI駆動開発エンジニア育成スクールの運営">
-  <meta property="og:description" content="株式会社spin roughは、AI駆動開発エンジニア育成スクールを運営する会社です。全ての人が前を向いて生きる世界へ。">
-  <meta property="og:url" content="https://spinrough.com/">
-  <meta property="og:image" content="https://spinrough.com/img/ogp.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=18">
-</head>
-<body>
-
-  <!-- ========== ヘッダー(全ページ共通) ========== -->
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a href="./" class="site-logo"><svg class="site-logo__svg" viewBox="0 0 340 92" role="img" aria-label="spin rough" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="lg-rough" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#FFAA00"/>
-              <stop offset="1" stop-color="#FF5307"/>
-            </linearGradient>
-          </defs>
-          <g transform="rotate(-4 170 46)">
-            <text x="36" y="52" font-family="Inter, sans-serif" font-size="40" font-weight="800" font-style="italic" fill="#FFFFFF">spin</text>
-            <text x="126" y="52" font-family="Inter, sans-serif" font-size="40" font-weight="800" font-style="italic" fill="url(#lg-rough)">rough</text>
-            <path d="M4 74 L172 71" stroke="rgba(255,255,255,0.35)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M172 71 C 230 70, 260 48, 316 26" stroke="url(#lg-rough)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M172 71 C 230 71, 262 68, 318 62" stroke="url(#lg-rough)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M172 71 C 228 73, 258 86, 310 96" stroke="url(#lg-rough)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <circle cx="322" cy="24" r="8" fill="#FF7A1A"/>
-            <circle cx="325" cy="62" r="8" fill="#FF7A1A"/>
-            <circle cx="316" cy="97" r="8" fill="#FF7A1A"/>
-          </g>
-        </svg></a>
-
-      <button class="nav-toggle" aria-expanded="false" aria-controls="global-nav" aria-label="メニューを開閉する">
-        <span class="nav-toggle__lines" aria-hidden="true">
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-        </span>
-        <span class="nav-toggle__label" aria-hidden="true"></span>
-      </button>
-
-      <nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション">
-        <ul class="global-nav__list">
-          <li><a class="global-nav__link link-line" href="./" aria-current="page">TOP</a></li>
-          <li><a class="global-nav__link link-line" href="about/">ABOUT US</a></li>
-          <li><a class="global-nav__link link-line" href="business/">BUSINESS</a></li>
-          <li><a class="global-nav__link link-line" href="company/">COMPANY</a></li>
-          <li class="global-nav__cta">
-            <a class="btn btn--primary" href="contact/">お問い合わせ<span class="btn__arrow">&rarr;</span></a>
-          </li>
-        </ul>
-      </nav>
+<!doctype html>
+<html class="wbr" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+    // 画像が一時的に読めなかった時は、消さずに読み直す(最大3回・0.6秒ずつ間を空ける)。2026-10-19
+    (() => {
+      document.addEventListener('error', (e) => {
+        const img = e.target;
+        if (!(img instanceof HTMLImageElement)) return;
+        const n = Number(img.dataset.retry || 0);
+        if (n >= 3) return;
+        img.dataset.retry = String(n + 1);
+        const src = img.getAttribute('src'), srcset = img.getAttribute('srcset');
+        img.removeAttribute('srcset'); img.removeAttribute('src');
+        setTimeout(() => { if (srcset) img.setAttribute('srcset', srcset); if (src) img.setAttribute('src', src); }, 600 * (n + 1));
+      }, true);
+    })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>株式会社spin rough|継ぐ。磨く。紡ぐ。</title>
+    <meta
+      name="description"
+      content="日本の歴史と心を、22世紀へ紡ぐ。事務や連絡に取られていた時間を本業へ戻し、人が技ともてなしに集中できる会社をつくります。"
+    />
+    <link rel="icon" href="favicon.png" sizes="64x64" />
+    <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preload" as="image" href="assets/logo-full.png" />
+    <link rel="preload" as="image" imagesrcset="assets/gen/noren-full-960.webp 960w, assets/gen/noren-full-1600.webp 1600w" imagesizes="100vw" />
+    <link rel="preload" as="image" imagesrcset="assets/gen/hero-human-960.webp 960w, assets/gen/hero-human-1600.webp 1600w" imagesizes="(max-width: 760px) 41vw, 46vw" />
+    <link rel="preload" as="image" imagesrcset="assets/gen/hero-robot-960.webp 960w, assets/gen/hero-robot-1600.webp 1600w" imagesizes="(max-width: 760px) 41vw, 46vw" />
+    <meta property="og:title" content="株式会社spin rough|継ぐ。磨く。紡ぐ。" />
+    <meta property="og:description" content="日本の歴史と心を、22世紀へ紡ぐ。事務や連絡に取られていた時間を本業へ戻し、人が技ともてなしに集中できる会社をつくります。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="株式会社spin rough" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://spinrough.com/assets/ogp.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://spinrough.com/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&amp;family=Shippori+Mincho:wght@500;600&amp;family=Zen+Kaku+Gothic+New:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header-v3.css" />
+    <link rel="stylesheet" href="css/top-company.css" />
+    <link rel="stylesheet" href="css/mz.css" />
+    <!-- 開幕の演出。js/intro.js と同じ内容を直接書いている(2026-10-21) -->
+    <script>
+// 開幕:ロゴの幕 → 暖簾が開く → 奥からページが浮かび上がり、横顔と「継ぐ。磨く。紡ぐ。」が現れる。
+// 山田さんの決定(2026-10-18):毎回見せる。タップ・Enter・Escで飛ばせる。動きを減らす設定と ?noanim では出さない。
+// 2026-10-21:間合いは元のまま(ロゴ1.8秒→暖簾)。暖簾の写真がまだ描けない時だけ、最長1.2秒待ってから開ける。
+// 読み込みに失敗した画像は読み直す(各ページ共通の処理)。index.html に同じ内容を直接書いている(ファイルが読めなくても開幕が出るように)。
+(() => {
+  const html = document.documentElement;
+  const query = new URLSearchParams(location.search);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  if (reduce.matches || query.has('noanim')) return;
+  const LOGO = 1800;      // ロゴを見せる時間
+  const OPEN = 3300;      // 暖簾が開き、ページが浮かび上がり切るまで
+  const WAIT_MAX = 3000;  // 暖簾の写真を待つ上限(開始から)
+  let t2, opened = false, finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true; clearTimeout(t2);
+    html.classList.add('intro-doors-open');
+    html.classList.remove('intro-playing');
+    if (!location.hash) window.scrollTo(0, 0);
+    setTimeout(() => html.classList.remove('intro-doors-open'), 50);
+    document.removeEventListener('pointerdown', finish);
+    document.removeEventListener('keydown', keySkip);
+  };
+  const keySkip = (e) => { if (e.key === 'Enter' || e.key === 'Escape') { e.preventDefault(); finish(); } };
+  // 再読み込みで前の位置に戻ると、幕が開いた先がページの途中になる。開幕は必ず先頭から
+  try { history.scrollRestoration = 'manual'; } catch (_) {}
+  window.scrollTo(0, 0);
+  html.classList.add('intro-playing');
+  document.addEventListener('pointerdown', finish, { once: true });
+  document.addEventListener('keydown', keySkip);
+  const open = () => {
+    if (opened || finished) return;
+    opened = true;
+    html.classList.add('intro-doors-open');
+    t2 = setTimeout(finish, OPEN);
+  };
+  // 暖簾の写真が「描ける」まで待つ(読み込み→デコード。読み直しで後から読めた時も拾う)
+  const drawable = (img) => new Promise((res) => {
+    const done = () => { img.removeEventListener('load', onLoad); res(); };
+    const onLoad = () => { (img.decode ? img.decode().catch(() => {}) : Promise.resolve()).then(done); };
+    if (img.complete && img.naturalWidth > 0) { onLoad(); return; }
+    img.addEventListener('load', onLoad);
+  });
+  const norenReady = () => new Promise((res) => {
+    const collect = () => {
+      const noren = document.querySelectorAll('.noren-photo');
+      if (!noren.length) { setTimeout(collect, 100); return; }
+      Promise.all([...noren].map(drawable)).then(res);
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', collect, { once: true }); else collect();
+  });
+  const start = Date.now();
+  Promise.race([norenReady(), new Promise((res) => setTimeout(res, WAIT_MAX))]).then(() => {
+    const rest = LOGO - (Date.now() - start);
+    setTimeout(open, rest > 0 ? rest : 0);
+  });
+  reduce.addEventListener('change', (e) => { if (e.matches) finish(); });
+})();
+    </script>
+  </head>
+  <body class="company-top">
+    <div class="intro" aria-hidden="true">
+      <img src="assets/logo-full.png" alt="" width="420" height="411" decoding="async" fetchpriority="high" />
     </div>
-  </header>
 
-  <main class="site-main">
+    <div class="noren" data-doors aria-hidden="true">
+      <div class="noren-panel noren-panel--left"><div class="noren-cloth"><picture class="noren-picture"><img class="noren-photo" src="assets/gen/noren-full-1600.webp" srcset="assets/gen/noren-full-960.webp 960w, assets/gen/noren-full-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="" decoding="async" fetchpriority="high" /></picture><img class="noren-mark" src="assets/logo-mark.svg" alt="" width="1260" height="1388" decoding="async" /></div></div>
+      <div class="noren-panel noren-panel--right"><div class="noren-cloth"><picture class="noren-picture"><img class="noren-photo" src="assets/gen/noren-full-1600.webp" srcset="assets/gen/noren-full-960.webp 960w, assets/gen/noren-full-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="" decoding="async" fetchpriority="high" /></picture><img class="noren-mark" src="assets/logo-mark.svg" alt="" width="1260" height="1388" decoding="async" /></div></div>
+    </div>
 
-    <!-- ===== 01 / Mission:ヒーロー ===== -->
-    <section class="hero">
-      <!-- 背景動画:Before→Afterのクロスフェードループ(7秒周期)
-           Before = Mixkit ID 4454「People in the subway hall in Tokyo」(通勤の群衆=下を向く時代)
-           After  = Mixkit ID 16464「Sunrise over a dark city」(暗い街に朝日=変化)
-           いずれもMixkit Free License:商用可・クレジット不要。PC=720p / SP=360pをJSで出し分け -->
-      <div class="hero__bg" aria-hidden="true">
-        <video class="hero__video hero__video--before is-active" muted loop playsinline autoplay preload="metadata"
-               poster="img/hero-before.jpg"
-               data-src-pc="img/hero-before.mp4"
-               data-src-sp="img/hero-before-sp.mp4"></video>
-        <video class="hero__video hero__video--after" muted loop playsinline preload="metadata"
-               poster="img/hero.jpg"
-               data-src-pc="img/hero.mp4"
-               data-src-sp="img/hero-sp.mp4"></video>
-      </div>
+    <header class="site-header gh" aria-label="サイトヘッダー">
+      <a class="gh-logo header-logo" href="index.html" aria-label="spin rough トップ"><img src="assets/logo-type.svg" alt="spin rough" width="472" height="90" decoding="async" /></a>
+      <nav class="gh-nav" aria-label="主要メニュー">
+        <a href="about/index.html">spin roughについて</a>
+        <a href="ai/index.html">AI駆動経営とは</a>
+        <a href="index.html#business">サービス・事業</a>
+        <a href="base/index.html">spinBase</a>
+        <a href="academy/index.html">spinAcademy</a>
+        <a href="works/index.html">spinWorks</a>
+      </nav>
+      <a class="gh-contact" href="contact/index.html"><span class="gh-contact-en">CONTACT</span><small>相談する</small></a>
+      <button class="gh-burger" type="button" aria-expanded="false" aria-controls="gh-menu" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </header>
+    <div class="gh-menu" id="gh-menu">
+      <nav class="gh-menu-nav" aria-label="スマホメニュー">
+        <a href="index.html">トップ<small>TOP</small></a>
+        <a href="about/index.html">spin roughに<wbr>ついて<small>ABOUT</small></a>
+        <a href="ai/index.html">AI駆動経営とは<small>CONCEPT</small></a>
+        <a href="index.html#business">サービス・事業<small>SERVICE</small></a>
+        <a href="base/index.html">spinBase<small>AI導入支援</small></a>
+        <a href="academy/index.html">spinAcademy<small>社内エンジニア育成</small></a>
+        <a href="works/index.html">spinWorks<small>バックオフィス丸投げ</small></a>
 
-      <div class="container hero__content">
-        <span class="section-label hero-fade hero-fade--1">Mission<span class="section-label__jp">ミッション</span></span>
-        <h1 class="heading-hero">
-          <span class="wipe-auto">全ての人が</span>
-          <span class="wipe-auto wipe-auto--2">前を向いて生きる</span>
-          <span class="wipe-auto wipe-auto--3">世界へ</span>
+      </nav>
+      <a class="gh-menu-contact" href="contact/index.html">相談する</a>
+      <a class="gh-menu-tel" href="tel:0344001442">03-4400-1442</a>
+    </div>
+
+    <main id="top">
+      
+
+      <section class="gate" aria-labelledby="hero-title">
+        <figure class="gate-face gate-face--human">
+          <img src="assets/gen/hero-human.webp" alt="右を向いた職人の横顔" decoding="async" fetchpriority="high" width="1086" height="1448" srcset="assets/gen/hero-human-960.webp 960w, assets/gen/hero-human-1600.webp 1600w" sizes="(max-width: 760px) 41vw, 46vw" />
+        </figure>
+        <h1 id="hero-title" class="gate-catch">
+          <span>継ぐ。</span><span>磨く。</span><span>紡ぐ。</span>
         </h1>
-        <div class="grid-12" style="margin-top: 56px;">
-          <p class="lead hero-fade hero-fade--1 gc-r6">
-            AIの台頭がもたらす変化を、不安ではなく、人生の選択肢に変える学びをつくっています。
-          </p>
+        <figure class="gate-face gate-face--tech">
+          <img src="assets/gen/hero-robot.webp" alt="左を向いたロボットの横顔" decoding="async" fetchpriority="high" width="1086" height="1448" srcset="assets/gen/hero-robot-960.webp 960w, assets/gen/hero-robot-1600.webp 1600w" sizes="(max-width: 760px) 41vw, 46vw" />
+        </figure>
+        <div class="gate-lead">
+          <p class="gate-lead-en">AI-DRIVEN MANAGEMENT</p>
+          <p class="gate-lead-copy"><span class="ph">AIで、<wbr>人を<wbr>増や<wbr>さずに</span><span class="ph">回る<wbr>会社を<wbr>つくる。</span></p>
+          <p class="gate-lead-svc"><a href="base/index.html">AI導入支援</a><a href="works/index.html">バックオフィス丸投げ</a><a href="academy/index.html">社内エンジニア育成</a></p>
         </div>
-        <div class="hero-fade hero-fade--2" style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 16px;">
-          <a class="btn btn--primary" href="business/">事業内容を見る<span class="btn__arrow">&rarr;</span></a>
-          <a class="btn btn--ghost-dark" href="about/">私たちについて<span class="btn__arrow">&rarr;</span></a>
+        
+
+      </section>
+
+
+      <section class="mz-news" id="news" aria-labelledby="news-title"><div class="mz-heading"><p>NEWS</p><h2 id="news-title">お知らせ</h2></div><ul class="mz-news-list"><li><time datetime="2026-10-21">2026.10.21</time><h3>コーポレートサイトを<wbr>リニューアルしました</h3></li><li><time datetime="2026-08-04">2026.08.04</time><h3>コーポレートサイトを<wbr>公開しました</h3></li><li><time datetime="2026-07-31">2026.07.31</time><h3>株式会社spin roughを<wbr>設立しました</h3></li></ul></section>
+
+      <section class="mz-whats" id="concept" aria-labelledby="concept-title">
+        <div class="mz-whats-panel">
+          <h2 id="concept-title" class="mz-whats-title">AI駆動経営とは</h2>
+          <p class="mz-whats-en">What's AI-DRIVEN MANAGEMENT</p>
+          <p class="mz-whats-claim"><span class="ph">人を<wbr>増やさなくても、</span><span class="ph">会社が<wbr>回る。</span><span class="ph">AIが<wbr>自分で<wbr>仕事を<wbr>進める</span><span class="ph">経営です。</span></p>
+          <p class="mz-whats-body">会社の<wbr>データ基盤を<wbr>整えて、<wbr>日報から<wbr>請求書づくりまでを<wbr>AIに<wbr>任せます。<wbr>社長も<wbr>社員も、<wbr>人に<wbr>しかできない<wbr>仕事に<wbr>時間を<wbr>使えるようになります。</p>
+          <a class="mz-more" href="ai/index.html">View more</a>
         </div>
-      </div>
+        <figure class="mz-whats-photo"><img src="assets/gen/what-together.webp" alt="現場の脇で同じ書類を見ながら話す二人" loading="lazy" width="1672" height="941" decoding="async" /></figure>
+      </section>
 
-      <div class="hero__scroll" aria-hidden="true">Scroll</div>
-    </section>
+      <section class="mz-services js-invert" id="business" aria-labelledby="business-title">
+        <p class="mz-ghost" aria-hidden="true">AI-DRIVEN</p>
+        <div class="mz-heading is-light"><p>SERVICES</p><h2 id="business-title">提供サービス</h2></div>
 
-    <!-- ===== 信頼要素の帯 ===== -->
-    <div class="trust-band">
-      <div class="container">
-        <ul class="trust-band__list">
-          <li class="trust-band__item">東京都新宿区(神楽坂)</li>
-          <li class="trust-band__item">設立 2026年7月</li>
-          <li class="trust-band__item">AI駆動開発エンジニア育成スクールの運営</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 無限ティッカー(装飾) -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker__track">
-        <span class="ticker__item">SPIN ROUGH — LOOK UP, MOVE FORWARD —&nbsp;</span>
-        <span class="ticker__item">SPIN ROUGH — LOOK UP, MOVE FORWARD —&nbsp;</span>
-      </div>
-    </div>
-
-    <!-- ===== 02 / About:私たちについて ===== -->
-    <section class="section section--light has-ghost" style="position: relative;">
-      <span class="ghost-text ghost-text--bl" aria-hidden="true">MISSION</span>
-      <div class="container" style="position: relative;">
-        <div class="grid-12">
-          <div class="gc-l6 reveal">
-            <span class="section-label">02 / About Us</span>
-            <h2 class="heading-lg">AIの時代を、<br>追い風に変える。</h2>
+        <div class="mz-cat">
+          <div class="mz-cat-banner">
+            <p class="mz-cat-en"><span>AI-DRIVEN</span><span>MANAGEMENT</span></p>
+            <h3 class="mz-cat-ja">AI駆動経営の<wbr>実装</h3>
+            <figure><img src="assets/gen/hero-robot.webp" alt="" loading="lazy" /></figure>
           </div>
-          <div class="gc-r6 self-end reveal">
-            <p>
-              スマートフォンをのぞき込み、下を向く時間が長くなった時代。AIの台頭は、多くの人にとって新しい不安の種にもなっています。spin roughは、その不安を「明日へのワクワク」に変える学びをつくるために生まれた会社です。
-            </p>
-            <div style="margin-top: 32px;">
-              <a class="btn btn--ghost-light" href="about/">私たちについて<span class="btn__arrow">&rarr;</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          <p class="mz-cat-desc">AIを<wbr>仕事で<wbr>使えるように<wbr>する<wbr>ところから、<wbr>事務の<wbr>代行、<wbr>社員の<wbr>育成まで、<wbr>3つの<wbr>形で<wbr>お手伝いします。<wbr>どこから<wbr>始めるかは、<wbr>今の<wbr>仕事を<wbr>伺ってから<wbr>一緒に<wbr>決めます。</p>
 
-    <!-- ===== 03 / Business:事業内容 ===== -->
-    <section class="section section--dark has-ghost">
-      <span class="ghost-text ghost-text--tr" aria-hidden="true">BUSINESS</span>
-      <div class="container">
-        <div class="grid-12">
-          <div class="gc-l6 reveal">
-            <span class="section-label">03 / Business</span>
-            <h2 class="heading-lg">AI駆動開発<br>エンジニア育成スクール</h2>
+          <div class="mz-map" role="img" aria-label="今の会社からAIが働く会社までの道のりと、3つの事業の位置">
+            <svg class="mz-map-band" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="mzband" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".35" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity=".95"/></linearGradient></defs>
+              <path d="M110 300 L905 60" stroke="url(#mzband)" stroke-width="34" stroke-linecap="round" fill="none"/>
+            </svg>
+            <p class="mz-map-node is-start">今の<br />会社</p>
+            <p class="mz-map-node is-goal">AIが<br />働く<wbr>会社</p>
+            <a class="mz-map-stop" style="--x:26%;--y:63.7%" href="base/index.html"><i></i><b>spinBase</b><span>仕事で<wbr>使えるように<wbr>する</span></a>
+            <a class="mz-map-stop" style="--x:50%;--y:45.6%" href="works/index.html"><i></i><b>spinWorks</b><span>事務と<wbr>開発を<wbr>引き受ける</span></a>
+            <a class="mz-map-stop" style="--x:74%;--y:27.4%" href="academy/index.html"><i></i><b>spinAcademy</b><span>自社で<wbr>作れる<wbr>人を<wbr>育てる</span></a>
+            <div class="mz-map-axis"><span>仕組みを<wbr>入れる</span><span>人を<wbr>育てる</span></div>
           </div>
-          <div class="gc-r6 self-end reveal">
-            <p>
-              市場価値と人間力を備えたIT×AI人材を最短で育成し、人生の選択肢を広げる基盤を構築します。
-            </p>
+
+          <div class="mz-cards">
+            <a class="mz-card" href="base/index.html"><figure><img src="assets/gen/omote-yado.webp" alt="" loading="lazy" /><b>spinBase</b></figure><h4>AI導入支援</h4><p>社長が<wbr>毎回<wbr>説明しなくても、<wbr>社員と<wbr>AIが<wbr>目標と<wbr>これまでの<wbr>経緯を<wbr>確認して<wbr>動ける<wbr>会社に。</p><span class="mz-more is-light">View more</span></a>
+            <a class="mz-card" href="works/index.html"><figure><img src="assets/gen/hero-site-1.webp" alt="" loading="lazy" /><b>spinWorks</b></figure><h4>バックオフィス丸投げ</h4><p>月末の<wbr>書類づくりを、<wbr>社長が<wbr>やらなくて<wbr>済むようにします。<wbr>日報の<wbr>整理から<wbr>請求書の<wbr>作成まで、<wbr>事務を<wbr>まとめて<wbr>引き受けます。</p><span class="mz-more is-light">View more</span></a>
+            <a class="mz-card" href="academy/index.html"><figure><img src="assets/gen/omote-koba.webp" alt="" loading="lazy" /><b>spinAcademy</b></figure><h4>社内の<wbr>AI駆動開発エンジニア育成</h4><p>ちょっとした<wbr>画面の<wbr>直しの<wbr>たびに、<wbr>外注の<wbr>見積もりを<wbr>待っていませんか。<wbr>現場を<wbr>知る<wbr>社員が<wbr>自分で<wbr>直せるように、<wbr>AIを<wbr>使った<wbr>開発を<wbr>教えます。<wbr>個人向けには<wbr>「trAIn」も<wbr>あります。</p><span class="mz-more is-light">View more</span></a>
           </div>
         </div>
-        <div class="feature-list reveal">
-          <div class="feature">
-            <span class="feature__no">01</span>
-            <h3 class="feature__title">最短ルート設計</h3>
-            <p class="feature__desc">基礎から応用まで、無駄なく最短で市場価値に到達するカリキュラム。</p>
+      </section>
+
+      <section class="mz-about" id="about" aria-labelledby="about-title">
+        <p class="mz-ghost-word" aria-hidden="true">spin rough</p>
+        <figure class="mz-about-mark"><img src="assets/logo-mark.svg" alt="" /></figure>
+        <div class="mz-about-copy">
+          <div class="mz-head">
+            <div class="mz-heading"><p>ABOUT</p><h2 id="about-title">spin roughに<wbr>ついて</h2></div>
+            <a class="mz-more" href="about/index.html">View more</a>
           </div>
-          <div class="feature">
-            <span class="feature__no">02</span>
-            <h3 class="feature__title">技術 × 人間力</h3>
-            <p class="feature__desc">スキルだけでなく、「この人にお願いしたい」と言われる人材へ。</p>
-          </div>
-          <div class="feature">
-            <span class="feature__no">03</span>
-            <h3 class="feature__title">出口の高さ</h3>
-            <p class="feature__desc">やり切れば、企業に伴走し経営課題まで解決するFDE(ディレクター人材)に到達できる。</p>
-          </div>
+          <p class="mz-about-claim">日本の<wbr>歴史と<wbr>心を、<wbr>22世紀へ<wbr>紡ぐ。</p>
+          <p class="mz-about-body">株式会社spin roughは<wbr>「日本の<wbr>歴史と<wbr>心を、<wbr>22世紀へ<wbr>紡ぐ。」を<wbr>ミッションに、<wbr>AIの<wbr>導入支援、<wbr>事務の<wbr>代行、<wbr>社内エンジニアの<wbr>育成と<wbr>いう<wbr>3つの<wbr>事業を<wbr>行っています。</p>
         </div>
-        <div class="reveal" style="margin-top: 48px;">
-          <a class="btn btn--ghost-dark" href="business/">事業内容を詳しく見る<span class="btn__arrow">&rarr;</span></a>
+      </section>
+
+      <section class="mz-contact" id="contact" aria-labelledby="contact-title">
+        <div class="mz-heading"><p>CONTACT</p><h2 id="contact-title">お問い<wbr>合わせ</h2></div>
+        <div class="mz-contact-rows">
+          <a href="contact/index.html"><span>仕事の<wbr>ご相談は<wbr>こちら</span><i aria-hidden="true">→</i></a>
+          <a href="contact/index.html"><span>その<wbr>他の<wbr>お問い<wbr>合わせは<wbr>こちら</span><i aria-hidden="true">→</i></a>
+          <a href="tel:0344001442"><span>お電話での<wbr>ご相談 03-4400-1442</span><i aria-hidden="true">→</i></a>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- ===== 04 / Company:会社概要 ===== -->
-    <section class="section section--light">
-      <div class="container">
-        <div class="grid-12">
-          <div class="gc-l5 reveal">
-            <span class="section-label">04 / Company</span>
-            <h2 class="heading-lg">会社概要</h2>
-            <p style="margin-top: 24px;">
-              私たちは情報の透明性を大切にしています。商号・所在地・代表者などの基本情報を公開しています。
-            </p>
-          </div>
-          <div class="gc-r6 reveal">
-            <dl class="fact-list">
-              <div class="fact">
-                <dt>商号</dt>
-                <dd>株式会社spin rough(スピンラフ)</dd>
-              </div>
-              <div class="fact">
-                <dt>代表者</dt>
-                <dd>代表取締役 大塚 蔵人</dd>
-              </div>
-              <div class="fact">
-                <dt>所在地</dt>
-                <dd>東京都新宿区矢来町4番地11 Fullea神楽坂102</dd>
-              </div>
-            </dl>
-            <div style="margin-top: 32px;">
-              <a class="btn btn--ghost-light" href="company/">会社概要を見る<span class="btn__arrow">&rarr;</span></a>
-            </div>
-          </div>
+    <footer class="mz-footer">
+      <div class="mz-footer-cols">
+        <nav class="mz-footer-nav" aria-label="サイトメニュー">
+          <a href="index.html">TOP</a><a href="about/index.html">spin roughに<wbr>ついて</a><a href="ai/index.html">AI駆動経営とは</a><a href="index.html#news">お知らせ</a><a href="contact/index.html">お問い<wbr>合わせ</a>
+        </nav>
+        <div class="mz-footer-svc">
+          <p class="mz-footer-svc-h">サービス・事業</p>
+          <p class="mz-footer-svc-cat">AI駆動経営の<wbr>実装</p>
+          <a href="base/index.html">- spinBase AI導入支援</a><a href="works/index.html">- spinWorks バックオフィス丸投げ</a><a href="academy/index.html">- spinAcademy 社内の<wbr>AI駆動開発エンジニア育成</a><a href="academy/index.html#train">- trAIn 個人向けAI駆動開発エンジニア育成</a>
         </div>
+        <nav class="mz-footer-legal" aria-label="規約"><a href="privacy/index.html">プライバシーポリシー</a><a href="tokushoho/index.html">特定商取引法に<wbr>基づく<wbr>表記</a></nav>
       </div>
-    </section>
-
-    <!-- ===== 05 / Contact:お問い合わせ ===== -->
-    <section class="section section--dark has-ghost">
-      <span class="ghost-text ghost-text--bl" aria-hidden="true">CONTACT</span>
-      <div class="container">
-        <div class="grid-12">
-          <div class="gc-l6 reveal">
-            <span class="section-label">05 / Contact</span>
-            <h2 class="heading-lg">まずは、お気軽に<br>ご相談ください。</h2>
-          </div>
-          <div class="gc-r6 self-end reveal">
-            <p>
-              受講に関するご質問・ご相談など、お問い合わせフォームよりご連絡ください。
-            </p>
-            <div style="margin-top: 32px;">
-              <a class="btn btn--primary" href="contact/">お問い合わせ<span class="btn__arrow">&rarr;</span></a>
-            </div>
-          </div>
+      <div class="mz-footer-bottom">
+        <div>
+          <p class="mz-footer-msg"><span>日本の<wbr>歴史と<wbr>心を、</span><span>22世紀へ<wbr>紡ぐ。</span></p>
+          <address>株式会社spin rough|東京都新宿区矢来町4番地11 Fullea神楽坂102</address>
+          <small>&copy; spin rough Inc. All Rights Reserved</small>
         </div>
+        <p class="mz-footer-word" aria-hidden="true">spin rough</p>
       </div>
-    </section>
+    </footer>
 
-  </main>
-
-  <!-- ========== フッター(全ページ共通) ========== -->
-  <footer class="site-footer">
-    <div class="container site-footer__cta">
-      <a class="site-footer__cta-link" href="contact/">お問い合わせ<span class="btn__arrow">&rarr;</span></a>
-      <p class="site-footer__cta-sub">ご相談・ご質問はお気軽にどうぞ。無理な勧誘は行いません。</p>
-    </div>
-    <div class="container site-footer__inner">
-      <div>
-        <a href="./" class="site-logo"><svg class="site-logo__svg" viewBox="0 0 340 92" role="img" aria-label="spin rough" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="lg-rough" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#FFAA00"/>
-              <stop offset="1" stop-color="#FF5307"/>
-            </linearGradient>
-          </defs>
-          <g transform="rotate(-4 170 46)">
-            <text x="36" y="52" font-family="Inter, sans-serif" font-size="40" font-weight="800" font-style="italic" fill="#FFFFFF">spin</text>
-            <text x="126" y="52" font-family="Inter, sans-serif" font-size="40" font-weight="800" font-style="italic" fill="url(#lg-rough)">rough</text>
-            <path d="M4 74 L172 71" stroke="rgba(255,255,255,0.35)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M172 71 C 230 70, 260 48, 316 26" stroke="url(#lg-rough)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M172 71 C 230 71, 262 68, 318 62" stroke="url(#lg-rough)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M172 71 C 228 73, 258 86, 310 96" stroke="url(#lg-rough)" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <circle cx="322" cy="24" r="8" fill="#FF7A1A"/>
-            <circle cx="325" cy="62" r="8" fill="#FF7A1A"/>
-            <circle cx="316" cy="97" r="8" fill="#FF7A1A"/>
-          </g>
-        </svg></a>
-        <p class="site-footer__company">
-          株式会社spin rough<br>
-          東京都新宿区矢来町4番地11 Fullea神楽坂102
-        </p>
-      </div>
-
-      <nav class="site-footer__nav" aria-label="フッターナビゲーション">
-        <a class="link-line" href="./">トップ</a>
-        <a class="link-line" href="about/">私たちについて</a>
-        <a class="link-line" href="business/">事業内容</a>
-        <a class="link-line" href="company/">会社概要</a>
-        <a class="link-line" href="contact/">お問い合わせ</a>
-      </nav>
-    </div>
-
-    <div class="container site-footer__legal">
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px;">
-        <a class="link-line" href="privacy/">プライバシーポリシー</a>
-        <a class="link-line" href="tokushoho/">特定商取引法に基づく表記</a>
-      </div>
-      <small class="site-footer__copy">&copy; 2026 spin rough Inc.</small>
-    </div>
-  </footer>
-
-  <script src="js/main.js?v=18"></script>
-</body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/main.js"></script>
+    <script src="js/top-company.js"></script>
+      <script src="js/header-v3.js"></script>
+  </body>
 </html>

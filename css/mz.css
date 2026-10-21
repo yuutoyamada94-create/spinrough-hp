@@ -1,0 +1,201 @@
+@import url('tokens.css');
+/* ==========================================================
+   トップ:ミズカラ(mizukara.com)のトップ構成をトレース(2026-10-18)
+   NEWS → 〇〇とは(灰色パネル×写真) → SERVICES(背景が黒に反転・巨大な縦の英字・道のりの図解・写真カード)
+   → ABOUT(巨大ロゴ+巨大ワードマーク) → CONTACT(3行) → 黒いフッター
+   ========================================================== */
+:root { --mz-pad: clamp(20px, 7vw, 120px); --mz-gray: #f2f2f2; }
+.mz-heading p { margin: 0; font-family: "Jost", sans-serif; font-weight: 500; font-size: clamp(26px, 2.6vw, 36px); letter-spacing: .02em; line-height: 1; }
+.mz-heading h2 { margin: 10px 0 0; font-size: 14px; font-weight: 700; letter-spacing: .08em; line-height: 1; }
+.mz-heading.is-light { color: #fff; }
+.mz-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.mz-more { display: inline-flex; align-items: center; gap: 18px; padding: 9px 18px 9px 22px; border: 1px solid #111; border-radius: 999px; color: #111; background: #fff;
+  font-family: "Jost", sans-serif; font-size: 12px; letter-spacing: .06em; text-decoration: none; white-space: nowrap; }
+.mz-more::after { content: "→"; font-size: 13px; }
+.mz-more.is-light { border-color: #fff; }
+@media (hover: hover) { .mz-more { transition: background-color .3s, color .3s; } .mz-more:hover { background: #111; color: #fff; } }
+
+/* NEWS */
+.mz-news { padding: clamp(64px, 8vw, 120px) var(--mz-pad); }
+.mz-news-list { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 32px; }
+@media (min-width: 761px) { .mz-news-list { grid-template-columns: repeat(3, 1fr); } }
+.mz-news-list a { display: block; color: inherit; text-decoration: none; }
+.mz-news-list figure { margin: 0; aspect-ratio: 16 / 9; display: grid; place-items: center; background: #fff; border: 1px solid #eee; }
+.mz-news-list figure img { width: 18%; opacity: .9; }
+.mz-news-list time { display: block; margin-top: 14px; font-family: "Jost", sans-serif; font-size: 12px; color: #666; }
+.mz-news-list h3 { margin: 6px 0 0; font-size: 15px; font-weight: 500; line-height: 1.6; }
+.mz-news-list p { margin: 6px 0 0; font-size: 13px; color: #666; line-height: 1.8; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* 〇〇とは:左に灰色パネル、右に写真が重なる */
+.mz-whats { position: relative; display: grid; padding: 0 0 clamp(64px, 8vw, 120px); }
+.mz-whats-panel { position: relative; z-index: 1; padding: 48px var(--mz-pad); background: var(--mz-gray); }
+.mz-whats-title { margin: 0; font-size: clamp(24px, 2.6vw, 34px); font-weight: 700; letter-spacing: .04em; }
+.mz-whats-en { margin: 8px 0 0; font-family: "Jost", sans-serif; font-size: 12px; letter-spacing: .06em; }
+.mz-whats-claim { margin: 32px 0 0; font-size: clamp(20px, 2.2vw, 28px); font-weight: 500; line-height: 1.7; }
+.mz-whats-claim span { display: block; }
+.mz-whats-body { margin: 20px 0 28px; max-width: 30em; font-size: 14px; line-height: 2; }
+.mz-whats-photo { margin: 0; }
+.mz-whats-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (min-width: 1024px) {
+  .mz-whats { grid-template-columns: 48% 1fr; align-items: center; }
+  .mz-whats-panel { padding: 72px 56px 96px var(--mz-pad); margin: 64px 0; }
+  .mz-whats-photo { margin-left: -12%; aspect-ratio: 4 / 3; z-index: 0; }
+}
+
+/* SERVICES:背景が黒に反転。巨大な縦の英字を背景に */
+.mz-services { position: relative; overflow: hidden; padding: clamp(80px, 10vw, 140px) var(--mz-pad); color: #111; transition: color .7s var(--ease); }
+.is-inverted .mz-services { color: #fff; }
+.mz-services .mz-heading { color: inherit; }
+.mz-ghost { position: absolute; left: clamp(8px, 2vw, 40px); top: 120px; margin: 0; writing-mode: vertical-rl; font-family: "Jost", sans-serif; font-weight: 400;
+  font-size: clamp(90px, 12vw, 190px); line-height: 1; letter-spacing: .02em; color: transparent; -webkit-text-stroke: 1px rgba(127,127,127,.28); pointer-events: none; }
+.mz-cat { position: relative; margin-top: 48px; }
+.mz-cat-banner { position: relative; display: grid; align-items: center; min-height: 180px; padding: 32px 0; }
+.mz-cat-banner figure { position: absolute; inset: 0 0 0 30%; margin: 0; overflow: hidden; opacity: .55; }
+.mz-cat-banner figure img { width: 100%; height: 100%; object-fit: cover; object-position: 20% 35%; }
+.mz-cat-en, .mz-cat-ja { position: relative; z-index: 1; margin: 0; }
+.mz-cat-en { font-family: "Jost", sans-serif; font-weight: 400; font-size: clamp(32px, 4.4vw, 60px); line-height: 1.1; letter-spacing: .02em; }
+.mz-cat-en span { display: block; }
+.mz-cat-ja { margin-top: 10px; font-size: clamp(18px, 2vw, 24px); font-weight: 500; }
+.mz-cat-desc { margin: 28px 0 0; max-width: 36em; font-size: 14px; line-height: 2; opacity: .85; }
+
+/* 道のりの図解(ミズカラの「現状の自分 → 理想の自分」をトレース) */
+.mz-map { position: relative; margin: 56px auto 0; max-width: 1000px; aspect-ratio: 1000 / 400; }
+.mz-map-band { position: absolute; inset: 0 0 40px 0; width: 100%; height: calc(100% - 40px); }
+.mz-map-node { position: absolute; margin: 0; width: clamp(64px, 9vw, 96px); aspect-ratio: 1; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%;
+  font-size: clamp(10px, 1.1vw, 13px); line-height: 1.4; text-align: center; }
+.mz-map-node.is-start { left: 2%; top: 62%; }
+.mz-map-node.is-goal { right: 0; top: 0; }
+.mz-map-stop { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 4px; color: inherit; text-decoration: none; text-align: center; }
+.mz-map-stop i { width: 14px; height: 14px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 6px rgba(127,127,127,.25); }
+.mz-map-stop b { margin-top: 6px; font-family: "Jost", sans-serif; font-weight: 500; font-size: clamp(14px, 1.8vw, 22px); }
+.mz-map-stop span { font-size: clamp(10px, 1vw, 12px); opacity: .75; }
+.mz-map-axis { position: absolute; left: 14%; right: 6%; bottom: 0; display: grid; grid-template-columns: 2fr 1fr; gap: 16px; font-size: 12px; opacity: .8; }
+.mz-map-axis span { padding-top: 10px; border-top: 1px solid currentColor; text-align: center; }
+@media (hover: hover) { .mz-map-stop { transition: opacity .3s; } .mz-map-stop:hover { opacity: .6; } }
+
+/* 写真カード */
+.mz-cards { display: grid; gap: 40px 32px; margin-top: 72px; }
+@media (min-width: 761px) { .mz-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1200px) { .mz-cards { grid-template-columns: repeat(3, 1fr); } }
+.mz-card { display: grid; color: inherit; text-decoration: none; }
+.mz-card figure { position: relative; margin: 0; aspect-ratio: 16 / 10; overflow: hidden; }
+.mz-card figure img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.6); transition: transform .6s var(--ease); }
+.mz-card figure b { position: absolute; inset: 0; display: grid; place-items: center; font-family: "Jost", sans-serif; font-weight: 500; font-size: clamp(24px, 2.4vw, 34px); color: #fff; letter-spacing: .04em; }
+.mz-card h4 { margin: 18px 0 0; font-size: 16px; font-weight: 700; }
+.mz-card p { margin: 10px 0 0; font-size: 13px; line-height: 1.9; opacity: .85; }
+.mz-card .mz-more { justify-self: end; margin-top: 16px; }
+@media (hover: hover) { .mz-card:hover figure img { transform: scale(1.04); } }
+
+/* ABOUT:巨大なマーク+巨大なワードマーク */
+.mz-about { position: relative; overflow: hidden; display: grid; gap: 40px; padding: clamp(80px, 10vw, 140px) var(--mz-pad); }
+.mz-ghost-word { position: absolute; left: -2%; top: 50%; transform: translateY(-50%); margin: 0; font-family: "Jost", sans-serif; font-weight: 500;
+  font-size: clamp(110px, 19vw, 320px); line-height: 1; color: #f1f1f1; white-space: nowrap; pointer-events: none; }
+.mz-about-mark { position: relative; margin: 0; width: clamp(140px, 22vw, 300px); }
+.mz-about-mark img { width: 100%; filter: brightness(0); }
+.mz-about-copy { position: relative; }
+.mz-about-claim { margin: 32px 0 0; font-size: clamp(20px, 2.2vw, 26px); font-weight: 700; }
+.mz-about-body { margin: 16px 0 0; max-width: 32em; font-size: 14px; line-height: 2; }
+@media (min-width: 900px) { .mz-about { grid-template-columns: auto 1fr; align-items: center; column-gap: clamp(40px, 8vw, 140px); } }
+
+/* CONTACT:3行 */
+.mz-contact { padding: clamp(64px, 8vw, 120px) var(--mz-pad); border-top: 1px solid #e6e6e6; }
+.mz-contact-rows { margin-top: 32px; border-top: 1px solid #111; }
+.mz-contact-rows a { display: flex; justify-content: space-between; align-items: center; padding: 28px 4px; border-bottom: 1px solid #111; color: #111; text-decoration: none; font-size: clamp(16px, 1.8vw, 20px); font-weight: 500; }
+.mz-contact-rows i { font-style: normal; font-family: "Jost", sans-serif; }
+@media (hover: hover) { .mz-contact-rows a { transition: padding-left .3s var(--ease); } .mz-contact-rows a:hover { padding-left: 20px; } }
+
+/* 黒いフッター */
+.mz-footer { position: relative; overflow: hidden; background: #111; color: #fff; padding: 72px var(--mz-pad) 32px; }
+.mz-footer a { color: inherit; text-decoration: none; }
+.mz-footer-cols { display: grid; gap: 40px; font-size: 13px; }
+@media (min-width: 900px) { .mz-footer-cols { grid-template-columns: 1fr 1.4fr auto; } }
+.mz-footer-nav { display: grid; gap: 18px; align-content: start; }
+.mz-footer-svc { display: grid; gap: 14px; align-content: start; }
+.mz-footer-svc-h { margin: 0; font-size: 14px; }
+.mz-footer-svc-cat { margin: 0; padding: 10px 14px; background: #2a2a2a; font-size: 12px; }
+.mz-footer-svc a { padding-left: 4px; font-size: 12px; opacity: .85; }
+.mz-footer-legal { display: grid; gap: 14px; align-content: start; font-size: 12px; }
+.mz-footer-bottom { position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-top: 72px; }
+.mz-footer-msg { margin: 0; font-family: "Shippori Mincho", serif; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.7; }
+.mz-footer-msg span { display: block; }
+.mz-footer address { margin-top: 16px; font-style: normal; font-size: 11px; opacity: .6; }
+.mz-footer small { display: block; margin-top: 8px; font-family: "Jost", sans-serif; font-size: 10px; opacity: .5; }
+.mz-footer-word { margin: 0; font-family: "Jost", sans-serif; font-weight: 500; font-size: clamp(56px, 9vw, 150px); line-height: .8; color: #2a2a2a; white-space: nowrap; }
+@media (max-width: 760px) { .mz-footer-bottom { flex-direction: column; align-items: flex-start; } }
+@media (hover: hover) { .mz-footer a { transition: opacity .3s; } .mz-footer a:hover { opacity: .5; } }
+/* 図解:点を帯の上に、ラベルは点の上へ */
+.mz-map-stop { transform: translate(-50%, calc(-100% + 7px)); }
+.mz-map-stop i { order: 3; margin-top: 8px; }
+.mz-map-stop b { order: 1; margin-top: 0; }
+.mz-map-stop span { order: 2; }
+@media (max-width: 760px) {
+  .mz-map { aspect-ratio: 1 / 1.05; margin-top: 40px; }
+  .mz-map-node { width: 62px; font-size: 10px; }
+  .mz-map-node.is-start { top: 70%; }
+  .mz-map-stop b { font-size: 14px; }
+  .mz-map-stop span { font-size: 10px; }
+  .mz-map-axis { left: 4%; right: 0; font-size: 11px; }
+}
+@media (max-width: 760px) { .mz-map a.mz-map-stop[href="../academy/index.html"] { transform: translate(-78%, calc(-100% + 7px)); justify-items: end; } .mz-map-node.is-goal { top: -4%; } }
+
+/* WHY BLUE-COLLAR:写真と文章をつなぐ段 */
+.mz-blue { display: grid; gap: 40px; padding: clamp(72px, 9vw, 120px) var(--mz-pad); background: #fff; }
+.mz-blue-claim { margin: 28px 0 0; font-size: clamp(22px, 2.6vw, 34px); font-weight: 700; line-height: 1.6; }
+.mz-blue-claim span { display: block; }
+.mz-blue-lead { margin: 18px 0 0; max-width: 34em; font-size: 14px; line-height: 2; color: #444; }
+.mz-blue-photo { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; }
+.mz-blue-photo img { width: 100%; height: 100%; object-fit: cover; }
+.mz-blue-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: #ddd; border: 1px solid #ddd; }
+.mz-blue-list li { padding: 28px; background: #fff; }
+.mz-blue-list span { font-family: "Jost", sans-serif; font-size: 22px; }
+.mz-blue-list h3 { margin: 10px 0 0; font-size: 16px; font-weight: 700; line-height: 1.6; }
+.mz-blue-list p { margin: 10px 0 0; font-size: 13px; line-height: 1.9; color: #555; }
+@media (min-width: 1024px) {
+  .mz-blue { grid-template-columns: 1fr 1fr; column-gap: 64px; align-items: center; }
+  .mz-blue-list { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); }
+}
+
+/* WHY NOW / WHY YOU / WHY US:左に見出し、右に中身の3段 */
+.mz-why { padding: clamp(72px, 9vw, 120px) var(--mz-pad); background: #f2f2f2; }
+.mz-why-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.mz-why-row { display: grid; gap: 20px; padding: 40px 0; border-top: 1px solid #111; }
+.mz-why-row:last-child { border-bottom: 1px solid #111; }
+.mz-why-label p { margin: 0; font-family: "Jost", sans-serif; font-weight: 500; font-size: clamp(24px, 2.4vw, 32px); line-height: 1; }
+.mz-why-label h3 { margin: 10px 0 0; font-size: 14px; font-weight: 700; }
+.mz-why-claim { margin: 0; font-size: clamp(17px, 1.8vw, 21px); font-weight: 700; line-height: 1.7; }
+.mz-why-body ul { margin: 16px 0 0; padding-left: 1.1em; font-size: 14px; line-height: 2; color: #333; }
+.mz-why-body .mz-why-check { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+@media (min-width: 761px) { .mz-why-body .mz-why-check { grid-template-columns: 1fr 1fr; } }
+.mz-why-check li { position: relative; padding: 14px 14px 14px 44px; background: #fff; font-weight: 500; }
+.mz-why-check li::before { content: ""; position: absolute; left: 14px; top: 50%; width: 18px; height: 18px; margin-top: -9px; border: 2px solid #111; border-radius: 3px; }
+.mz-why-check li::after { content: ""; position: absolute; left: 20px; top: 50%; width: 6px; height: 11px; margin-top: -8px; border: solid #B35400; border-width: 0 3px 3px 0; transform: rotate(45deg); }
+.mz-why-us { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; counter-reset: u; }
+.mz-why-us li { display: grid; gap: 6px; padding-left: 44px; position: relative; counter-increment: u; }
+.mz-why-us li::before { content: counter(u, decimal-leading-zero); position: absolute; left: 0; top: 0; font-family: "Jost", sans-serif; font-size: 20px; }
+.mz-why-us b { font-size: 16px; }
+.mz-why-us span { font-size: 13px; line-height: 1.9; color: #444; }
+@media (min-width: 900px) { .mz-why-row { grid-template-columns: 280px 1fr; column-gap: 56px; } }
+
+/* 依頼12:内容を読める階層にそろえ、構図は段ごとに保つ。 */
+.company-top { background: #fff; }
+.mz-news-list { display: block; margin-top: 40px; }
+.mz-news-list li { display: grid; gap: 8px; padding: 24px 0; border-top: 1px solid #ccc; }
+.mz-news-list li:last-child { border-bottom: 1px solid #ccc; }
+.mz-news-list time { margin: 0; font-size: var(--text-note); }
+.mz-news-list h3 { margin: 0; font-size: var(--text-body); line-height: 1.9; }
+.mz-more { min-height: 44px; font-size: var(--text-note); }
+@media (min-width:768px) { .mz-news-list li { grid-template-columns: 120px 1fr; gap: 32px; } }
+.mz-whats-photo .image-note { margin: 12px 20px; }
+@media (min-width:1024px) { .mz-whats-photo { align-self: center; } .mz-whats-photo img { height: auto; aspect-ratio: 4 / 3; } }
+/* 同じ加減速で、許可した箇所の動きだけをそろえる。 */
+:is(.company-top,.ai2,.svc,.about-page,.contact-page,.privacy-page) *,
+:is(.company-top,.ai2,.svc,.about-page,.contact-page,.privacy-page) *::before,
+:is(.company-top,.ai2,.svc,.about-page,.contact-page,.privacy-page) *::after { transition-timing-function: var(--ease); animation-timing-function: var(--ease); }
+.rough-memo--fixed { max-width: calc(100vw - 40px); white-space: normal; }
+
+/* 下層CONTACT:.consult-button の黒丸地を解除し、トップと同じ行表示にそろえる */
+.mz-contact-rows a.consult-button { display: flex; width: 100%; min-height: 0; gap: 16px; padding: 28px 4px; background: transparent; border: 0; border-bottom: 1px solid #111; border-radius: 0; color: #111; opacity: 1; }
+@media (hover: hover) { .mz-contact-rows a.consult-button:hover { opacity: 1; padding-left: 20px; } }
+
+/* 定義の一行:言葉の切れ目でだけ改行する */
+.mz-whats-claim span.ph, .ai2-def span.ph { display: inline-block; }

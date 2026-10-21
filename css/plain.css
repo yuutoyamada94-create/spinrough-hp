@@ -1,0 +1,74 @@
+@import url('tokens.css');
+body:is(.about-page,.contact-page,.privacy-page) { background: #fff; }
+.plain-main { padding-top: 64px; }
+.plain-head { padding: 56px var(--content-pad) 40px; }
+.mz-heading h1 { font-size: var(--text-heading); line-height: 1.5; font-weight: 500; margin: 16px 0 0; }
+.plain-head > p { margin: 24px 0 16px; }
+.plain-head > a { display: inline-flex; margin-top: 20px; color: #111; }
+.plain-section { padding: var(--section-space) var(--content-pad); }
+.about-origin { display: grid; gap: 32px; padding-top: 32px; }
+.about-origin figure { margin: 0; width: 120px; }
+.about-origin h2 { font-size: var(--text-heading); line-height: 1.7; font-weight: 500; margin: 0; }
+.about-origin p { max-width: 28em; margin: 24px 0 0; }
+.about-mvv { background: #111; color: #fff; }
+.about-mvv article { margin-top: 48px; }
+.about-mvv h3 { font-family: 'Jost',sans-serif; font-size: 14px; font-weight: 500; color: #ccc; }
+.about-mvv article > p { max-width: 30em; font-size: var(--text-heading); line-height: 1.7; }
+.about-values ol { list-style: none; margin: 40px 0 0; padding: 0; counter-reset: value; }
+.about-values li { display: grid; gap: 16px; padding: 32px 0; border-top: 1px solid #bbb; counter-increment: value; }
+.about-values li h3 { font-size: 20px; font-weight: 500; margin: 0; }
+.about-values li h3::before { content: counter(value,decimal-leading-zero); display: block; font-family: 'Jost',sans-serif; font-size: 14px; color: #666; margin-bottom: 12px; }
+.about-values li p { margin: 0; max-width: 36em; }
+.company-facts { display: grid; gap: 32px; margin-top: 40px; }
+.company-facts figure { margin: 0; max-width: 280px; }
+.company-facts figure img { display: block; width: 100%; }
+.company-facts figcaption { font-size: 14px; margin-top: 12px; color: #666; }
+.company-facts dl { margin: 0; }
+.company-facts dl > div { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 24px 0; border-top: 1px solid #bbb; }
+.company-facts dt { font-size: 14px; color: #666; }
+.company-facts dd { margin: 0; overflow-wrap: anywhere; }
+.company-facts a { color: inherit; }
+.form-section { padding: 0 var(--content-pad) var(--section-space); max-width: 960px; margin: 0 auto; }
+.form-section > p { margin: 8px 0 32px; padding: 20px; background: #f2f2f2; font-size: 14px; }
+.contact-form { display: grid; gap: 28px; }
+.contact-form label { display: block; font-size: 16px; font-weight: 500; }
+.contact-form label small { display: inline-block; margin-left: 12px; font-size: 14px; font-weight: 400; color: #666; }
+.contact-form input,.contact-form textarea { width: 100%; display: block; margin-top: 10px; border: 1px solid #999; border-radius: 0; padding: 14px; background: #fff; color: #111; font: inherit; }
+.contact-form input { min-height: 52px; }
+.contact-form textarea { resize: vertical; }
+.contact-form .form-privacy { font-size: 14px; margin: 8px 0 0; }
+.form-privacy a { color: #111; text-underline-offset: 4px; }
+.contact-form .consult-button { justify-self: start; background: #111; color: #fff; border-radius: 999px; padding: 14px 24px; font-size: 16px; }
+.privacy-page .sub-hero { padding: 128px var(--content-pad) 48px; margin: 0; }
+.privacy-page .about-hero-en { font-family: 'Jost',sans-serif; font-size: var(--text-label); }
+.privacy-page .sub-hero h1 { font-size: var(--text-heading); font-weight: 500; }
+.privacy-page .privacy-content { max-width: 1000px; margin: 0 auto; padding: 24px var(--content-pad) var(--section-space); font-size: 16px; line-height: 1.9; }
+.privacy-content ol { padding-left: 24px; }
+.privacy-content li { margin: 28px 0; }
+.privacy-content li span { display: block; font-size: 20px; margin-bottom: 12px; }
+@media (min-width:768px) { .about-origin { grid-template-columns: 1fr 2fr; gap: 56px; } .about-origin figure { width: 180px; } .about-values li { grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: baseline; } .company-facts { grid-template-columns: 1fr 2fr; gap: 64px; } }
+@media (min-width:1024px) { .plain-main { padding-top: 80px; } .plain-head { padding-top: 80px; } }
+@media (hover:hover) { .contact-form .consult-button:hover { background: #111; color: #fff; opacity: .5; } }
+.privacy-page .privacy-content :is(p,li) { font-size: var(--text-body); line-height: var(--leading-body); }
+
+/* 2026-10-19 必須4:代表挨拶(写真は会社概要からここへ移す) */
+.about-message-body { display: grid; gap: 32px; margin-top: 40px; }
+.about-message figure { margin: 0; max-width: 320px; }
+.about-message figure img { display: block; width: 100%; height: auto; }
+.about-message-text p { margin: 0; max-width: 34em; }
+.about-message-text p + p { margin-top: 1.4em; }
+.about-message-sign { font-size: 14px; color: #666; }
+.about-message-sign b { display: block; margin-top: 4px; font-size: 18px; font-weight: 500; color: #111; }
+.company-facts dl { max-width: 760px; }
+@media (min-width:768px) { .about-message-body { grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; } .company-facts { grid-template-columns: 1fr; } }
+
+/* 2026-10-21 特商法表記:項目名が長いので、スマホでは項目名を上・内容を下に。PCは項目名の列を広げる */
+.tokushoho-page .company-facts { margin-top: 0; }
+.tokushoho-page .company-facts dl > div { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
+.tokushoho-page .company-facts dt { font-weight: 500; color: #111; }
+.tokushoho-page .company-facts dd { font-size: 15px; line-height: 1.9; }
+@media (min-width: 768px) {
+  .tokushoho-page .company-facts dl > div { grid-template-columns: 220px 1fr; gap: 32px; padding: 24px 0; }
+  .tokushoho-page .company-facts dt { font-weight: 400; color: #666; }
+}
+.tokushoho-page .plain-section { padding-top: 0; }

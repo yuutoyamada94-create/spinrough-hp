@@ -1,0 +1,241 @@
+<!doctype html>
+<html class="wbr" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+    // 画像が一時的に読めなかった時は、消さずに読み直す(最大3回・0.6秒ずつ間を空ける)。2026-10-19
+    (() => {
+      document.addEventListener('error', (e) => {
+        const img = e.target;
+        if (!(img instanceof HTMLImageElement)) return;
+        const n = Number(img.dataset.retry || 0);
+        if (n >= 3) return;
+        img.dataset.retry = String(n + 1);
+        const src = img.getAttribute('src'), srcset = img.getAttribute('srcset');
+        img.removeAttribute('srcset'); img.removeAttribute('src');
+        setTimeout(() => { if (srcset) img.setAttribute('srcset', srcset); if (src) img.setAttribute('src', src); }, 600 * (n + 1));
+      }, true);
+    })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI駆動経営とは|株式会社spin rough</title>
+    <meta name="description" content="人を増やさなくても、会社が回る。AIが自分で仕事を進める経営。働き方の変化、当たり前になっている手間、AIを取り入れたときに会社で起きること、そして現場を持つ会社での取り組み方を、図で解説します。" />
+    <link rel="icon" href="../favicon.png" sizes="64x64" />
+    <link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <meta property="og:title" content="AI駆動経営とは|株式会社spin rough" />
+    <meta property="og:description" content="書類や数字をつくる作業はAIに任せて、社長も社員も、現場とお客様に時間を使えるようにする経営。働き方の変化、当たり前になっている手間、AIを取り入れたときに会社で起きること、そして現場を持つ会社での取り組み方を、図で解説します。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="株式会社spin rough" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://spinrough.com/assets/ogp.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://spinrough.com/ai/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/header-v3.css" />
+    <link rel="stylesheet" href="../css/mz.css" />
+    <link rel="stylesheet" href="../css/ai2.css" />
+  </head>
+  <body class="subpage ai2">
+    <header class="site-header gh" aria-label="サイトヘッダー">
+      <a class="gh-logo header-logo" href="../index.html" aria-label="spin rough トップ"><img src="../assets/logo-type.svg" alt="spin rough" width="472" height="90" decoding="async" /></a>
+      <nav class="gh-nav" aria-label="主要メニュー">
+        <a href="../about/index.html">spin roughについて</a>
+        <a href="index.html">AI駆動経営とは</a>
+        <a href="../index.html#business">サービス・事業</a>
+        <a href="../base/index.html">spinBase</a>
+        <a href="../academy/index.html">spinAcademy</a>
+        <a href="../works/index.html">spinWorks</a>
+      </nav>
+      <a class="gh-contact" href="../contact/index.html"><span class="gh-contact-en">CONTACT</span><small>相談する</small></a>
+      <button class="gh-burger" type="button" aria-expanded="false" aria-controls="gh-menu" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </header>
+    <div class="gh-menu" id="gh-menu">
+      <nav class="gh-menu-nav" aria-label="スマホメニュー">
+        <a href="../index.html">トップ<small>TOP</small></a>
+        <a href="../about/index.html">spin roughに<wbr>ついて<small>ABOUT</small></a>
+        <a href="index.html">AI駆動経営とは<small>CONCEPT</small></a>
+        <a href="../index.html#business">サービス・事業<small>SERVICE</small></a>
+        <a href="../base/index.html">spinBase<small>AI導入支援</small></a>
+        <a href="../academy/index.html">spinAcademy<small>社内エンジニア育成</small></a>
+        <a href="../works/index.html">spinWorks<small>バックオフィス丸投げ</small></a>
+
+      </nav>
+      <a class="gh-menu-contact" href="../contact/index.html">相談する</a>
+      <a class="gh-menu-tel" href="tel:0344001442">03-4400-1442</a>
+    </div>
+
+    <main>
+      <!-- 見出し(ミズカラ cognitive-science の冒頭をトレース) -->
+      <section class="ai2-mv" aria-labelledby="ai2-title">
+        <figure class="ai2-mv-photo"><img src="../assets/gen/hero-human.webp" alt="" width="1086" height="1448" srcset="../assets/gen/hero-human-960.webp 960w, ../assets/gen/hero-human-1600.webp 1600w" sizes="(max-width: 760px) 41vw, 46vw" decoding="async" /><img src="../assets/gen/hero-robot.webp" alt="" width="1086" height="1448" srcset="../assets/gen/hero-robot-960.webp 960w, ../assets/gen/hero-robot-1600.webp 1600w" sizes="(max-width: 760px) 41vw, 46vw" decoding="async" /></figure>
+        <div class="ai2-mv-copy">
+          <h1 id="ai2-title">AI駆動経営とは</h1>
+          <p class="ai2-en">What's AI-DRIVEN MANAGEMENT</p>
+          <p class="ai2-def"><span class="ph">人を<wbr>増やさなくても、</span><span class="ph">会社が<wbr>回る。</span><span class="ph">AIが<wbr>自分で<wbr>仕事を<wbr>進める</span><span class="ph">経営です。</span></p>
+        </div>
+      </section>
+
+      <nav class="ai2-toc" aria-label="このページの目次">
+        <a href="#blind"><span>01</span>当たり前に<wbr>なっている<wbr>手間</a>
+        <a href="#shift"><span>02</span>働き方の<wbr>変化</a>
+        <a href="#impact"><span>03</span>会社に<wbr>起きる<wbr>こと</a>
+        <a href="#blue"><span>04</span>ブルーカラーに<wbr>こそ</a>
+        <a href="#why"><span>05</span>なぜ今・誰に<wbr>・なぜ<wbr>私たち</a>
+      </nav>
+
+      
+
+      <!-- 01 BLIND SPOT:氷山 -->
+      <section class="ai2-sec ai2-sec--gray" id="blind" aria-labelledby="blind-t">
+        <div class="ai2-heading"><p>01 BLIND SPOT</p><h2 id="blind-t">当たり前に<wbr>なっている<wbr>手間</h2></div>
+        <p class="ai2-claim">現場の<wbr>仕事は、<wbr>毎日の<wbr>記録と<wbr>確認に<wbr>支えられています。</p>
+        <div class="ai2-split">
+<figure class="ai2-fig ai2-ice" aria-label="氷山の図。現場・営業・接客と、それを支える探す・書き写す・確認するなどの仕事"><svg viewBox="0 0 400 420" role="img" aria-labelledby="ice-title"><title id="ice-title">当たり前になっている仕事</title><rect x="0" y="160" width="400" height="260" fill="#dfe6ea"/><path d="M85 160 L150 45 L250 45 L315 160 Z" fill="#fff" stroke="#111" stroke-width="2"/><path d="M85 160 L315 160 L350 250 L300 380 L100 380 L50 250 Z" fill="#fff" stroke="#111" stroke-width="2" stroke-dasharray="6 5"/><line x1="0" y1="160" x2="400" y2="160" stroke="#111"/><g text-anchor="middle" fill="#111" font-size="17"><text x="200" y="95">現場・営業・接客</text><text x="200" y="126" font-size="15">表に見える仕事</text><text x="200" y="220">探す・書き写す</text><text x="200" y="253">確認する・説明し直す</text><text x="200" y="286">あの人に聞く</text><text x="200" y="335" font-size="15">当たり前になっている仕事</text></g></svg></figure>
+          <div>
+            <p class="ai2-body">書類を<wbr>探したり、<wbr>数字を<wbr>書き写したり、<wbr>同じ<wbr>説明を<wbr>くり返したりする<wbr>時間は、<wbr>毎日の<wbr>ことなので<wbr>手間だと<wbr>気づきにくい<wbr>ものです。<wbr>まずは<wbr>今の<wbr>仕事の<wbr>やり方を<wbr>確認し、<wbr>記録の<wbr>保存場所や<wbr>共有の<wbr>しかたを<wbr>一緒に<wbr>整理します。</p>
+            <ol class="ai2-causes">
+              <li><b>判断の<wbr>理由を、<wbr>その<wbr>都度本人に<wbr>聞いている</b>やり方や<wbr>判断の<wbr>理由が、<wbr>社長や<wbr>ベテランに<wbr>しかない</li>
+              <li><b>同じ<wbr>数字を、紙・Excel・LINEで<wbr>何度も<wbr>確認している</b>紙・Excel・LINE・個人の<wbr>メモに、<wbr>同じ<wbr>数字が<wbr>ある</li>
+              <li><b>前回決めた<wbr>ことを、<wbr>もう<wbr>一度<wbr>説明している</b>人も<wbr>AIも、<wbr>毎回<wbr>ゼロから<wbr>説明し直している</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 SHIFT:1日の仕事の帯(今/これから) -->
+      <section class="ai2-sec" id="shift" aria-labelledby="shift-t">
+        <div class="ai2-heading"><p>02 SHIFT</p><h2 id="shift-t">働き方の<wbr>変化</h2></div>
+        <p class="ai2-claim">話した<wbr>内容が、<wbr>そのまま<wbr>書類に<wbr>なる<wbr>時代に<wbr>なりました。</p>
+<figure class="ai2-fig ai2-responsibilities"><table><caption>仕事ごとの分担の例</caption><thead><tr><th scope="col">仕事</th><th scope="col">いま</th><th scope="col">これから</th></tr></thead><tbody><tr><th scope="row">探す<wbr>・<wbr>集める</th><td>人</td><td>AIが<wbr>集め、<wbr>人が<wbr>確認</td></tr><tr><th scope="row">書類に<wbr>まとめる</th><td>人</td><td>AIが<wbr>下書き、<wbr>人が<wbr>確認</td></tr><tr><th scope="row">経緯を<wbr>確認する</th><td>人</td><td>AIが<wbr>記録を<wbr>示し、<wbr>人が<wbr>確認</td></tr><tr><th scope="row">決める</th><td>人</td><td>人</td></tr><tr><th scope="row">現場・営業・もてなし・育成</th><td>人</td><td>人</td></tr></tbody></table></figure>
+        <div class="ai2-cols">
+          <div><h3>これまで</h3><p>必要な<wbr>記録を<wbr>探し、<wbr>紙や<wbr>Excelの<wbr>数字を<wbr>見比べ、<wbr>前に<wbr>決めた<wbr>ことを<wbr>確認しながら<wbr>判断している。</p></div>
+          <div><h3>これから</h3><p>必要な<wbr>情報を<wbr>集めたり、<wbr>書類や<wbr>集計の<wbr>下書きを<wbr>作ったりする<wbr>作業は、<wbr>AIに<wbr>任せられるようになりました。<wbr>人は、<wbr>判断する<wbr>ことや、<wbr>人に<wbr>しかできない<wbr>仕事に<wbr>時間を<wbr>使えます。<wbr>AIが<wbr>質問に<wbr>答えるだけでなく、<wbr>仕事<wbr>その<wbr>ものを<wbr>進められるようになったからです。</p></div>
+        </div>
+      </section>
+
+      <!-- 03 IMPACT:悪循環 → 一本の流れ -->
+      <section class="ai2-sec" id="impact" aria-labelledby="impact-t">
+        <div class="ai2-heading"><p>03 IMPACT</p><h2 id="impact-t">AIを<wbr>取り入れると、<wbr>会社で<wbr>起きる<wbr>こと</h2></div>
+        <p class="ai2-claim">一度<wbr>記録すれば、<wbr>同じ<wbr>ことを<wbr>二度書かずに<wbr>済むようになります。</p>
+        <div class="ai2-flowfig">
+          <figure class="ai2-fig ai2-loop" aria-label="いまの仕事のつながり:記録が散らばる、書き写す、ミスが出る、確認の電話が鳴る、の繰り返し">
+            <p class="ai2-fig-tag">いま</p>
+            <div class="ai2-loop-ring">
+              <span style="--a:0deg">記録が<wbr>散らばる</span><span style="--a:90deg">書き写す</span><span style="--a:180deg">ミスが<wbr>出る</span><span style="--a:270deg">確認の<wbr>電話</span>
+            </div>
+            <figcaption>仕事の<wbr>たびに、<wbr>記録を<wbr>集めて<wbr>確認する</figcaption>
+          </figure>
+          <div class="ai2-flow-arrow" aria-hidden="true">→</div>
+          <figure class="ai2-fig ai2-line" aria-label="AI駆動経営のあと:記録は保存場所をひとつにに入り、そこから伝票・台帳・請求書・経営の数字が出てくる">
+            <p class="ai2-fig-tag is-after">AI駆動経営の<wbr>あと</p>
+            <div class="ai2-line-in"><span>話す</span><span>撮る</span><span>入れる</span></div>
+            <div class="ai2-line-core">保存場所をひとつに<small>AIが<wbr>読んで<wbr>動く</small></div>
+            <div class="ai2-line-out"><span>伝票</span><span>台帳</span><span>請求書</span><span>経営の<wbr>数字</span></div>
+            <figcaption>同じ<wbr>記録を<wbr>使い、<wbr>人が<wbr>確認する</figcaption>
+          </figure>
+        </div>
+        <ul class="ai2-impacts">
+          <li><b>TIME</b><h3>探す<wbr>時間や<wbr>書き写す<wbr>時間を、<wbr>本業に<wbr>使える</h3></li>
+          <li><b>SPEED</b><h3>判断に<wbr>必要な<wbr>数字と<wbr>経緯が、<wbr>すぐに<wbr>見られる</h3></li>
+          <li><b>CONTINUITY</b><h3>やり方と<wbr>判断の<wbr>理由が、<wbr>会社に<wbr>残る</h3></li>
+          <li><b>PEOPLE</b><h3>最後の<wbr>確認と<wbr>判断は、<wbr>人が<wbr>する</h3></li>
+        </ul>
+      </section>
+
+      <!-- 04 WHY BLUE-COLLAR:2軸の図 -->
+      <section class="ai2-sec ai2-sec--dark" id="blue" aria-labelledby="blue-t">
+        <div class="ai2-heading is-light"><p>04 WHY BLUE-COLLAR</p><h2 id="blue-t">ブルーカラーに<wbr>こそ、<wbr>AIを</h2></div>
+        <p class="ai2-claim">現場の<wbr>仕事は、<wbr><nobr>人にしかできない。</nobr><wbr><br>だから、<wbr>その<wbr>後ろの<wbr>書類は、<wbr>仕組みに<wbr>任せたい。</p>
+        <div class="ai2-split">
+          <figure class="ai2-fig ai2-matrix" aria-label="縦軸が事務の負担、横軸が記録のデジタル化の進み具合の図。裏側の仕事が重く、デジタル化がこれからの右上に、建設・運送・製造があり、変化の幅が大きい（当社の見立て）">
+            <div class="ai2-matrix-grid">
+              <div class="q q1"><span>IT・Web企業</span></div>
+              <div class="q q2 is-hot"><span>建設・運送・製造</span><small>変化の<wbr>幅が<wbr>大きい</small></div>
+              <div class="q q3"><span>オフィス中心の<br />企業</span></div>
+              <div class="q q4"><span>小売・サービス</span></div>
+            </div>
+            <p class="ai2-axis-y">事務の<wbr>負担 ↑</p>
+            <p class="ai2-axis-x">記録の<wbr>デジタル化 → これから</p>
+            
+          </figure>
+          <ol class="ai2-reasons">
+            <li><span>01</span><h3>事務の<wbr>仕事が、<wbr>社長と<wbr>一部の<wbr>人に<wbr>集中している</h3><p>現場に<wbr>人を<wbr>回す分、<wbr>事務は<wbr>社長や<wbr>1〜2人の<wbr>社員が<wbr>抱えがちです。<wbr>日報から<wbr>請求までの<wbr>流れを、<wbr>まとめて<wbr>見直します。</p></li>
+            <li><span>02</span><h3>記録が、<wbr>紙・電話・LINEに<wbr>残っている</h3><p>紙の<wbr>記録が<wbr>多い<wbr>会社ほど、<wbr>まず記録の<wbr>保存場所と<wbr>共有の<wbr>しかたから<wbr>整理します。</p></li>
+            <li><span>03</span><h3>人を<wbr>増や<wbr>したくても、<wbr>増やせない</h3><p>今の<wbr>担当の<wbr>方の<wbr>仕事を<wbr>整理し、<wbr>システムに<wbr>任せる<wbr>所と<wbr>人が<wbr>やる<wbr>所を<wbr>決めます。</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 05 WHY NOW / YOU / US -->
+      <section class="ai2-sec" id="why" aria-labelledby="why-t">
+        <div class="ai2-heading"><p>05 WHY</p><h2 id="why-t">な<wbr>ぜ今、<wbr>誰に、<wbr>なぜ<wbr>私たちが</h2></div>
+
+        <div class="ai2-why">
+          <div class="ai2-why-label"><p>WHY NOW</p><h3>なぜ、<wbr>今なのか</h3></div>
+          <div class="ai2-why-text"><p>AIが<wbr>質問に<wbr>答えるだけでなく、<wbr>書類や<wbr>集計を<wbr>自分で<wbr>進められるようになったのは、<wbr>ここ1〜<wbr>2年の<wbr>ことです。</p><p>だから<wbr>今、<wbr>記録の<wbr>保存場所と<wbr>仕事の<wbr>流れを<wbr>整理した<wbr>会社から、<wbr>AIに<wbr>任せられる<wbr>仕事が<wbr>増えていきます。</p></div>
+        </div>
+
+        <div class="ai2-why">
+          <div class="ai2-why-label"><p>WHY YOU</p><h3>こんな<wbr>会社に、<wbr>向いています</h3></div>
+          <ul class="ai2-check"><li>社長が、<wbr>現場にも<wbr>事務にも<wbr>出ている</li><li>事務は<wbr>1〜2人で<wbr>回している</li><li>紙・Excel・LINEの<wbr>記録が<wbr>混ざっている</li><li>人を<wbr>増や<wbr>さずに、<wbr>売上を<wbr>伸ばしたい</li><li>「あの<wbr>人しか<wbr>分からない」<wbr>仕事が<wbr>ある</li><li>ITの<wbr>担当者は、<wbr>社内に<wbr>いない</li></ul>
+        </div>
+
+        <div class="ai2-why">
+          <div class="ai2-why-label"><p>WHY US</p><h3>なぜ、<wbr>spin roughなのか</h3></div>
+          <div class="ai2-us">
+            <figure class="ai2-fig ai2-venn" aria-label="3つの円の重なり:現場に入り込む、仕組みを作る、事務を引き受ける。3つが重なる中心がspin rough">
+              <span class="c c1">現場に<br />入り込む</span><span class="c c2">仕組みを<br />作る</span><span class="c c3">事務を<br />引き受ける</span><b>spin rough</b>
+            </figure>
+            <ul class="ai2-us-list">
+              <li>現場で、<wbr>実際の<wbr>仕事と<wbr>記録を<wbr>見せて<wbr>もらう</li>
+              <li>今ある<wbr>ツールを<wbr>使うか、<wbr>新しく<wbr>作るかを<wbr>一緒に<wbr>決める</li>
+              <li>作った<wbr>仕組みの<wbr>運用と、<wbr>決めた<wbr>範囲の<wbr>事務まで<wbr>引き受ける</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="ai2-sec ai2-sec--gray" aria-labelledby="svc-t">
+        <div class="ai2-heading"><p>SERVICES</p><h2 id="svc-t">AI駆動経営を<wbr>始める、<wbr>3つの<wbr>方<wbr>法</h2></div>
+        <div class="ai2-svc">
+          <a href="../base/index.html"><b>spinBase</b><span>AI導入支援</span></a>
+          <a href="../works/index.html"><b>spinWorks</b><span>バックオフィス丸投げ</span></a>
+          <a href="../academy/index.html"><b>spinAcademy</b><span>社内の<wbr>AI駆動開発エンジニア育成</span></a>
+        </div>
+      </section>
+
+      <section class="mz-contact" id="contact" aria-labelledby="contact-title">
+<div class="mz-heading"><p>CONTACT</p><h2 id="contact-title">まず、<wbr>話を<wbr>聞かせてください。</h2></div>
+<div class="mz-contact-rows"><a class="consult-button" href="../contact/index.html"><span>相談する<wbr>（フォーム）</span><i aria-hidden="true">→</i></a><a class="contact-phone" href="tel:0344001442"><span>電話 03-4400-1442</span><i aria-hidden="true">→</i></a></div></section>
+    </main>
+
+    <footer class="mz-footer">
+      <div class="mz-footer-cols">
+        <nav class="mz-footer-nav" aria-label="サイトメニュー">
+          <a href="../index.html">TOP</a><a href="../about/index.html">spin roughに<wbr>ついて</a><a href="index.html">AI駆動経営とは</a><a href="../index.html#news">お知らせ</a><a href="../contact/index.html">お問い<wbr>合わせ</a>
+        </nav>
+        <div class="mz-footer-svc">
+          <p class="mz-footer-svc-h">サービス・事業</p>
+          <p class="mz-footer-svc-cat">AI駆動経営の<wbr>実装</p>
+          <a href="../base/index.html">- spinBase AI導入支援</a><a href="../works/index.html">- spinWorks バックオフィス丸投げ</a><a href="../academy/index.html">- spinAcademy 社内の<wbr>AI駆動開発エンジニア育成</a><a href="../academy/index.html#train">- trAIn 個人向けAI駆動開発エンジニア育成</a>
+        </div>
+        <nav class="mz-footer-legal" aria-label="規約"><a href="../privacy/index.html">プライバシーポリシー</a><a href="../tokushoho/index.html">特定商取引法に<wbr>基づく<wbr>表記</a></nav>
+      </div>
+      <div class="mz-footer-bottom">
+        <div>
+          <p class="mz-footer-msg"><span>日本の<wbr>歴史と<wbr>心を、</span><span>22世紀へ<wbr>紡ぐ。</span></p>
+          <address>株式会社spin rough|東京都新宿区矢来町4番地11 Fullea神楽坂102</address>
+          <small>&copy; spin rough Inc. All Rights Reserved</small>
+        </div>
+        <p class="mz-footer-word" aria-hidden="true">spin rough</p>
+      </div>
+    </footer>
+    <script src="../js/header-v3.js"></script>
+  </body>
+</html>

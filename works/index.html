@@ -1,0 +1,233 @@
+<!doctype html>
+<html class="wbr" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+    // 画像が一時的に読めなかった時は、消さずに読み直す(最大3回・0.6秒ずつ間を空ける)。2026-10-19
+    (() => {
+      document.addEventListener('error', (e) => {
+        const img = e.target;
+        if (!(img instanceof HTMLImageElement)) return;
+        const n = Number(img.dataset.retry || 0);
+        if (n >= 3) return;
+        img.dataset.retry = String(n + 1);
+        const src = img.getAttribute('src'), srcset = img.getAttribute('srcset');
+        img.removeAttribute('srcset'); img.removeAttribute('src');
+        setTimeout(() => { if (srcset) img.setAttribute('srcset', srcset); if (src) img.setAttribute('src', src); }, 600 * (n + 1));
+      }, true);
+    })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>spinWorks|バックオフィス丸投げ|株式会社spin rough</title>
+    <meta name="description" content="優秀で、なんでも頼める事務員を雇いませんか？ 最新のツールを追いかけ、社内のデータを整理し、請求書の仕組みから社内システムの開発まで一続きで引き受けます。" />
+    <link rel="icon" href="../favicon.png" sizes="64x64" />
+    <link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <meta property="og:title" content="spinWorks|バックオフィス丸投げ|株式会社spin rough" />
+    <meta property="og:description" content="優秀で、なんでも頼める事務員を雇いませんか？ 最新のツールを追いかけ、社内のデータを整理し、請求書の仕組みから社内システムの開発まで一続きで引き受けます。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="株式会社spin rough" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://spinrough.com/assets/ogp.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://spinrough.com/works/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/header-v3.css" />
+    <link rel="stylesheet" href="../css/mz.css" />
+    <link rel="stylesheet" href="../css/svc.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/works2.css" />
+  </head>
+  <body class="subpage svc svc--works">
+    <header class="site-header gh" aria-label="サイトヘッダー">
+      <a class="gh-logo header-logo" href="../index.html" aria-label="spin rough トップ"><img src="../assets/logo-type.svg" alt="spin rough" width="472" height="90" decoding="async" /></a>
+      <nav class="gh-nav" aria-label="主要メニュー">
+        <a href="../about/index.html">spin roughについて</a>
+        <a href="../ai/index.html">AI駆動経営とは</a>
+        <a href="../index.html#business">サービス・事業</a>
+        <a href="../base/index.html">spinBase</a>
+        <a href="../academy/index.html">spinAcademy</a>
+        <a href="index.html">spinWorks</a>
+      </nav>
+      <a class="gh-contact" href="../contact/index.html"><span class="gh-contact-en">CONTACT</span><small>相談する</small></a>
+      <button class="gh-burger" type="button" aria-expanded="false" aria-controls="gh-menu" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </header>
+    <div class="gh-menu" id="gh-menu">
+      <nav class="gh-menu-nav" aria-label="スマホメニュー">
+        <a href="../index.html">トップ<small>TOP</small></a>
+        <a href="../about/index.html">spin roughに<wbr>ついて<small>ABOUT</small></a>
+        <a href="../ai/index.html">AI駆動経営とは<small>CONCEPT</small></a>
+        <a href="../index.html#business">サービス・事業<small>SERVICE</small></a>
+        <a href="../base/index.html">spinBase<small>AI導入支援</small></a>
+        <a href="../academy/index.html">spinAcademy<small>社内エンジニア育成</small></a>
+        <a href="index.html">spinWorks<small>バックオフィス丸投げ</small></a>
+
+      </nav>
+      <a class="gh-menu-contact" href="../contact/index.html">相談する</a>
+      <a class="gh-menu-tel" href="tel:0344001442">03-4400-1442</a>
+    </div>
+
+<main>
+      <!-- 1. MV:優秀で、なんでも頼める事務員を雇いませんか？ -->
+      <section class="wk2-mv" aria-labelledby="svc-title">
+        <figure class="wk2-mv-photo"><img src="../assets/gen/what-together.webp" alt="現場の脇で、同じ書類を見ながら話す二人" width="1672" height="941" decoding="async" /></figure>
+        <div class="wk2-mv-copy">
+          <h1 id="svc-title" class="svc-mv-title"><span class="svc-mv-en">BACK OFFICE ENGINEERING</span><span class="svc-mv-name">spinWorks</span><span class="svc-mv-ja">バックオフィス丸投げ</span></h1>
+          <p class="wk2-mv-h"><span>優秀で、<wbr>なんでも<wbr>頼める</span><span>事務員を、<wbr>雇いませんか？</span></p>
+          <p class="wk2-mv-p">求人を<wbr>出さなくても<wbr>大丈夫です。<wbr>御社の<wbr>やり方を<wbr>覚えて、<wbr>日報の<wbr>整理から<wbr>請求書づくりまで<wbr>こなす、<wbr>もう<wbr>一人の<wbr>事務員です。<wbr>くり返しの<wbr>作業は、<wbr>少しずつ仕組みに<wbr>置き換えていきます。</p>
+          <a class="svc-btn" href="../contact/index.html">相談する</a>
+        </div>
+      </section>
+
+      <!-- 2. PAIN:社長が胸の内で感じていること -->
+      <section class="svc-sec wk2-pain" aria-labelledby="wk2-pain-t">
+        <div class="svc-heading"><p>PAIN</p><h2 id="wk2-pain-t">AIを<wbr>使いたい。<wbr>でも、<wbr>形に<wbr>する<wbr>人が<wbr>いない。</h2></div>
+        <ul class="wk2-pain-list">
+          <li><span>01</span><p>周りが<wbr>AIで<wbr>変わっていくのに、<br />うちだけ<wbr>取り残されている<wbr>気が<wbr>する。</p></li>
+          <li><span>02</span><p>情報は<wbr>追っている。<wbr>でも、<br />自社の<wbr>仕事に<wbr><nobr>どう落とせばいいか</nobr><wbr>分からない。</p></li>
+          <li><span>03</span><p>やりたい<wbr>ことは<wbr>ある。<wbr>でも、<br />形に<wbr>する<wbr>人も<wbr>時間も<wbr>ない。</p></li>
+          <li><span>04</span><p>人を<wbr>増や<wbr>したい。<wbr>でも、<wbr>求人を<wbr>出しても<wbr>人が<wbr>来ない。</p></li>
+        </ul>
+        <figure class="wk2-stairs" aria-label="知る、使い道を決める、毎日使う、の3段。使い道を決めて毎日使えるようにするには、手間も人もかかる">
+          <ol>
+            <li><b>知る</b><span>新しい<wbr>ツールや<wbr>AIの<wbr><nobr>情報を追う</nobr><wbr></span></li>
+            <li><b>使い道を<wbr>決める</b><span>自社の<wbr>どの<wbr>仕事に<wbr>使えるかを<wbr>決める</span></li>
+            <li><b>毎日<wbr>使う</b><span>仕組みに<wbr>して、<wbr>毎日<wbr>使えるように<wbr>する</span></li>
+          </ol>
+          <p class="wk2-stairs-stop">使い道を<wbr>決めて<wbr>毎日<wbr>使えるように<wbr>するには、<wbr>手間も<wbr>人も<wbr>かかる</p>
+          <figcaption>その<wbr>2つを、<wbr>spinWorksが<wbr>引き受けます。</figcaption>
+        </figure>
+        <p class="wk2-flow-note">新しい<wbr>ツールを<wbr>知っても、<wbr>自社の<wbr>どの<wbr>仕事に<wbr>使うかが<wbr>決まらなければ<wbr>始まりません。<wbr>返信、<wbr>見積もり、<wbr>請求の<wbr>流れを<wbr>一緒に<wbr>確認し、<wbr>お客様を<wbr>待たせている<wbr>所や、<wbr>取り<wbr>こぼしが<wbr>起きている<wbr>所から<wbr>手を<wbr>つけます。</p>
+      </section>
+
+      <!-- 3. BOTTLENECK:顕在化していないボトルネック -->
+      <section class="svc-sec svc-sec--gray wk2-neck" aria-labelledby="wk2-neck-t">
+        <div class="svc-heading"><p>BOTTLENECK</p><h2 id="wk2-neck-t">見積もりを<wbr>出すのが<wbr>1日遅れて、<wbr>仕事を<wbr>逃した<wbr>ことは<wbr>ありませんか。</h2><span>問い<wbr>合わせへの<wbr>返信、<wbr>見積もり、<wbr>請求の<wbr>確認の<wbr>どこで<wbr>時間が<wbr>かかっているかを<wbr>一緒に<wbr>洗い出し、<wbr>代行と<wbr>仕組みづくりで<wbr>改善します。</span></div>
+        <figure class="wk2-pipe" aria-label="問い合わせから入金までの仕事の流れと、その途中で起きている取りこぼし">
+          <ol class="wk2-pipe-flow">
+            <li><b>問い<wbr>合わせ</b><em>返信が<wbr>遅れて、<wbr>他社に<wbr>流れる</em></li>
+            <li><b>見積もり</b><em>作るのに<wbr>時間が<wbr>かかり、<wbr>出すのが<wbr>遅れる</em></li>
+            <li><b>受注・手配</b><em>段取りが<wbr>電話と<wbr>メモで、<wbr>行き違いが<wbr>起きる</em></li>
+            <li><b>現場・記録</b><em>同じ<wbr>数字を<wbr>何度も<wbr>書き写す</em></li>
+            <li><b>請求・<wbr>入金</b><em>請求漏れ・確認の<wbr>手間</em></li>
+          </ol>
+          
+        </figure>
+        <div class="wk2-neck-out">
+          <div><h3>気づかないうちに<wbr>起きている<wbr>取り<wbr>こぼし</h3><p>返信や<wbr>見積もりの<wbr>遅れ、<wbr>請求の<wbr>漏れ。<wbr>一つ<wbr>ひとつは<wbr>小さくても、<wbr>積み重なると<wbr>売上に<wbr>響きます。</p></div>
+          <div><h3>人を<wbr>増やす前に、<wbr>仕事を<wbr>見直す</h3><p>仕事の<wbr>流れを<wbr>見直すと、<wbr>人を<wbr>増やさなくても<wbr>回るようになることがあります。<wbr>人を<wbr>探す前に、<wbr>まず<wbr>今の<wbr>仕事の<wbr>流れを<wbr>一緒に<wbr>見てみませんか。</p></div>
+        </div>
+      </section>
+
+      <!-- 4. 考え方 -->
+      <section class="svc-sec svc-sec--gray wk2-who" aria-labelledby="wk2-who-t">
+        <div class="svc-heading is-center"><p>CONCEPT</p><h2 id="wk2-who-t"><span class="ph">今月の<wbr>事務は、</span><span class="ph">私た<wbr>ちがやる。</span><br><span class="ph">来月からは、</span><span class="ph">仕組みが<wbr>やる。</span></h2></div>
+        <div class="wk2-compare">
+          <div class="wk2-person"><p class="wk2-tag">これまでの<wbr>事務</p><ul><li>書類を<wbr>毎月<wbr>同じ<wbr>手順で<wbr>作る</li><li>くり返しの<wbr>作業も<wbr>人が<wbr>やる</li><li>やり方は<wbr>担当の<wbr>方しか<wbr>知らない</li></ul></div>
+          <div class="wk2-person is-us"><p class="wk2-tag">spinWorksの<wbr>事務員</p><ul><li>書類を<wbr>作りながら、<wbr>作り方を<wbr>仕組みに<wbr>する</li><li>くり返しの<wbr>作業は、<wbr>システムと<wbr>AIに<wbr>任せる</li><li>やり方が<wbr>会社に<wbr>残る</li></ul></div>
+        </div>
+        <p class="wk2-flow-note">同じ<wbr>数字を<wbr>書き直す<wbr>時間が<wbr>減れば、<wbr>事務の<wbr>方は<wbr>お客様への<wbr>返事や<wbr>現場の<wbr>相談に<wbr>時間を<wbr>使えます。<wbr>その<wbr>ための<wbr>仕組みづくりを<wbr>引き受けます。</p>
+      </section>
+
+      <!-- 5. 建設・運送の1日 -->
+      <section class="svc-sec wk2-day" aria-labelledby="wk2-day-t">
+        <div class="svc-heading"><p>FOR EXAMPLE</p><h2 id="wk2-day-t">た<wbr>とえば、<wbr>建設・運送の<wbr>会社の<wbr>1日で<wbr>見てみます。</h2></div>
+        <ol class="wk2-days"><li><figure><img src="../assets/gen/day-0600.webp" alt="" loading="lazy" width="1122" height="1402" /></figure><time>06:00</time><h3>出庫</h3><p class="wk2-day-now">配車表と<wbr>点呼の<wbr>段取り</p><p class="wk2-day-do"><small>spinWorksの<wbr>事務員なら</small>配車表を、<wbr>前日の<wbr>うちに<wbr>1枚に<wbr>まとめて<wbr>おく</p></li><li><figure><img src="../assets/gen/day-0900.webp" alt="" loading="lazy" width="1122" height="1402" /></figure><time>09:00</time><h3>現場</h3><p class="wk2-day-now">台数と<wbr>品目の<wbr>記録</p><p class="wk2-day-do"><small>spinWorksの<wbr>事務員なら</small>話すだけで<wbr>日報に<wbr>入るように<wbr>しておく</p></li><li><figure><img src="../assets/gen/day-1500.webp" alt="" loading="lazy" width="1122" height="1402" /></figure><time>15:00</time><h3>受入場</h3><p class="wk2-day-now">受領書と<wbr>伝票の<wbr>控え</p><p class="wk2-day-do"><small>spinWorksの<wbr>事務員なら</small>写真1枚で、<wbr>伝票の<wbr>控えに<wbr>残す</p></li><li><figure><img src="../assets/gen/day-1800.webp" alt="" loading="lazy" width="1122" height="1402" /></figure><time>18:00</time><h3>事務所</h3><p class="wk2-day-now">伝票・台帳・請求書</p><p class="wk2-day-do"><small>spinWorksの<wbr>事務員なら</small>締め日に、<wbr>請求書の<wbr>下書きが<wbr>そろっている</p></li></ol>
+
+      </section>
+
+      <!-- 6. 仕組みの例(PV) -->
+      <section class="svc-sec svc-sec--gray wk2-demo" aria-labelledby="wk2-demo-t">
+        <div class="svc-heading"><p>DEMO</p><h2 id="wk2-demo-t">仕組みの<wbr>例：運行の<wbr>内容を<wbr>話すだけで<wbr>日報が<wbr>でき、<wbr>締め日の<wbr>夜には<wbr>請求書が<wbr>送られます。</h2></div>
+        <video src="../assets/video/pv-case.mp4" poster="../assets/video/pv-case-poster.jpg" controls muted playsinline preload="metadata"></video>
+        <p class="wk2-demo-note"><a href="https://dosatto.vercel.app/demo" target="_blank" rel="noopener">デモを<wbr>触ってみる<wbr> ↗</a></p>
+      </section>
+
+      <!-- 7. 一続き -->
+      <section class="svc-sec wk2-flow" aria-labelledby="wk2-flow-t">
+        <div class="svc-heading"><p>ONE-STOP</p><h2 id="wk2-flow-t">ツール選びから<wbr>開発、<wbr>その後の<wbr>運用まで、<wbr>まとめて<wbr>お任せください。</h2><span>別々の<wbr>会社に<wbr>頼むと、<wbr>そのたびに<wbr>説明し直しに<wbr>なります。<wbr>spinWorksなら、<wbr>窓口は<wbr>ひとつです。</span></div>
+        <ol class="wk2-steps">
+          <li><span class="wk2-step-no">01</span><h3>最新の<wbr>情報を<wbr>追う</h3><p>新しい<wbr>ツールや<wbr>AIの<wbr>中から、<wbr>御社の<wbr>仕事に<wbr>本当に<wbr>使える<wbr>ものを<wbr>選びます。</p><ul><li>ツール・AIの<wbr>比較と<wbr>選定</li><li>使える・<wbr>使えないの<wbr>見極め</li></ul></li>
+          <li><span class="wk2-step-no">02</span><h3>社内の<wbr>データを<wbr>整理する</h3><p>紙・Excel・LINEに<wbr>散らばった<wbr>記録を、<wbr>保存場所も<wbr>書き方も<wbr>統一します。</p><ul><li>データの<wbr>保存場所の<wbr>整理</li><li>入力の<wbr>形の<wbr>統一</li></ul></li>
+          <li class="is-key"><span class="wk2-step-no">03</span><h3>請求書などの<wbr>業務を<wbr>電子化する</h3><p>日報から<wbr>伝票・台帳・請求書まで、<wbr>書き写さずに<wbr>作れるようにします。</p><ul><li>請求書・伝票の<wbr>自動作成</li><li>日報の<wbr>入力の<wbr>しかたの<wbr>見直し</li></ul></li>
+          <li><span class="wk2-step-no">04</span><h3>社内の<wbr>システムを<wbr>作る</h3><p>既製品で<wbr>足りない<wbr>所は、<wbr>御社専用の<wbr>仕組みを<wbr>開発して<wbr>入れます。</p><ul><li>社内ツールの<wbr>開発と<wbr>実装</li><li>入れた<wbr>後の<wbr>直しと<wbr>保守</li></ul></li>
+        </ol>
+        <p class="wk2-flow-note">どこから<wbr>始めても<wbr>構いません。<wbr>いちばん手間の<wbr>かかっている<wbr>所から<wbr>始めるのが<wbr>おすすめです。</p>
+      </section>
+
+      <!-- 8. 比較 -->
+      <section class="svc-sec svc-sec--dark wk2-vs" aria-labelledby="wk2-vs-t">
+        <div class="svc-heading is-light"><p>COMPARE</p><h2 id="wk2-vs-t">事務員を<wbr>雇う<wbr>場合・外注する<wbr>場合との<wbr>違い</h2></div>
+        <div class="wk2-table-wrap">
+          <table class="wk2-table">
+            <thead><tr><th></th><th>事務員を<wbr>1人雇う</th><th>作業ごとに<wbr>外注する</th><th class="is-us">spinWorks</th></tr></thead>
+            <tbody>
+              <tr><th>採用・教育の<wbr>手間</th><td data-col="事務員を1人雇う">採用と<wbr>教育が<wbr>要る</td><td data-col="作業ごとに外注する">都度の<wbr>依頼で<wbr>済む</td><td class="is-us" data-col="spinWorks">都度の<wbr>採用は<wbr>不要</td></tr>
+              <tr><th>最新の<wbr>ツール・AIを<wbr>追う</th><td data-col="事務員を1人雇う">担当の<wbr>方の<wbr>関心に<wbr>よる</td><td data-col="作業ごとに外注する">頼んだ<wbr>範囲で<wbr>対応</td><td class="is-us" data-col="spinWorks">こちらで<wbr>追って<wbr>提案</td></tr>
+              <tr><th>データの<wbr>整理から<wbr>開発まで</th><td data-col="事務員を1人雇う">担当の<wbr>方の<wbr>得意分野に<wbr>よる</td><td data-col="作業ごとに外注する">作業ごとに<wbr>依頼先が<wbr>分かれる</td><td class="is-us" data-col="spinWorks">まとめて<wbr>引き受ける</td></tr>
+              <tr><th>やり方が<wbr>会社に<wbr>残る</th><td data-col="事務員を1人雇う">担当の<wbr>方の<wbr>経験に<wbr>残る</td><td data-col="作業ごとに外注する">依頼先ごとに<wbr>分かれて残る</td><td class="is-us" data-col="spinWorks">手順と<wbr>して<wbr>記録に<wbr>残す</td></tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </section>
+      <!-- 9. 進め方 -->
+      <section class="svc-sec wk2-start" aria-labelledby="wk2-start-t">
+        <div class="svc-heading"><p>FLOW</p><h2 id="wk2-start-t">まずは、<wbr>いちばん面倒な<wbr>仕事を<wbr>一つ<wbr>教えてください。</h2></div>
+        <ol class="wk2-start-list">
+          <li><time>初回・無料</time><h3>お話を<wbr>伺う</h3><p>今の<wbr>仕事の<wbr>流れと、<wbr>いちばん手間の<wbr>かかっている<wbr>所を<wbr>伺います。</p></li>
+          <li><time>最初の一つ</time><h3>一つの<wbr>業務を<wbr>仕組みに<wbr>する</h3><p>効果の<wbr>大きい業務を<wbr>一つ<wbr>選び、<wbr>仕組みに<wbr>して<wbr>動かします。</p></li>
+          <li><time>そのあと</time><h3>任せる<wbr>範囲を<wbr>広げる</h3><p>使われている<wbr>ことを<wbr>確認してから、<wbr>ほかの<wbr>業務へ<wbr>広げます。</p></li>
+          <li><time>使い始めてから</time><h3>ツールや<wbr>会社の<wbr>変化に<wbr>合わせて、<wbr>直し続ける</h3><p>使われ方を<wbr>見て、<wbr>合わなくなった<wbr>所を<wbr>直します。</p></li>
+        </ol>
+      </section>
+
+      <section class="svc-sec svc-sec--gray bs-faq" aria-labelledby="wk2-faq-t">
+        <div class="svc-heading"><p>FAQ</p><h2 id="wk2-faq-t">よく<wbr>ある<wbr>質問</h2></div>
+        <div class="bs-faq-list">
+          <details><summary>事務の<wbr>作業<wbr>その<wbr>ものも<wbr>頼めますか？</summary><p>はい。<wbr>仕組みに<wbr>乗らない<wbr>事務も<wbr>引き受けます。<wbr>そのうえで、<wbr>くり返しの<wbr>作業は<wbr>少しずつ仕組みに<wbr>移していきます。</p></details>
+          <details><summary>パソコンが<wbr>苦手な<wbr>社員が<wbr>多くても<wbr>大丈夫ですか？</summary><p>はい。<wbr>現場の<wbr>方は、<wbr>話す・写真を<wbr>撮るなど、<wbr>今の<wbr>やり方と<wbr>あまり<wbr>変えずに<wbr>使えるようにします。</p></details>
+          <details><summary>一部の<wbr>業務だけでも<wbr>頼めますか？</summary><p>はい。<wbr>いちばん手間の<wbr>大きい<wbr>一つから<wbr>始めるのが<wbr>基本です。</p></details>
+          <details><summary>会社の<wbr>情報の<wbr>扱いは<wbr>大丈夫ですか？</summary><p>始める<wbr>前に、<wbr>秘密保持の<wbr>書面を<wbr>交わします。</p></details>
+          <details><summary>料金は<wbr>いくらですか？</summary><p>任せる<wbr>業務の<wbr>量と<wbr>内容を<wbr>伺ったうえで、<wbr>面談時に<wbr>ご案内し、<wbr>契約前に<wbr>書面で<wbr>お示しします。</p></details>
+        </div>
+      </section>
+
+<section class="mz-contact" id="contact" aria-labelledby="contact-title">
+<div class="mz-heading"><p>CONTACT</p><h2 id="contact-title">まず、<wbr>話を<wbr>聞かせてください。</h2>
+</div>
+<div class="mz-contact-rows"><a class="consult-button" href="../contact/index.html"><span>相談する<wbr>（フォーム）</span><i aria-hidden="true">→</i></a><a class="contact-phone" href="tel:0344001442"><span>電話 03-4400-1442</span><i aria-hidden="true">→</i></a>
+</div>
+</section>    </main>
+
+    <a class="svc-float" href="../contact/index.html" aria-label="相談する"><span>相談する</span></a>
+
+    <footer class="mz-footer">
+      <div class="mz-footer-cols">
+        <nav class="mz-footer-nav" aria-label="サイトメニュー">
+          <a href="../index.html">TOP</a><a href="../about/index.html">spin roughに<wbr>ついて</a><a href="../ai/index.html">AI駆動経営とは</a><a href="../index.html#news">お知らせ</a><a href="../contact/index.html">お問い<wbr>合わせ</a>
+        </nav>
+        <div class="mz-footer-svc">
+          <p class="mz-footer-svc-h">サービス・事業</p>
+          <p class="mz-footer-svc-cat">AI駆動経営の<wbr>実装</p>
+          <a href="../base/index.html">- spinBase AI導入支援</a><a href="index.html">- spinWorks バックオフィス丸投げ</a><a href="../academy/index.html">- spinAcademy 社内の<wbr>AI駆動開発エンジニア育成</a><a href="../academy/index.html#train">- trAIn 個人向けAI駆動開発エンジニア育成</a>
+        </div>
+        <nav class="mz-footer-legal" aria-label="規約"><a href="../privacy/index.html">プライバシーポリシー</a><a href="../tokushoho/index.html">特定商取引法に<wbr>基づく<wbr>表記</a></nav>
+      </div>
+      <div class="mz-footer-bottom">
+        <div>
+          <p class="mz-footer-msg"><span>日本の<wbr>歴史と<wbr>心を、</span><span>22世紀へ<wbr>紡ぐ。</span></p>
+          <address>株式会社spin rough|東京都新宿区矢来町4番地11 Fullea神楽坂102</address>
+          <small>&copy; spin rough Inc. All Rights Reserved</small>
+        </div>
+        <p class="mz-footer-word" aria-hidden="true">spin rough</p>
+      </div>
+    </footer>
+    <script src="../js/header-v3.js"></script>
+  </body>
+</html>
